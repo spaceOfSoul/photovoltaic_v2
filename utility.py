@@ -110,3 +110,8 @@ def weights_init(m):
     elif classname.find('Linear') != -1:
         nn.init.xavier_uniform_(m.weight)
         m.bias.data.zero_()
+
+def insolation_aprox(t, t_rise=360, t_set=1200, I_max=2, n=2):
+    if t < t_rise or t > t_set:
+        return 0
+    return I_max * (np.sin(np.pi * (t - t_rise) / (t_set - t_rise))) ** n
