@@ -1,0 +1,30 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-05 06:00:19.353616
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0}
+
+learning: {'nBatch': 24, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220101 to 20221231.
+
+The number of parameter in model : 203016
+
