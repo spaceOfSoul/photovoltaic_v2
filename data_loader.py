@@ -5,7 +5,7 @@ import os
 
 import torch
 from torch.utils.data import Dataset
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from utility import insolation_aprox
 
@@ -107,13 +107,13 @@ class WPD(Dataset):
         all_data_concatenated = np.concatenate(all_data, axis=0)
 
         # 평균과 표준편차 계산
-        self.global_mean = np.mean(all_data_concatenated, axis=0)
-        self.global_std = np.std(all_data_concatenated, axis=0)
+        self.global_min  = np.min(all_data_concatenated, axis=0)
+        self.global_max  = np.max(all_data_concatenated, axis=0)
         
-        self.weather_scaler = StandardScaler()
-        self.weather_scaler.mean_ = self.global_mean[1:]
-        self.weather_scaler.scale_ = self.global_std[1:]
-
+        self.weather_scaler = MinMaxScaler()
+        self.weather_scaler.min_ = self.global_min[1:]
+        self.weather_scaler.scale_ = self.global_max[1:] - self.global_min[1:]
+        
     def __len__(self):
         return len(self.aws_list)
 
@@ -212,7 +212,7 @@ class WPD(Dataset):
                 os.makedirs(dirname)
             np.save(weather_datapath, weather_data)
 
-        weather_data[:, 1:] = self.weather_scaler.transform(weather_data[:, 1:]) # z 정규화
+        weather_data[:, 1:] = self.weather_scaler.transform(weather_data[:, 1:])
         
         insolation = np.array([insolation_aprox(t, n=4) for t in weather_data[:, 0]]) # 일조량(sin 기반)
         weather_data[:, 0] = insolation
