@@ -175,7 +175,6 @@ def train(hparams, model_type):
                 batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))               
             batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
             pred = model(batch_data.cuda()).squeeze() # torch.Size([24])
-            print(f"{y.shape} {pred.shape}")
             val_loss += criterion(pred, y)
 
             concat_pred_val = torch.cat([concat_pred_val, pred], dim=0).cuda()
@@ -214,8 +213,8 @@ def train(hparams, model_type):
     image_dir = os.path.join(hparams["save_dir"], "best_val_images")
     os.makedirs(image_dir, exist_ok=True)
     
-    days_per_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.01.01~12.31
-    start_month = 1 # 2022.01~12
+    days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.01.01~12.31
+    start_month = 2 # 2022.01~12
 
     val_y_chunks = []
     val_BestPred_chunks = []

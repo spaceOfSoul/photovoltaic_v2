@@ -24,8 +24,8 @@ class WPD(Dataset):
         if not os.path.isdir(datapath):
             os.makedirs(datapath)
             
-        # 연간 모든 데이터에 대해서 일단 한번 로드
-        # 평균, 표준편차를 구하기 위함
+        ## 연간 모든 데이터에 대해서 일단 한번 로드
+        ## 평균, 표준편차를 구하기 위함
         all_data = []
         for aws_path, asos_path in zip(self.aws_list, self.asos_list):
             aws_csv = pd.read_csv(aws_path, encoding="CP949")[self.tags1]
@@ -106,7 +106,6 @@ class WPD(Dataset):
             
         all_data_concatenated = np.concatenate(all_data, axis=0)
 
-        # 평균과 표준편차 계산
         self.global_min  = np.min(all_data_concatenated, axis=0)
         self.global_max  = np.max(all_data_concatenated, axis=0)
         
@@ -214,7 +213,7 @@ class WPD(Dataset):
 
         weather_data[:, 1:] = self.weather_scaler.transform(weather_data[:, 1:])
         
-        insolation = np.array([insolation_aprox(t, n=4) for t in weather_data[:, 0]]) # 일조량(sin 기반)
+        insolation = np.array([insolation_aprox(t, n=4, I_max=1) for t in weather_data[:, 0]]) # 일조량(sin 기반)
         weather_data[:, 0] = insolation
         weather_data = torch.tensor(weather_data)
 

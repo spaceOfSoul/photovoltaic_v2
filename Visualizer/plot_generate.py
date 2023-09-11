@@ -205,7 +205,7 @@ class PlotGenerator:
         months = np.arange(1, len(self.days_per_month)+1)
         ax.bar(months, monthly_loss)
         ax.set_xticks(months)
-        ax.set_xticklabels(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
+        ax.set_xticklabels(['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
         ax.set_xlabel('Months')
         ax.set_ylabel('[(kW/day)^2]')
         ax.set_title('Monthly MSE Val Loss')
