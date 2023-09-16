@@ -106,12 +106,19 @@ class WPD(Dataset):
             
         all_data_concatenated = np.concatenate(all_data, axis=0)
 
-        self.global_min  = np.min(all_data_concatenated, axis=0)
-        self.global_max  = np.max(all_data_concatenated, axis=0)
+        #self.global_min  = np.min(all_data_concatenated, axis=0)
+        #self.global_max  = np.max(all_data_concatenated, axis=0)
         
-        self.weather_scaler = MinMaxScaler()
-        self.weather_scaler.min_ = self.global_min[1:]
-        self.weather_scaler.scale_ = self.global_max[1:] - self.global_min[1:]
+        #self.weather_scaler = MinMaxScaler()
+        #self.weather_scaler.min_ = self.global_min[1:]
+        #self.weather_scaler.scale_ = self.global_max[1:] - self.global_min[1:]
+        self.global_mean = np.mean(all_data_concatenated, axis=0)
+        self.global_std = np.std(all_data_concatenated, axis=0)
+        
+        self.weather_scaler = StandardScaler()
+        self.weather_scaler.mean_ = self.global_mean[1:]
+        self.weather_scaler.scale_ = self.global_std[1:]
+
         
     def __len__(self):
         return len(self.aws_list)
@@ -233,5 +240,8 @@ class WPD(Dataset):
             np.save(efile_npy, power_data)
 
         power_data = torch.tensor(power_data)
-
+        #print(power_data.shape)
+        weather_data = weather_data[360:1201, :]
+        power_data = power_data[6:20]
+        #print(power_data.shape)
         return weather_data, power_data

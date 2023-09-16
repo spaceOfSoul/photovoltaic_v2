@@ -104,7 +104,8 @@ def train(hparams, model_type):
             pass
         length_trn = trn_days+1 # 365 days
                 
-        for trn_days, (x, y) in enumerate(trnloader):            
+        for trn_days, (x, y) in enumerate(trnloader):     
+            #print(y.shape)       
             x = x.float()
             y = y.float()
             x = x.squeeze().cuda()
@@ -125,7 +126,8 @@ def train(hparams, model_type):
            
             y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])           
             pred = model(batch_data.cuda()).squeeze() 
-                     
+            print(f"pred size: {pred.size()}")
+            print(f"y size: {y.size()}")
             loss += criterion(pred, y)
                
             concat_batch_mean = torch.cat([concat_batch_mean, batch_mean], dim=0).cuda()
