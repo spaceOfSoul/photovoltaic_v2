@@ -1,0 +1,41 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-19 09:51:50.055690
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: LSTM
+
+
+--------------------Test Mode--------------------
+test mode: samcheok
+Test Loss: 226.5398 [(kW/hour)^2]
+The number of parameter in model : 203016
+Testing time [sec]: 0.58
+
+--------------------Test Mode--------------------
+test mode: GWNU_C3
+Test Loss: 176.6841 [(kW/hour)^2]
+The number of parameter in model : 203016
+Testing time [sec]: 0.43
+
+--------------------Validation Mode--------------------
+test mode: GWNU_Preschool
+Test Loss: 187.6299 [(kW/hour)^2]
+The number of parameter in model : 203016
+Testing time [sec]: 0.70

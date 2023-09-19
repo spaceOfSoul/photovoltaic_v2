@@ -124,16 +124,27 @@ def train(hparams, model_type):
             pv_power = y # [batch: 24, pv_povwer: 1]
             batch_mean = batch_data.mean(dim=1) # [batch: 24, nFeatures: 8]
            
-            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])           
+            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])
+
             pred = model(batch_data.cuda()).squeeze() 
-            print(f"pred size: {pred.size()}")
-            print(f"y size: {y.size()}")
-            loss += criterion(pred, y)
-               
+
+            for j in range(nBatch): # nBatch: 24 hours
+                y_hourly = y[j].unsqueeze(0).cuda() # Get the hourly ground truth
+                pred_hourly = pred[j].unsqueeze(0) # Get the hourly prediction
+                loss_hourly = criterion(pred_hourly, y_hourly) # Calculate the hourly loss
+                loss += loss_hourly.item()
+
             concat_batch_mean = torch.cat([concat_batch_mean, batch_mean], dim=0).cuda()
             concat_pred = torch.cat([concat_pred, pred], dim=0).cuda()
             concat_y = torch.cat([concat_y, y], dim=0).cuda()
-            
+    
+            loss = loss/(length_trn * nBatch) # Calculate the average hourly loss over all days and batches
+            loss_tensor = torch.tensor(loss, requires_grad=True).cuda().detach().requires_grad_(True)
+
+            optimizer.zero_grad()
+            loss_tensor.backward() # Perform backpropagation on the loss tensor
+            optimizer.step()
+
             if epoch == 0 and trn_days == length_trn-1:                
                 # pcc: Pearson Correlation Coefficient
                 # ktc: Kendall's Tau Correlation Coefficient
@@ -141,11 +152,6 @@ def train(hparams, model_type):
                 concat_y_us = concat_y.unsqueeze(-1)[24:] # [8736, 1] after skipping the first 24
                 concat_batch_mean = concat_batch_mean[24:] # [8736, 8] after skipping the first 24
                 pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
-                
-        loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
  
         ######### Validation ######### 
         model.eval()
@@ -176,7 +182,7 @@ def train(hparams, model_type):
                 endidx = j * 60 + seqLeng
                 batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))               
             batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
-            pred = model(batch_data.cuda()).squeeze() # torch.Size([24])
+            pred = model(batch_data.cuda()).squeeze()
             val_loss += criterion(pred, y)
 
             concat_pred_val = torch.cat([concat_pred_val, pred], dim=0).cuda()
@@ -194,9 +200,9 @@ def train(hparams, model_type):
         
         val_loss = val_loss/(length_val) # val_loss = (1/(24*length_val)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_val) [(kW/h)^2]
         
-        loss_trn = loss.item() 
+        loss_trn = loss_tensor.item() 
         losses.append(loss_trn)
-        loss_val = val_loss.item() 
+        loss_val = val_loss.item()
         val_losses.append(loss_val)
 
         logging.info(f"Epoch [{epoch+1}/{max_epoch}], Trn Loss: {loss_trn:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2]")
@@ -205,17 +211,18 @@ def train(hparams, model_type):
     logging.info("\n")
     logging.info(f'Training time [sec]: {(train_end - train_start):.2f}\n')
     logging.info(f'len(Trn_Loss): {len(losses)}\nTrn Loss [(kW/hour)^2]: \n{" ".join([f"{loss:.4f}" for loss in losses])}')
-    logging.info(f'\nlen(Val_Loss): {len(val_losses)}\nVal Loss [(kW/hour)^2]: \n{" ".join([f"{loss:.4f}" for loss in val_losses])}')
 
 
     min_val_loss = min(val_losses)
+    logging.info(f'\nlen(Val_Loss): {len(val_losses)}\nVal Loss [(kW/hour)^2]: \n{" ".join([f"{loss:.4f}" for loss in val_losses])}')
+    logging.info(f'Min validation loss : {min_val_loss}')
     min_val_loss_epoch = val_losses.index(min_val_loss)
     
     # plot origin, trend, seasonal, residual of Validating  
     image_dir = os.path.join(hparams["save_dir"], "best_val_images")
     os.makedirs(image_dir, exist_ok=True)
     
-    days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.01.01~12.31
+    days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # ㅔchange to hp
     start_month = 2 # 2022.01~12
 
     val_y_chunks = []
@@ -366,7 +373,33 @@ def test(hparams, model_type):
     if hparams['save_result']:
         result_npy = np.array(result)
         np.save(os.path.join(model_dir,"test_result.npy"), result_npy)
-    
+
+    test_dir = os.path.join(model_dir, f"tests_{hparams['loc_ID']}")
+    os.makedirs(test_dir, exist_ok=True)
+
+    result_arr = np.concatenate(result, axis=0)
+    y_true_arr = np.concatenate(y_true, axis=0)
+
+
+    days = 30
+    hour_chunk = days * 24
+
+    num_chunks = len(result_arr) // hour_chunk
+
+    for i in range(num_chunks):
+        start_idx = i * hour_chunk
+        end_idx = start_idx + hour_chunk
+
+        plt.figure()
+        plt.plot(result_arr[start_idx:end_idx].flatten(), label='Predictions')
+        plt.plot(y_true_arr[start_idx:end_idx].flatten(), label='Ground Truth')
+        plt.xlabel('Time (hours)')
+        plt.ylabel('Output')
+        plt.legend()
+        plt.title(f'Hourly predictions (Day {i*days+1} to Day {(i+1)*days})')
+        plt.savefig(os.path.join(test_dir, f'predictions{i*days+1}_to_{(i+1)*days}.png'))
+        plt.close()
+
 if __name__ == "__main__":
 
     hp = hyper_params()
@@ -487,4 +520,17 @@ if __name__ == "__main__":
         
         logging.info("\n--------------------Test Mode--------------------")
         logging.info("test mode: GWNU_C3")
+        test(hp, flags.model)
+
+        solar_list, first_date, last_date = list_up_solar(flags.val_solar_dir)
+        aws_list = list_up_weather(flags.val_aws_dir, first_date, last_date)
+        asos_list = list_up_weather(flags.val_asos_dir, first_date, last_date)
+        
+        hp.update({"loc_ID": 678})
+        hp.update({"aws_list": aws_list})
+        hp.update({"asos_list": asos_list})
+        hp.update({"solar_list": solar_list})
+
+        logging.info("\n--------------------Validation Mode--------------------")
+        logging.info("test mode: GWNU_Preschool")
         test(hp, flags.model)
