@@ -71,3 +71,6 @@ Testing time [sec]: 0.44
 
 --------------------Validation Mode--------------------
 test mode: GWNU_Preschool
+Test Loss: 576.2798 [(kW/hour)^2]
+The number of parameter in model : 203016
+Testing time [sec]: 0.78
