@@ -30,6 +30,8 @@ def hyper_params():
         
         # after RNN layers
         "dropout": 0, 
+        # correction lstm
+        "previous_steps" : 5
     }
 
     learning_params = {

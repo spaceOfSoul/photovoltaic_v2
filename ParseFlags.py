@@ -8,7 +8,7 @@ def parse_flags(hparams):
     # Flags common to all modes
     all_modes_group = parser.add_argument_group("Flags common to all modes")
     all_modes_group.add_argument("--mode", type=str, choices=["train", "test"], required=True)
-    all_modes_group.add_argument("--model", type=str, choices=["RCNN", "RNN", "LSTM"], required=True) 
+    all_modes_group.add_argument("--model", type=str, choices=["RCNN", "RNN", "LSTM", "correction_LSTM"], required=True) 
 
     # Flags for training only
     training_group = parser.add_argument_group("Flags for training only")

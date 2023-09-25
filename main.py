@@ -63,12 +63,14 @@ def train(hparams, model_type):
     nb_filters = model_params["nb_filters"]
     pooling = model_params["pooling"]
     dropout = model_params["dropout"]
+
+    previous_steps = model_params["previous_steps"]
      
     nBatch = learning_params["nBatch"]
     lr = learning_params["lr"]   
     max_epoch = learning_params["max_epoch"]  
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTM": correction_LSTM}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -76,7 +78,10 @@ def train(hparams, model_type):
                                           pooling, dropout, in_moving_mean, decomp_kernel, feature_wise_norm)      
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
-                                          in_moving_mean, decomp_kernel, feature_wise_norm)  
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
+    elif model_type in ["correction_LSTM"]:
+        model = model_classes[model_type](input_dim, output_dim, hidden_dim, previous_steps, rec_dropout, num_layers, 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
     else:
         pass
     logging.info(f'The number of parameter in model : {count_parameters(model)}\n')
@@ -294,12 +299,14 @@ def test(hparams, model_type):
     nb_filters = model_params["nb_filters"]
     pooling = model_params["pooling"]
     dropout = model_params["dropout"]
-           
+
+    previous_steps = model_params["previous_steps"]
+    
     nBatch = learning_params["nBatch"]
     lr = learning_params["lr"]   
     max_epoch = learning_params["max_epoch"]  
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTM": correction_LSTM}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -308,6 +315,9 @@ def test(hparams, model_type):
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)  
+    elif model_type in ["correction_LSTM"]:
+           model = model_classes[model_type](input_dim, output_dim, hidden_dim, previous_steps, rec_dropout, num_layers, 
+                                         in_moving_mean, decomp_kernel, feature_wise_norm)    
     else:
         pass
         
