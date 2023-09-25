@@ -175,15 +175,15 @@ class LSTM(nn.Module):
     def forward(self, x): # [nBatch, segLeng, input_dim: 8]
         x = x.float() # 8 features: 일시 (시간 정보), 기온(°C), 1분 강수량(mm), 풍향(deg), 풍속(m/s), 현지기압(hPa), 해면기압(hPa), 습도(%)
         
-        if self.in_moving_mean:
-            moving_mean, res = self.series_decomp_multi(x)
-            x = moving_mean    
+        # if self.in_moving_mean:
+        #     moving_mean, res = self.series_decomp_multi(x)
+        #     x = moving_mean    
         
-        if self.feature_wise_norm:
-            # Feature-wise Normalization
-            x_min = x.min(dim=1, keepdim=True)[0]
-            x_max = x.max(dim=1, keepdim=True)[0]
-            x = (x - x_min) / (x_max - x_min + 1e-7)
+        # if self.feature_wise_norm:
+        #     # Feature-wise Normalization
+        #     x_min = x.min(dim=1, keepdim=True)[0]
+        #     x_max = x.max(dim=1, keepdim=True)[0]
+        #     x = (x - x_min) / (x_max - x_min + 1e-7)
             
         x = self.lstm(x) # [nBatch, segLeng, nHidden]
 
