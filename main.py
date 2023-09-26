@@ -97,6 +97,8 @@ def train(hparams, model_type):
     visualize_decomp(trnloader, period=7, seasonal=29, show=False) # show: bool
     visualize_decomp(valloader, period=7, seasonal=29, show=False) # show: bool
     train_start = time.time()
+    torch.autograd.set_detect_anomaly(True)
+
     for epoch in range(max_epoch): # epoch is current epoch
         model.train()
         loss = 0
@@ -129,35 +131,27 @@ def train(hparams, model_type):
             pv_power = y # [batch: 24, pv_povwer: 1]
             batch_mean = batch_data.mean(dim=1) # [batch: 24, nFeatures: 8]
            
-            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])
-
+            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])           
             pred = model(batch_data.cuda()).squeeze() 
-
-            for j in range(nBatch): # nBatch: 24 hours
-                y_hourly = y[j].unsqueeze(0).cuda() # Get the hourly ground truth
-                pred_hourly = pred[j].unsqueeze(0) # Get the hourly prediction
-                loss_hourly = criterion(pred_hourly, y_hourly) # Calculate the hourly loss
-                loss += loss_hourly.item()
-
+            #print(f"pred size: {pred.size()}")
+            #print(f"y size: {y.size()}")
+            loss += criterion(pred, y)
+            
             concat_batch_mean = torch.cat([concat_batch_mean, batch_mean], dim=0).cuda()
             concat_pred = torch.cat([concat_pred, pred], dim=0).cuda()
             concat_y = torch.cat([concat_y, y], dim=0).cuda()
-    
-            loss = loss/(length_trn * nBatch) # Calculate the average hourly loss over all days and batches
-            loss_tensor = torch.tensor(loss, requires_grad=True).cuda().detach().requires_grad_(True)
-
-            optimizer.zero_grad()
-            loss_tensor.backward() # Perform backpropagation on the loss tensor
-            optimizer.step()
-
+            
             if epoch == 0 and trn_days == length_trn-1:                
-                # pcc: Pearson Correlation Coefficient
-                # ktc: Kendall's Tau Correlation Coefficient
-                # Skip the first 24 entries in the tensors: 맨 처음 24시간은 (초기값) zero-padding이므로
                 concat_y_us = concat_y.unsqueeze(-1)[24:] # [8736, 1] after skipping the first 24
                 concat_batch_mean = concat_batch_mean[24:] # [8736, 8] after skipping the first 24
                 pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
- 
+                
+        loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
+        optimizer.zero_grad()
+        #loss.backward(retain_graph=True)
+        loss.backward()
+        optimizer.step()
+
         ######### Validation ######### 
         model.eval()
         val_loss = 0
@@ -205,7 +199,7 @@ def train(hparams, model_type):
         
         val_loss = val_loss/(length_val) # val_loss = (1/(24*length_val)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_val) [(kW/h)^2]
         
-        loss_trn = loss_tensor.item() 
+        loss_trn = loss.item() 
         losses.append(loss_trn)
         loss_val = val_loss.item()
         val_losses.append(loss_val)
