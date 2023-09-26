@@ -115,3 +115,10 @@ def insolation_aprox(t, t_rise=360, t_set=1200, I_max=2, n=2):
     if t < t_rise or t > t_set:
         return 0
     return I_max * (np.sin(np.pi * (t - t_rise) / (t_set - t_rise))) ** n
+
+def hook_fn(module, input, output, layer_outputs:dict):
+    layer_name = module.__class__.__name__
+    # mean, std deviation
+    mean = output.data.mean()
+    std = output.data.std()
+    layer_outputs[layer_name].append((mean, std))

@@ -1,0 +1,633 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 15:51:57.968944
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+Epoch [1/10], Trn Loss: 670.3125, Val Loss: 549.3240 [(kW/hour)^2]
+Epoch [2/10], Trn Loss: 646.3176, Val Loss: 529.0127 [(kW/hour)^2]
+Epoch [3/10], Trn Loss: 623.1912, Val Loss: 508.9665 [(kW/hour)^2]
+Epoch [4/10], Trn Loss: 600.2690, Val Loss: 488.6187 [(kW/hour)^2]
+Epoch [5/10], Trn Loss: 576.9044, Val Loss: 467.4772 [(kW/hour)^2]
+Epoch [6/10], Trn Loss: 552.5190, Val Loss: 445.0985 [(kW/hour)^2]
+Epoch [7/10], Trn Loss: 526.5676, Val Loss: 421.1360 [(kW/hour)^2]
+Epoch [8/10], Trn Loss: 498.5749, Val Loss: 395.5340 [(kW/hour)^2]
+Epoch [9/10], Trn Loss: 468.3222, Val Loss: 369.0509 [(kW/hour)^2]
+Epoch [10/10], Trn Loss: 436.3542, Val Loss: 344.6314 [(kW/hour)^2]
+
+
+Training time [sec]: 27.79
+
+len(Trn_Loss): 10
+Trn Loss [(kW/hour)^2]: 
+670.3125 646.3176 623.1912 600.2690 576.9044 552.5190 526.5676 498.5749 468.3222 436.3542
+
+len(Val_Loss): 10
+Val Loss [(kW/hour)^2]: 
+549.3240 529.0127 508.9665 488.6187 467.4772 445.0985 421.1360 395.5340 369.0509 344.6314
+Min validation loss : 344.63140869140625
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 15:55:32.521146
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+Epoch [1/10], Trn Loss: 678.8753, Val Loss: 554.1707 [(kW/hour)^2]
+Epoch [2/10], Trn Loss: 652.1708, Val Loss: 531.3315 [(kW/hour)^2]
+Epoch [3/10], Trn Loss: 626.2317, Val Loss: 508.7237 [(kW/hour)^2]
+Epoch [4/10], Trn Loss: 600.4348, Val Loss: 485.7586 [(kW/hour)^2]
+Epoch [5/10], Trn Loss: 574.1061, Val Loss: 461.9181 [(kW/hour)^2]
+Epoch [6/10], Trn Loss: 546.6279, Val Loss: 436.7972 [(kW/hour)^2]
+Epoch [7/10], Trn Loss: 517.4785, Val Loss: 410.2526 [(kW/hour)^2]
+Epoch [8/10], Trn Loss: 486.3722, Val Loss: 382.7594 [(kW/hour)^2]
+Epoch [9/10], Trn Loss: 453.6054, Val Loss: 356.3142 [(kW/hour)^2]
+Epoch [10/10], Trn Loss: 420.9445, Val Loss: 336.7104 [(kW/hour)^2]
+
+
+Training time [sec]: 24.67
+
+len(Trn_Loss): 10
+Trn Loss [(kW/hour)^2]: 
+678.8753 652.1708 626.2317 600.4348 574.1061 546.6279 517.4785 486.3722 453.6054 420.9445
+
+len(Val_Loss): 10
+Val Loss [(kW/hour)^2]: 
+554.1707 531.3315 508.7237 485.7586 461.9181 436.7972 410.2526 382.7594 356.3142 336.7104
+Min validation loss : 336.71044921875
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 16:22:36.867082
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 16:43:45.944138
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 16:54:40.521776
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 16:56:49.668208
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:04:11.347238
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:07:08.951653
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:09:13.578444
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:13:05.948984
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:15:17.679350
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 10}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:24:46.494500
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:28:14.013197
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:31:15.940965
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:33:48.926209
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+Epoch [1/5], Trn Loss: 700.5140, Val Loss: 572.5288 [(kW/hour)^2]
+Epoch [2/5], Trn Loss: 672.9646, Val Loss: 548.9112 [(kW/hour)^2]
+Epoch [3/5], Trn Loss: 646.2549, Val Loss: 525.4945 [(kW/hour)^2]
+Epoch [4/5], Trn Loss: 619.6624, Val Loss: 501.7278 [(kW/hour)^2]
+Epoch [5/5], Trn Loss: 592.5522, Val Loss: 477.1020 [(kW/hour)^2]
+
+
+Training time [sec]: 8.26
+
+len(Trn_Loss): 5
+Trn Loss [(kW/hour)^2]: 
+700.5140 672.9646 646.2549 619.6624 592.5522
+
+len(Val_Loss): 5
+Val Loss [(kW/hour)^2]: 
+572.5288 548.9112 525.4945 501.7278 477.1020
+Min validation loss : 477.10198974609375
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:36:07.480493
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:36:55.144081
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+Epoch [1/5], Trn Loss: 680.6318, Val Loss: 556.4423 [(kW/hour)^2]
+Epoch [2/5], Trn Loss: 654.8460, Val Loss: 533.8181 [(kW/hour)^2]
+Epoch [3/5], Trn Loss: 629.1890, Val Loss: 510.8395 [(kW/hour)^2]
+Epoch [4/5], Trn Loss: 603.0217, Val Loss: 487.0124 [(kW/hour)^2]
+Epoch [5/5], Trn Loss: 575.7669, Val Loss: 461.9348 [(kW/hour)^2]
+
+
+Training time [sec]: 8.20
+
+len(Trn_Loss): 5
+Trn Loss [(kW/hour)^2]: 
+680.6318 654.8460 629.1890 603.0217 575.7669
+
+len(Val_Loss): 5
+Val Loss [(kW/hour)^2]: 
+556.4423 533.8181 510.8395 487.0124 461.9348
+Min validation loss : 461.93475341796875
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-09-26 17:39:08.000024
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 5}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTM
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in model : 404490
+
+Epoch [1/5], Trn Loss: 661.4871, Val Loss: 540.8870 [(kW/hour)^2]
+Epoch [2/5], Trn Loss: 636.9151, Val Loss: 519.5686 [(kW/hour)^2]
+Epoch [3/5], Trn Loss: 612.6228, Val Loss: 497.9217 [(kW/hour)^2]
+Epoch [4/5], Trn Loss: 587.8522, Val Loss: 475.3803 [(kW/hour)^2]
+Epoch [5/5], Trn Loss: 561.9449, Val Loss: 451.5348 [(kW/hour)^2]
+
+
+Training time [sec]: 8.25
+
+len(Trn_Loss): 5
+Trn Loss [(kW/hour)^2]: 
+661.4871 636.9151 612.6228 587.8522 561.9449
+
+len(Val_Loss): 5
+Val Loss [(kW/hour)^2]: 
+540.8870 519.5686 497.9217 475.3803 451.5348
+Min validation loss : 451.5348205566406

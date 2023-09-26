@@ -19,6 +19,7 @@ from model import *
 from data_loader import WPD
 from torch.utils.data import DataLoader
 from utility import list_up_solar, list_up_weather, print_parameters, count_parameters, weights_init
+from functools import partial
 
 hparams = hyper_params()
 flags, hparams, flags.model = parse_flags(hparams)
@@ -96,8 +97,30 @@ def train(hparams, model_type):
     
     visualize_decomp(trnloader, period=7, seasonal=29, show=False) # show: bool
     visualize_decomp(valloader, period=7, seasonal=29, show=False) # show: bool
+    ###################################################
+    # test hook
+    layer_outputs = {}
+
+    def register_hooks(model, hook_fn):
+        for name, layer in model.named_modules():
+            layer.register_forward_hook(partial(hook_fn, name))
+
+    def hook_fn(name, module, input, output):
+        if name not in layer_outputs:
+            layer_outputs[name] = []
+
+        actual_output = output[0] if isinstance(output, tuple) else output
+    
+        mean = actual_output.data.mean()
+        std = actual_output.data.std()
+        layer_outputs[name].append((mean, std))
+
+
+    register_hooks(model, hook_fn)
+    ###################################################
+
     train_start = time.time()
-    torch.autograd.set_detect_anomaly(True)
+    #torch.autograd.set_detect_anomaly(True)
 
     for epoch in range(max_epoch): # epoch is current epoch
         model.train()
@@ -145,7 +168,8 @@ def train(hparams, model_type):
                 concat_y_us = concat_y.unsqueeze(-1)[24:] # [8736, 1] after skipping the first 24
                 concat_batch_mean = concat_batch_mean[24:] # [8736, 8] after skipping the first 24
                 pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
-                
+        
+        
         loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
         optimizer.zero_grad()
         #loss.backward(retain_graph=True)
@@ -204,6 +228,12 @@ def train(hparams, model_type):
         loss_val = val_loss.item()
         val_losses.append(loss_val)
 
+        #for name in layer_outputs.keys():
+        #    print(name)
+
+        print(f"Epoch [{epoch+1}/{max_epoch}]- lstm1 Output: Mean {layer_outputs['lstm'][-1][0]}, Std {layer_outputs['lstm'][-1][1]}")
+        print(f"Epoch [{epoch+1}/{max_epoch}]- lstm2 Output: Mean {layer_outputs['final_lstm'][-1][0]}, Std {layer_outputs['final_lstm'][-1][1]}")
+        print()
         logging.info(f"Epoch [{epoch+1}/{max_epoch}], Trn Loss: {loss_trn:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2]")
 
     train_end = time.time()

@@ -311,6 +311,13 @@ class correction_LSTM(nn.Module):
         final_sof = self.final_dense_softmax(final_output)
         final_sof = self.final_softmax(final_sof)
         final_sof = torch.clamp(final_sof, min=1e-7, max=1)
-        final_pred = (final_output * final_sof).sum(1) / final_sof.sum(1) 
-
+        final_pred = (final_output * final_sof).sum(1) / final_sof.sum(1)
+        #if self.training:
+        #    print(f"pred :{pred}\n final pred :{final_pred}")
         return final_pred
+    
+if __name__ == "__main__":
+    model = correction_LSTM(8, 1, 64, 5)
+
+    for name, module in model.named_modules():
+        print(name, module)
