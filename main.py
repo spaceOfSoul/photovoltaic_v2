@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from statsmodels.tsa.seasonal import STL
 import pandas as pd
 import os
 import sys
@@ -8,6 +7,9 @@ import torch
 import time
 import logging
 import datetime
+from collections import deque
+
+from statsmodels.tsa.seasonal import STL
 from config import hyper_params 
 from ParseFlags import parse_flags 
 
@@ -23,6 +25,8 @@ from functools import partial
 
 hparams = hyper_params()
 flags, hparams, flags.model = parse_flags(hparams)
+
+PREV_EPOCH = 500
 
 def train(hparams, model_type):
     model_params = hparams["model"]
@@ -71,7 +75,7 @@ def train(hparams, model_type):
     lr = learning_params["lr"]   
     max_epoch = learning_params["max_epoch"]  
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTM": correction_LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTMs": LSTM}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -80,51 +84,58 @@ def train(hparams, model_type):
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)
-    elif model_type in ["correction_LSTM"]:
-        model = model_classes[model_type](input_dim, output_dim, hidden_dim, previous_steps, rec_dropout, num_layers, 
+    elif model_type in ["correction_LSTMs"]:
+        model1 = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)
+        model2 = model_classes[model_type](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
+        prev_preds = deque(maxlen=previous_steps)
+        val_prev_preds = deque(maxlen=previous_steps)
     else:
         pass
-    logging.info(f'The number of parameter in model : {count_parameters(model)}\n')
-    model.cuda()
-    model.apply(weights_init) # weights init
-    criterion = torch.nn.MSELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+
+    if model_type in ["correction_LSTMs"]:
+        logging.info(f'The number of parameter in first model : {count_parameters(model1)}\n')
+        logging.info(f'The number of parameter in second model : {count_parameters(model2)}\n')
+        model1.cuda()
+        model1.apply(weights_init) # weights init
+        model2.cuda()
+        model2.apply(weights_init) # weights init
+
+        optimizer1 = torch.optim.Adam(model1.parameters(), lr=lr)
+        optimizer2 = torch.optim.Adam(model2.parameters(), lr=lr)
+    else:
+        model.cuda()
+        model.apply(weights_init) # weights init
+        logging.info(f'The number of parameter in model : {count_parameters(model)}\n')
+        optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     
+    criterion = torch.nn.MSELoss()
     losses = []
     val_losses = []
     prev_loss = np.inf
     
     visualize_decomp(trnloader, period=7, seasonal=29, show=False) # show: bool
     visualize_decomp(valloader, period=7, seasonal=29, show=False) # show: bool
-    ###################################################
-    # test hook
-    layer_outputs = {}
 
-    def register_hooks(model, hook_fn):
-        for name, layer in model.named_modules():
-            layer.register_forward_hook(partial(hook_fn, name))
-
-    def hook_fn(name, module, input, output):
-        if name not in layer_outputs:
-            layer_outputs[name] = []
-
-        actual_output = output[0] if isinstance(output, tuple) else output
-    
-        mean = actual_output.data.mean()
-        std = actual_output.data.std()
-        layer_outputs[name].append((mean, std))
-
-
-    register_hooks(model, hook_fn)
+    #register_hooks(model, hook_fn)
     ###################################################
 
     train_start = time.time()
-    #torch.autograd.set_detect_anomaly(True)
+    torch.autograd.set_detect_anomaly(True)
 
     for epoch in range(max_epoch): # epoch is current epoch
-        model.train()
+        if model_type in ['correction_LSTMs']:
+            model1.train()
+            model2.train()
+        else:
+            model.train()
         loss = 0
+
+        # for 2 stage model
+        loss1 = 0
+        loss2 = 0
+
         concat_batch_mean = torch.zeros(0).cuda()
         concat_pred = torch.zeros(0).cuda()
         concat_y = torch.zeros(0).cuda()
@@ -154,35 +165,71 @@ def train(hparams, model_type):
             pv_power = y # [batch: 24, pv_povwer: 1]
             batch_mean = batch_data.mean(dim=1) # [batch: 24, nFeatures: 8]
            
-            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])           
-            pred = model(batch_data.cuda()).squeeze() 
-            #print(f"pred size: {pred.size()}")
-            #print(f"y size: {y.size()}")
-            loss += criterion(pred, y)
+            y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])
+            if model_type in ["correction_LSTMs"]: 
+                first_pred= model1(batch_data.cuda()).squeeze()
+                loss1 += criterion(first_pred, y)
+                
+                #if epoch > PREV_EPOCH:
+                prev_preds.append(first_pred.detach().clone())
+                while len(prev_preds) < previous_steps:
+                    prev_preds.appendleft(torch.zeros_like(first_pred))
+
+                final_input = torch.stack(list(prev_preds), dim=1)
+
+                second_pred= model2(final_input).squeeze() 
+
+                loss2 += criterion(second_pred, y)
+            else:      
+                pred = model(batch_data.cuda()).squeeze() 
+                loss += criterion(pred, y)
             
-            concat_batch_mean = torch.cat([concat_batch_mean, batch_mean], dim=0).cuda()
-            concat_pred = torch.cat([concat_pred, pred], dim=0).cuda()
-            concat_y = torch.cat([concat_y, y], dim=0).cuda()
+                #concat_batch_mean = torch.cat([concat_batch_mean, batch_mean], dim=0).cuda()
+                #concat_pred = torch.cat([concat_pred, pred], dim=0).cuda()
+                #concat_y = torch.cat([concat_y, y], dim=0).cuda()
             
-            if epoch == 0 and trn_days == length_trn-1:                
-                concat_y_us = concat_y.unsqueeze(-1)[24:] # [8736, 1] after skipping the first 24
-                concat_batch_mean = concat_batch_mean[24:] # [8736, 8] after skipping the first 24
-                pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
+            #if epoch == 0 and trn_days == length_trn-1:                
+            #    concat_y_us = concat_y.unsqueeze(-1)[24:] # [8736, 1] after skipping the first 24
+            #    concat_batch_mean = concat_batch_mean[24:] # [8736, 8] after skipping the first 24
+            #    pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
         
         
-        loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
-        optimizer.zero_grad()
-        #loss.backward(retain_graph=True)
-        loss.backward()
-        optimizer.step()
+        if model_type in ["correction_LSTMs"]: 
+            loss1 = loss1/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
+
+            optimizer1.zero_grad()
+            loss1.backward(retain_graph=True)
+            #loss.backward()
+            optimizer1.step()
+
+            loss2 = loss2/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
+
+            optimizer2.zero_grad()
+            loss2.backward()
+            #loss.backward()
+            optimizer2.step()
+        else:
+            loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
+
+            optimizer.zero_grad()
+            loss.backward()
+            #loss.backward()
+            optimizer.step()
 
         ######### Validation ######### 
-        model.eval()
+
+        if model_type in ["correction_LSTMs"]:
+            model1.eval()
+            model2.eval()
+        else:
+            model.eval()
+        
         val_loss = 0
+
         val_pred_append = []
         val_y_append=[]  
-        concat_pred_val = torch.zeros(0).cuda()
-        concat_y_val = torch.zeros(0).cuda()    
+        #concat_pred_val = torch.zeros(0).cuda()
+        #concat_y_val = torch.zeros(0).cuda()    
         prev_data = torch.zeros([seqLeng, input_dim]).cuda()
         
         for val_days, _ in enumerate(valloader):
@@ -205,36 +252,71 @@ def train(hparams, model_type):
                 endidx = j * 60 + seqLeng
                 batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))               
             batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
-            pred = model(batch_data.cuda()).squeeze()
-            val_loss += criterion(pred, y)
 
-            concat_pred_val = torch.cat([concat_pred_val, pred], dim=0).cuda()
-            concat_y_val = torch.cat([concat_y_val, y], dim=0).cuda()
+            if model_type in ["correction_LSTMs"]: 
+                first_pred= model1(batch_data.cuda()).squeeze()
+                
+                #if epoch >PREV_EPOCH:
+                val_prev_preds.append(first_pred.detach().clone())
+                while len(val_prev_preds) < previous_steps:
+                    val_prev_preds.appendleft(torch.zeros_like(first_pred))
+                final_input = torch.stack(list(val_prev_preds), dim=1)
+
+                pred= model2(final_input).squeeze() 
+
+                val_loss += criterion(second_pred, y)
+            else:      
+                pred = model(batch_data.cuda()).squeeze() 
+                val_loss += criterion(pred, y)
+
+            #concat_pred_val = torch.cat([concat_pred_val, pred], dim=0).cuda()
+            #concat_y_val = torch.cat([concat_y_val, y], dim=0).cuda()
 
             val_pred_append.append(pred.detach().cpu().numpy())
             val_y_append.append(y.detach().cpu().numpy())
                                                            
         if val_loss < prev_loss:
-            savePath = os.path.join(hparams["save_dir"], "best_model")  # overwrite
-            model_dict = {"kwargs": model_params, "paramSet": model.state_dict()}
-            torch.save(model_dict, savePath)
-            prev_loss = val_loss
-            val_BestPred = val_pred_append
+            if model_type in ['correction_LSTMs']:
+                savePath1 = os.path.join(hparams["save_dir"], "best_model1")
+                savePath2 = os.path.join(hparams["save_dir"], "best_model2")
+                model_dict1 = {"kwargs": model_params, "paramSet": model1.state_dict()}
+                model_dict2 = {"kwargs": model_params, "paramSet": model2.state_dict()}
+                torch.save(model_dict1, savePath1)
+                torch.save(model_dict2, savePath2)
+
+                prev_loss = val_loss
+                val_BestPred = val_pred_append
+            else:
+                savePath = os.path.join(hparams["save_dir"], "best_model")  # overwrite
+                model_dict = {"kwargs": model_params, "paramSet": model.state_dict()}
+                torch.save(model_dict, savePath)
+                prev_loss = val_loss
+                val_BestPred = val_pred_append
         
         val_loss = val_loss/(length_val) # val_loss = (1/(24*length_val)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_val) [(kW/h)^2]
         
-        loss_trn = loss.item() 
-        losses.append(loss_trn)
+        if model_type in ['correction_LSTMs']:
+            loss_trn1 = loss1.item() 
+            loss_trn2 = loss2.item() 
+            losses.append(loss_trn2)
+        else:
+            loss_trn = loss.item() 
+            losses.append(loss_trn)
+
         loss_val = val_loss.item()
         val_losses.append(loss_val)
 
         #for name in layer_outputs.keys():
         #    print(name)
 
-        print(f"Epoch [{epoch+1}/{max_epoch}]- lstm1 Output: Mean {layer_outputs['lstm'][-1][0]}, Std {layer_outputs['lstm'][-1][1]}")
-        print(f"Epoch [{epoch+1}/{max_epoch}]- lstm2 Output: Mean {layer_outputs['final_lstm'][-1][0]}, Std {layer_outputs['final_lstm'][-1][1]}")
-        print()
-        logging.info(f"Epoch [{epoch+1}/{max_epoch}], Trn Loss: {loss_trn:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2]")
+        #print(f"Epoch [{epoch+1}/{max_epoch}]- lstm1 Output: Mean {layer_outputs['lstm'][-1][0]}, Std {layer_outputs['lstm'][-1][1]}")
+        #print(f"Epoch [{epoch+1}/{max_epoch}]- lstm2 Output: Mean {layer_outputs['final_lstm'][-1][0]}, Std {layer_outputs['final_lstm'][-1][1]}")
+        #print()
+
+        if model_type in ['correction_LSTMs']:
+            logging.info(f"Epoch [{epoch+1}/{max_epoch}], First Loss: {loss_trn1:.4f}, Second Loss: {loss_trn2:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2], MinVal : {prev_loss/length_val}")
+        else:                                                                                                                                                                                                             
+            logging.info(f"Epoch [{epoch+1}/{max_epoch}], Trn Loss: {loss_trn:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2], MinVal : {prev_loss/length_val}")
 
     train_end = time.time()
     logging.info("\n")
@@ -245,13 +327,15 @@ def train(hparams, model_type):
     min_val_loss = min(val_losses)
     logging.info(f'\nlen(Val_Loss): {len(val_losses)}\nVal Loss [(kW/hour)^2]: \n{" ".join([f"{loss:.4f}" for loss in val_losses])}')
     logging.info(f'Min validation loss : {min_val_loss}')
+    logging.info(f'Min validation loss : {prev_loss}')
     min_val_loss_epoch = val_losses.index(min_val_loss)
+    logging.info(f"Epoch when minimum validation loss : {min_val_loss_epoch}")
     
     # plot origin, trend, seasonal, residual of Validating  
     image_dir = os.path.join(hparams["save_dir"], "best_val_images")
     os.makedirs(image_dir, exist_ok=True)
     
-    days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # ㅔchange to hp
+    days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # change to hp
     start_month = 2 # 2022.01~12
 
     val_y_chunks = []
@@ -266,8 +350,8 @@ def train(hparams, model_type):
     
     plot_generator = PlotGenerator(image_dir, days_per_month, start_month)
     plot_generator.plot_monthly(val_y_chunks, val_BestPred_chunks)
-    plot_generator.plot_annual(val_y_append, val_BestPred)
-    plot_generator.plot_monthly_loss(val_y_append, val_BestPred)
+    #plot_generator.plot_annual(val_y_append, val_BestPred)
+    #plot_generator.plot_monthly_loss(val_y_append, val_BestPred)
      ##############
     if hparams["loss_plot_flag"]:
     
@@ -330,7 +414,7 @@ def test(hparams, model_type):
     lr = learning_params["lr"]   
     max_epoch = learning_params["max_epoch"]  
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTM": correction_LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTMs": LSTM}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -339,7 +423,7 @@ def test(hparams, model_type):
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)  
-    elif model_type in ["correction_LSTM"]:
+    elif model_type in ["correction_LSTMs"]:
            model = model_classes[model_type](input_dim, output_dim, hidden_dim, previous_steps, rec_dropout, num_layers, 
                                          in_moving_mean, decomp_kernel, feature_wise_norm)    
     else:

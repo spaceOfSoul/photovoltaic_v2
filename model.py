@@ -290,7 +290,7 @@ class correction_LSTM(nn.Module):
         #print("Shape of sof:", sof.shape)
 
         pred = (y * sof).sum(1) / sof.sum(1)   # [bs, output_dim]
-        pred = pred.detach()
+        #pred = pred.detach()
 
         if self.training:
             # Training 모드일 때의 동작
@@ -314,7 +314,7 @@ class correction_LSTM(nn.Module):
         final_pred = (final_output * final_sof).sum(1) / final_sof.sum(1)
         #if self.training:
         #    print(f"pred :{pred}\n final pred :{final_pred}")
-        return final_pred
+        return pred, final_pred
     
 if __name__ == "__main__":
     model = correction_LSTM(8, 1, 64, 5)

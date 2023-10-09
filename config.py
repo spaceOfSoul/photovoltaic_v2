@@ -37,7 +37,7 @@ def hyper_params():
     learning_params = {
         "nBatch": 14,  # 24 hours
         "lr": 1.0e-3,
-        "max_epoch": 5,
+        "max_epoch": 2000,
     }
 
     hparams = {
