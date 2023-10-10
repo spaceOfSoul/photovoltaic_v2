@@ -1,0 +1,97 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-10-10 02:45:35.955055
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTMs
+
+
+--------------------Test Mode--------------------
+test mode: samcheok
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-10-10 02:50:47.197534
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTMs
+
+
+--------------------Test Mode--------------------
+test mode: samcheok
+Test Loss: 192.2538 [(kW/hour)^2]
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-10-10 02:54:07.816742
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'dropout': 0, 'previous_steps': 5}
+
+learning: {'nBatch': 14, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTMs
+
+
+--------------------Test Mode--------------------
+test mode: samcheok
+Test Loss: 192.2538 [(kW/hour)^2]
+The number of parameters in the first model: 203016
+The number of parameters in the second model: 201480
+Testing time [sec]: 0.65
+
+--------------------Test Mode--------------------
+test mode: GWNU_C3
+Test Loss: 147.9849 [(kW/hour)^2]
+The number of parameters in the first model: 203016
+The number of parameters in the second model: 201480
+Testing time [sec]: 0.52
+
+--------------------Validation Mode--------------------
+test mode: GWNU_Preschool
+Test Loss: 228.6969 [(kW/hour)^2]
+The number of parameters in the first model: 203016
+The number of parameters in the second model: 201480
+Testing time [sec]: 0.80

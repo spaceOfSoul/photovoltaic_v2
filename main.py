@@ -170,16 +170,13 @@ def train(hparams, model_type):
                 first_pred= model1(batch_data.cuda()).squeeze()
                 loss1 += criterion(first_pred, y)
                 
-                #if epoch > PREV_EPOCH:
                 prev_preds.append(first_pred.detach().clone())
-                while len(prev_preds) < previous_steps:
-                    prev_preds.appendleft(torch.zeros_like(first_pred))
-
-                final_input = torch.stack(list(prev_preds), dim=1)
-
-                second_pred= model2(final_input).squeeze() 
-
-                loss2 += criterion(second_pred, y)
+                if epoch > PREV_EPOCH:
+                    final_input = torch.stack(list(prev_preds), dim=1)
+    
+                    second_pred = model2(final_input).squeeze() 
+    
+                    loss2 += criterion(second_pred, y)
             else:      
                 pred = model(batch_data.cuda()).squeeze() 
                 loss += criterion(pred, y)
@@ -198,16 +195,17 @@ def train(hparams, model_type):
             loss1 = loss1/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
 
             optimizer1.zero_grad()
-            loss1.backward(retain_graph=True)
+            loss1.backward()
             #loss.backward()
             optimizer1.step()
+            
+            if epoch > PREV_EPOCH:
+                loss2 = loss2/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
 
-            loss2 = loss2/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
-
-            optimizer2.zero_grad()
-            loss2.backward()
-            #loss.backward()
-            optimizer2.step()
+                optimizer2.zero_grad()
+                loss2.backward()
+                #loss.backward()
+                optimizer2.step()
         else:
             loss = loss/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
 
@@ -255,16 +253,19 @@ def train(hparams, model_type):
 
             if model_type in ["correction_LSTMs"]: 
                 first_pred= model1(batch_data.cuda()).squeeze()
-                
-                #if epoch >PREV_EPOCH:
-                val_prev_preds.append(first_pred.detach().clone())
-                while len(val_prev_preds) < previous_steps:
-                    val_prev_preds.appendleft(torch.zeros_like(first_pred))
-                final_input = torch.stack(list(val_prev_preds), dim=1)
+                pred = first_pred
+                if epoch > PREV_EPOCH:
+                    
+                    val_prev_preds.append(first_pred.detach().clone())
+                    while len(val_prev_preds) < previous_steps:
+                        val_prev_preds.appendleft(torch.zeros_like(first_pred))
+                    final_input = torch.stack(list(val_prev_preds), dim=1)
 
-                pred= model2(final_input).squeeze() 
+                    pred=  model2(final_input).squeeze() 
 
-                val_loss += criterion(second_pred, y)
+                    val_loss += criterion(pred, y)
+                else:
+                    val_loss += criterion(pred, y)
             else:      
                 pred = model(batch_data.cuda()).squeeze() 
                 val_loss += criterion(pred, y)
@@ -297,8 +298,12 @@ def train(hparams, model_type):
         
         if model_type in ['correction_LSTMs']:
             loss_trn1 = loss1.item() 
-            loss_trn2 = loss2.item() 
-            losses.append(loss_trn2)
+            loss_trn2 = -77777
+            if epoch > PREV_EPOCH:
+                loss_trn2 = loss2.item() 
+                losses.append(loss_trn2)
+            else:
+                losses.append(loss_trn1)
         else:
             loss_trn = loss.item() 
             losses.append(loss_trn)
@@ -378,13 +383,33 @@ def test(hparams, model_type):
     modelPath = hparams['load_path']
     
     try:
-        ckpt = torch.load(modelPath)
-        if not isinstance(ckpt, dict):
-            raise ValueError(f"Loaded object from {modelPath} is not a dictionary.")
-        if 'kwargs' not in ckpt or 'paramSet' not in ckpt:
-            raise ValueError(f"Dictionary from {modelPath} does not contain expected keys.")
-        model_conf = ckpt['kwargs']
-        paramSet = ckpt['paramSet']
+        if model_type in ["correction_LSTMs"]:
+            model1Path = os.path.join(os.path.dirname(modelPath), "best_model1")
+            model2Path = os.path.join(os.path.dirname(modelPath), "best_model2")
+
+            ckpt1 = torch.load(model1Path)
+            ckpt2 = torch.load(model2Path)
+
+            if not isinstance(ckpt1, dict):
+                raise ValueError(f"Loaded object from {modelPath} is not a dictionary.")
+            if 'kwargs' not in ckpt1 or 'paramSet' not in ckpt1:
+                raise ValueError(f"Dictionary from {modelPath} does not contain expected keys.")
+
+            model_conf1 = ckpt1['kwargs']
+            paramSet1 = ckpt1['paramSet']
+
+            model_conf2 = ckpt2['kwargs']
+            paramSet2 = ckpt2['paramSet']
+
+
+        else:
+            ckpt = torch.load(modelPath)
+            if not isinstance(ckpt, dict):
+                raise ValueError(f"Loaded object from {modelPath} is not a dictionary.")
+            if 'kwargs' not in ckpt or 'paramSet' not in ckpt:
+                raise ValueError(f"Dictionary from {modelPath} does not contain expected keys.")
+            model_conf = ckpt['kwargs']
+            paramSet = ckpt['paramSet']
     except Exception as e:
         print(f"Error occurred while loading model from {modelPath}")
         print(f"Error: {e}")
@@ -424,14 +449,23 @@ def test(hparams, model_type):
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)  
     elif model_type in ["correction_LSTMs"]:
-           model = model_classes[model_type](input_dim, output_dim, hidden_dim, previous_steps, rec_dropout, num_layers, 
-                                         in_moving_mean, decomp_kernel, feature_wise_norm)    
+        model1 = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
+                                           in_moving_mean, decomp_kernel, feature_wise_norm)
+        model2 = model_classes[model_type](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm) 
+        prev_preds = deque(maxlen=previous_steps)
     else:
         pass
         
-    model.load_state_dict(paramSet)
-    model.cuda()
-    model.eval()
+    if model_type in ["correction_LSTMs"]:
+        model1.load_state_dict(paramSet1)
+        model2.load_state_dict(paramSet2)   
+        model1.cuda().eval()
+        model2.cuda().eval()
+    else:
+        model.load_state_dict(paramSet)
+        model.cuda()
+        model.eval()
 
     tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['loc_ID'])    
     tstloader = DataLoader(tstset, batch_size=1, shuffle=False, drop_last=True)
@@ -469,7 +503,18 @@ def test(hparams, model_type):
             batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))
              
         batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
-        pred = model(batch_data).squeeze() # torch.Size([24])
+
+        if model_type in ["correction_LSTMs"]:
+            first_pred= model1(batch_data.cuda()).squeeze()
+                
+            #if epoch >PREV_EPOCH:
+            prev_preds.append(first_pred.detach().clone())
+            while len(prev_preds) < previous_steps:
+                prev_preds.appendleft(torch.zeros_like(first_pred))
+            final_input = torch.stack(list(prev_preds), dim=1)
+            pred= model2(final_input).squeeze() 
+        else:
+            pred = model(batch_data).squeeze() # torch.Size([24])
           
         result.append(pred.detach().cpu().numpy())
         y_true.append(y.detach().cpu().numpy())
@@ -482,9 +527,16 @@ def test(hparams, model_type):
     loss_tst = tst_loss.item()
 
     # print_parameters(model) # print params infomation
-    logging.info(f'Test Loss: {loss_tst:.4f} [(kW/hour)^2]')
-    logging.info(f'The number of parameter in model : {count_parameters(model)}')
+    if model_type == 'correction_LSTMs':
+        logging.info(f'Test Loss: {tst_loss:.4f} [(kW/hour)^2]')
+        logging.info(f'The number of parameters in the first model: {count_parameters(model1)}')
+        logging.info(f'The number of parameters in the second model: {count_parameters(model2)}')
+    else:
+        logging.info(f'Test Loss: {loss_tst:.4f} [(kW/hour)^2]')
+        logging.info(f'The number of parameters in the model: {count_parameters(model)}')
+
     logging.info(f'Testing time [sec]: {(test_end - test_start):.2f}')
+
 
     model_dir = os.path.dirname(modelPath)
     
