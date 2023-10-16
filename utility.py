@@ -2,7 +2,10 @@ import os
 import pandas as pd
 import numpy as np
 from datetime import datetime
+import torch
 import torch.nn as nn
+import logging
+from Visualizer.SeriesDecomp import series_decomp  
 
 def path2date(path):
     date_str = path.split('/')[-2] + '/' + \
@@ -122,3 +125,72 @@ def hook_fn(module, input, output, layer_outputs:dict):
     mean = output.data.mean()
     std = output.data.std()
     layer_outputs[layer_name].append((mean, std))
+
+def compute_mse_and_errors(pred, y, period, seasonal, bias):
+    # Decompose data
+    trend_y, seasonal_y, resid_y = series_decomp(y.cpu().numpy(), period, seasonal)
+    trend_pred, seasonal_pred, resid_pred = series_decomp(pred.cpu().detach().numpy(), period, seasonal)
+
+    # Convert np.array to tensor - gradient will be removed. Thus, MSE and percent_error for trend, seasonal, resid are not backpropagatable.
+    criterion = torch.nn.MSELoss()
+   
+    original_loss = criterion(pred, y)
+    trend_loss = criterion(torch.tensor(trend_pred), torch.tensor(trend_y))
+    seasonal_loss = criterion(torch.tensor(seasonal_pred), torch.tensor(seasonal_y))
+    resid_loss = criterion(torch.tensor(resid_pred), torch.tensor(resid_y))
+    
+    percent_error_original = compute_percent_error(pred, y, bias) 
+    percent_error_trend = compute_percent_error(torch.tensor(trend_pred), torch.tensor(trend_y), bias) 
+    percent_error_seasonal = compute_percent_error(torch.tensor(seasonal_pred), torch.tensor(seasonal_y), bias)
+    percent_error_resid = compute_percent_error(torch.tensor(resid_pred), torch.tensor(resid_y), bias) 
+
+    logging.info(f'original_loss: {original_loss.item():.4f} [(kW/hour)^2]')   
+    logging.info(f'trend_loss: {trend_loss.item():.4f} [(kW/hour)^2]')
+    logging.info(f'seasonal_loss: {seasonal_loss.item():.4f} [(kW/hour)^2]')
+    logging.info(f'resid_loss: {resid_loss.item():.4f} [(kW/hour)^2]\n')
+
+    logging.info(f'percent_error_orignal: {percent_error_original.item():.4f} [%/hour]')   
+    logging.info(f'percent_error_trend: {percent_error_trend.item():.4f} [%/hour]')
+    logging.info(f'percent_error_seasonal: {percent_error_seasonal.item():.4f} [%/hour]')
+    logging.info(f'percent_error_resid: {percent_error_resid.item():.4f} [%/hour]\n')
+
+def compute_percent_error(pred, y, bias):
+    # Ensure inputs are tensors
+    if not isinstance(y, torch.Tensor) or not isinstance(pred, torch.Tensor):
+        raise ValueError("The input data is not a tensor, hence gradient descent cannot be applied. Please provide a tensor as input.")
+
+    # Ensure inputs are 1D tensors
+    if y.dim() != 1 or pred.dim() != 1:
+        raise ValueError("The input data must also be a 1-dimensional tensor.")
+        
+    # Ensure both tensors have the same shape
+    assert y.shape == pred.shape, "y and pred must have the same shape."
+    
+    # Compute the error
+    nSamples = len(y)
+    percent_error = ((torch.abs(y - pred) / (torch.abs(y) + bias)).sum())*100 / nSamples
+    
+    return percent_error
+
+def monthly_mse_per_hour(y, pred, months, hours_per_day, start_month, end_month):
+    mse_loss = torch.nn.MSELoss()
+    start_idx = 0
+    monthly_mse = []
+    monthly_percent_error = []
+
+    for month in months:
+        end_idx = start_idx + month * hours_per_day
+        loss = mse_loss(y[start_idx:end_idx], pred[start_idx:end_idx])
+        # print("y[start_idx:end_idx].shape: ", y[start_idx:end_idx].shape)
+        monthly_mse.append(loss.item())
+        percent_error = compute_percent_error(pred[start_idx:end_idx], y[start_idx:end_idx], bias=0.0558) # bias = smallest_non_zero_val
+        monthly_percent_error.append(percent_error.item())
+        start_idx = end_idx
+
+    for month, loss in zip(range(start_month, end_month + 1), monthly_mse):
+        logging.info(f"{month} month MSE Loss: {loss:.4f} [(kW/hour)^2]")
+    logging.info("")
+    for month, pe in zip(range(start_month, end_month + 1), monthly_percent_error):
+        logging.info(f"{month} month Percent Error: {pe:.4f} [%/hour]")
+        
+        # return montly_mse

@@ -315,7 +315,69 @@ class correction_LSTM(nn.Module):
         #if self.training:
         #    print(f"pred :{pred}\n final pred :{final_pred}")
         return pred, final_pred
-    
+
+class CNN(nn.Module):
+    def __init__(self, n_in_channel, output_dim=1, activ="Relu", cnn_dropout=0,
+                 kernel_size=2*[3], padding=2*[1], stride=2*[1], nb_filters=[64, 128],
+                 pooling=2*[1], in_moving_mean=True, decomp_kernel=[3, 5, 7, 9], feature_wise_norm=True):
+        super(CNN, self).__init__()
+
+        self.feature_wise_norm = feature_wise_norm
+        self.in_moving_mean = in_moving_mean
+        self.decomp_kernel = decomp_kernel
+        self.series_decomp_multi = series_decomp_multi(kernel_size=self.decomp_kernel)
+                        
+        self.cnn = CNNModule(n_in_channel=n_in_channel, activ=activ, conv_dropout=cnn_dropout, kernel_size=kernel_size, 
+                             padding=padding, stride=stride, nb_filters=nb_filters, pooling=pooling)
+        self.dense = nn.Linear(nb_filters[-1], output_dim)
+        self.softmax = nn.Softmax(dim=-1)
+        self.dense_softmax = nn.Linear(nb_filters[-1], output_dim)
+        
+    def load_state_dict(self, state_dict, strict=True):
+        self.series_decomp_multi.load_state_dict(state_dict["series_decomp_multi"])
+        self.cnn.load_state_dict(state_dict["cnn"])
+        self.dense.load_state_dict(state_dict["dense"])
+        self.dense_softmax.load_state_dict(state_dict["dense_softmax"])
+        
+    def state_dict(self, destination=None, prefix='', keep_vars=False):
+        state_dict = {"series_decomp_multi": self.series_decomp_multi.state_dict(destination=destination, prefix=prefix, keep_vars=keep_vars),
+                      "cnn": self.cnn.state_dict(destination=destination, prefix=prefix, keep_vars=keep_vars),
+                      "dense": self.dense.state_dict(destination=destination, prefix=prefix, keep_vars=keep_vars),
+                      "dense_softmax": self.dense_softmax.state_dict(destination=destination, prefix=prefix, keep_vars=keep_vars)}
+        return state_dict
+
+    def save(self, filename):
+        parameters = {'series_decomp_multi': self.series_decomp_multi.state_dict(),
+                      'cnn': self.cnn.state_dict(),
+                      'dense': self.dense.state_dict(),
+                      'dense_softmax': self.dense_softmax.state_dict()}
+        torch.save(parameters, filename)
+
+    def forward(self, x): # [nBatch, segLeng, input_dim]    
+        if self.in_moving_mean:
+            moving_mean, res = self.series_decomp_multi(x)
+            x = moving_mean    
+        
+        if self.feature_wise_norm:
+            # Feature-wise Normalization
+            x_min = x.min(dim=1, keepdim=True)[0]
+            x_max = x.max(dim=1, keepdim=True)[0]
+            x = (x - x_min) / (x_max - x_min + 1e-7)
+
+        x = x.permute(0, 2, 1) # [nBatch, input_dim, segLeng]
+        x = self.cnn(x) # [nBatch, nb_filters[-1], segLeng]
+        x = x.permute(0, 2, 1) # [nBatch, segLeng, nb_filters[-1]]
+        y = self.dense(x) # [nBatch, seqLeng, output_dim]
+        # pred = y.mean(dim=1) # [nBatch, output_dim]
+        
+        # attention 
+        sof = self.dense_softmax(x) # [nBatch, seqLeng, output_dim]
+        sof = self.softmax(sof)
+        sof = torch.clamp(sof, min=1e-7, max=1)
+        pred = (y * sof).sum(1) / sof.sum(1)   # [nBatch, output_dim]
+        
+        return pred
+
 if __name__ == "__main__":
     model = correction_LSTM(8, 1, 64, 5)
 

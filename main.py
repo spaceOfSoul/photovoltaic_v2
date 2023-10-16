@@ -20,7 +20,7 @@ from Visualizer.VisualDecom import visualize_decomp
 from model import *
 from data_loader import WPD
 from torch.utils.data import DataLoader
-from utility import list_up_solar, list_up_weather, print_parameters, count_parameters, weights_init
+from utility import list_up_solar, list_up_weather, print_parameters, count_parameters, weights_init, compute_percent_error, monthly_mse_per_hour, compute_mse_and_errors
 from functools import partial
 
 hparams = hyper_params()
@@ -376,7 +376,7 @@ def train(hparams, model_type):
         plt.savefig(os.path.join(hparams["save_dir"],"figure_train.png"))
         logging.info(f"minimum validation loss: {min_val_loss:.4f} [(kW/hour)^2] at Epoch {min_val_loss_epoch}")
         
-def test(hparams, model_type):
+def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     model_params = hparams['model']
     learning_params = hparams['learning']
 
@@ -401,7 +401,6 @@ def test(hparams, model_type):
             model_conf2 = ckpt2['kwargs']
             paramSet2 = ckpt2['paramSet']
 
-
         else:
             ckpt = torch.load(modelPath)
             if not isinstance(ckpt, dict):
@@ -416,8 +415,19 @@ def test(hparams, model_type):
     
     seqLeng = model_params["seqLeng"]
     input_dim = model_params["input_dim"] # feature 7 + time 1
-    output_dim = model_params["output_dim"] 
-    in_moving_mean = model_params["feature_wise_norm"]
+    output_dim = model_params["output_dim"]
+
+    #apply_kernel_func = model_params["apply_kernel_func"] 
+    #kernel_start_idx = model_params["kernel_start_idx"]
+    #kernel_end_idx = model_params["kernel_end_idx"]
+    #kernel_center = model_params["kernel_center"]
+    #kernel_feature_idx = model_params["kernel_feature_idx"]
+    #kernel_type = model_params["kernel_type"]
+
+    batch_start_idx = model_params["batch_start_idx"]
+    batch_end_idx = model_params["batch_end_idx"]
+
+    in_moving_mean = model_params["in_moving_mean"]
     decomp_kernel = model_params["decomp_kernel"]
     feature_wise_norm = model_params["feature_wise_norm"]
            
@@ -432,14 +442,14 @@ def test(hparams, model_type):
     nb_filters = model_params["nb_filters"]
     pooling = model_params["pooling"]
     dropout = model_params["dropout"]
-
+           
     previous_steps = model_params["previous_steps"]
-    
+     
     nBatch = learning_params["nBatch"]
-    lr = learning_params["lr"]   
-    max_epoch = learning_params["max_epoch"]  
+    #lr = learning_params["lr"]   
+    #max_epoch = learning_params["max_epoch"] 
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTMs": LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "CNN": CNN}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -448,6 +458,10 @@ def test(hparams, model_type):
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)  
+    elif model_type in ["CNN"]: 
+        model = model_classes[model_type](input_dim, output_dim,
+                                          activ, cnn_dropout, kernel_size, padding, stride, nb_filters, 
+                                          pooling, in_moving_mean, decomp_kernel, feature_wise_norm)
     elif model_type in ["correction_LSTMs"]:
         model1 = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                            in_moving_mean, decomp_kernel, feature_wise_norm)
@@ -466,18 +480,33 @@ def test(hparams, model_type):
         model.load_state_dict(paramSet)
         model.cuda()
         model.eval()
-
-    tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['loc_ID'])    
+    
+    tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['loc_ID'], input_dim=hparams["model"]["input_dim"],)    
     tstloader = DataLoader(tstset, batch_size=1, shuffle=False, drop_last=True)
     visualize_decomp(tstloader, period=7, seasonal=29, show=False) # show: bool
     
     prev_data = torch.zeros([seqLeng, input_dim]).cuda()	# 7 is for featDim
 
     criterion = torch.nn.MSELoss()
-    total_mape = 0
-    total_samples = 0
-    result = []
-    y_true=[]
+
+    tst_losses_alltime = []
+    tst_losses_daytime = []
+    percent_errors_tst_alltime = []
+    percent_errors_tst_daytime = []
+
+    tst_loss_alltime = 0
+    tst_loss_daytime = 0
+    percent_error_tst_alltime = 0
+    percent_error_tst_daytime = 0
+    tst_pred_append = []
+    tst_y_append=[] 
+    concat_pred_tst_alltime = torch.zeros(0).cuda()
+    concat_y_tst_alltime = torch.zeros(0).cuda()     
+    concat_pred_tst_daytime = torch.zeros(0).cuda()
+    concat_y_tst_daytime = torch.zeros(0).cuda()  
+    alltime_hours = 24 # 24 hours
+    daytime_hours = (batch_end_idx - batch_start_idx -1)    
+
     test_start = time.time()
 
     tst_loss = 0
@@ -489,7 +518,8 @@ def test(hparams, model_type):
     for tst_days, (x, y) in enumerate(tstloader):
         x = x.float()
         y = y.float()
-        x = x.squeeze().cuda()
+        x = x.squeeze().cuda()   
+                                 
         x = torch.cat((prev_data, x), axis=0)
         prev_data = x[-seqLeng:, :]
         y = y.squeeze().cuda()
@@ -503,7 +533,6 @@ def test(hparams, model_type):
             batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))
              
         batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
-
         if model_type in ["correction_LSTMs"]:
             first_pred= model1(batch_data.cuda()).squeeze()
                 
@@ -515,60 +544,91 @@ def test(hparams, model_type):
             pred= model2(final_input).squeeze() 
         else:
             pred = model(batch_data).squeeze() # torch.Size([24])
-          
-        result.append(pred.detach().cpu().numpy())
-        y_true.append(y.detach().cpu().numpy())
-    
-        tst_loss += criterion(pred, y)
-    
-    test_end = time.time()
-    
-    tst_loss = tst_loss/length_tst # tst_loss = (1/(24*length_tst)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_tst) [(kW/h)^2]
-    loss_tst = tst_loss.item()
 
+        batch_data_daytime = batch_data[batch_start_idx:batch_end_idx, :, :] # assume: batch_start_idx: 5, batch_end_idx: 21; 0~4, 21~23시의 데이터는 제거             
+        pred_daytime = pred[batch_start_idx:batch_end_idx].squeeze()
+        y_daytime = y[batch_start_idx:batch_end_idx]   
+
+        tst_loss_alltime += criterion(pred.squeeze(), y)
+        tst_loss_daytime += criterion(pred_daytime, y_daytime)
+        percent_error_tst_alltime += compute_percent_error(pred.squeeze(), y, bias=0.0558) # bias = smallest_non_zero_val
+        percent_error_tst_daytime += compute_percent_error(pred_daytime, y_daytime, bias=0.0558) # bias = smallest_non_zero_val
+
+        concat_pred_tst_alltime = torch.cat([concat_pred_tst_alltime, pred.squeeze()], dim=0).cuda()
+        concat_y_tst_alltime = torch.cat([concat_y_tst_alltime, y], dim=0).cuda()
+        concat_pred_tst_daytime = torch.cat([concat_pred_tst_daytime, pred_daytime], dim=0).cuda()
+        concat_y_tst_daytime = torch.cat([concat_y_tst_daytime, y_daytime], dim=0).cuda()
+        
+        tst_pred_append.append(pred.detach().cpu().numpy())
+        tst_y_append.append(y.detach().cpu().numpy())
+    
+    tst_loss_alltime = tst_loss_alltime/(length_tst) # tst_loss_alltime = (1/(24*length_tst)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_tst) [(kW/h)^2]
+    tst_loss_daytime = tst_loss_daytime/(length_tst) # tst_loss_daytime = (1/(daytime_hours*length_tst)) * Σ(y_i - ŷ_i)^2 (i: from 1 to daytime_hours*length_tst) [(kW/h)^2]
+    percent_error_tst_alltime = percent_error_tst_alltime/(length_tst) # percent_error_alltime = (1/(alltime_hours*length_tst)) * Σ(abs((y_i - ŷ_i))/(y_i)) * 100 [%/hour]
+    percent_error_tst_daytime = percent_error_tst_daytime/(length_tst) # percent_error_daytime = (1/(daytime_hours*length_tst)) * Σ(abs((y_i - ŷ_i))/(y_i)) * 100 [%/hour]
+        
+    loss_tst_alltime = tst_loss_alltime.item() 
+    tst_losses_alltime.append(loss_tst_alltime)
+    tst_loss_daytime = tst_loss_daytime.item()
+    tst_losses_daytime.append(tst_loss_daytime)
+
+    percent_error_tst_alltime = percent_error_tst_alltime.item()
+    percent_errors_tst_alltime.append(percent_error_tst_alltime)         
+    percent_error_tst_daytime = percent_error_tst_daytime.item()
+    percent_errors_tst_daytime.append(percent_error_tst_daytime)        
+        
+    logging.info(f"tst Loss_alltime: {loss_tst_alltime:.4f} [(kW/hour)^2]")
+    logging.info(f"tst Daytime Loss: {tst_loss_daytime:.4f} [(kW/hour)^2]")
+    logging.info(f"tst % alltime error:{percent_error_tst_alltime:.2f} [%/hour]")
+    logging.info(f"tst % daytime error:{percent_error_tst_daytime:.2f} [%/hour]\n")
+
+    ################################################################################
+    # plot origin, trend, seasonal, residual of Test  
+    image_dir = os.path.join(hparams["save_dir"], filename)
+    os.makedirs(image_dir, exist_ok=True)
+
+    test_y_chunks = []
+    test_pred_chunks = []
+
+    start_index = 0
+    for month_length in days_per_month:
+        end_index = start_index + month_length
+        test_y_chunks.append(tst_y_append[start_index:end_index])
+        test_pred_chunks.append(tst_pred_append[start_index:end_index])
+        start_index = end_index
+    logging.info("################################################################")
+    plot_generator = PlotGenerator(image_dir, days_per_month, start_month)
+    plot_generator.plot_monthly(test_y_chunks, test_pred_chunks)
+    logging.info(f"{filename} results")
+    plot_generator.plot_annual(tst_y_append, tst_pred_append)
+    month_label = [str(i) for i in range(start_month, end_month + 1)]
+    plot_generator.plot_monthly_loss(tst_y_append, tst_pred_append, month_label)
+
+    # Filter out zeros and find the minimum of the remaining values
+    smallest_non_zero_test = concat_y_tst_daytime[concat_y_tst_daytime > 0].min().item()
+    # print(smallest_non_zero_test) # samcheok: 0.09, GWNU_C3: 0.01 [kW/h]
+       
+    logging.info("################################################################")
+    logging.info("\n# Alltime Info Of Test\nMSE loss(alltime) and Percent Error(alltime) of (trend, seasonal, residual)")
+    compute_mse_and_errors(pred=concat_pred_tst_alltime, y=concat_y_tst_alltime, period=alltime_hours, seasonal=((alltime_hours*30)-1), bias=smallest_non_zero_test)
+    monthly_mse_per_hour(concat_y_tst_alltime, concat_pred_tst_alltime, days_per_month, alltime_hours, start_month, end_month)
+
+    logging.info("\n################################################################")
+    logging.info("\n# Daytime Info Of Test\nMSE loss(daytime) and Percent Error(daytime) of (trend, seasonal, residual)")
+    compute_mse_and_errors(pred=concat_pred_tst_daytime, y=concat_y_tst_daytime, period=daytime_hours, seasonal=((daytime_hours*30)-1), bias=smallest_non_zero_test)
+    monthly_mse_per_hour(concat_y_tst_daytime, concat_pred_tst_daytime, days_per_month, daytime_hours, start_month, end_month)
+    
+    ################################################################################
     # print_parameters(model) # print params infomation
-    if model_type == 'correction_LSTMs':
-        logging.info(f'Test Loss: {tst_loss:.4f} [(kW/hour)^2]')
-        logging.info(f'The number of parameters in the first model: {count_parameters(model1)}')
-        logging.info(f'The number of parameters in the second model: {count_parameters(model2)}')
-    else:
-        logging.info(f'Test Loss: {loss_tst:.4f} [(kW/hour)^2]')
-        logging.info(f'The number of parameters in the model: {count_parameters(model)}')
-
+    test_end = time.time()
+    logging.info(f'The number of parameter in model : {count_parameters(model)}')
     logging.info(f'Testing time [sec]: {(test_end - test_start):.2f}')
-
 
     model_dir = os.path.dirname(modelPath)
     
     if hparams['save_result']:
-        result_npy = np.array(result)
-        np.save(os.path.join(model_dir,"test_result.npy"), result_npy)
-
-    test_dir = os.path.join(model_dir, f"tests_{hparams['loc_ID']}")
-    os.makedirs(test_dir, exist_ok=True)
-
-    result_arr = np.concatenate(result, axis=0)
-    y_true_arr = np.concatenate(y_true, axis=0)
-
-
-    days = 30
-    hour_chunk = days * 24
-
-    num_chunks = len(result_arr) // hour_chunk
-
-    for i in range(num_chunks):
-        start_idx = i * hour_chunk
-        end_idx = start_idx + hour_chunk
-
-        plt.figure()
-        plt.plot(result_arr[start_idx:end_idx].flatten(), label='Predictions')
-        plt.plot(y_true_arr[start_idx:end_idx].flatten(), label='Ground Truth')
-        plt.xlabel('Time (hours)')
-        plt.ylabel('Output')
-        plt.legend()
-        plt.title(f'Hourly predictions (Day {i*days+1} to Day {(i+1)*days})')
-        plt.savefig(os.path.join(test_dir, f'predictions{i*days+1}_to_{(i+1)*days}.png'))
-        plt.close()
+        tst_pred_npy = np.array(tst_pred_append)
+        np.save(os.path.join(model_dir,"test_pred.npy"), tst_pred_npy)
 
 if __name__ == "__main__":
 
@@ -675,8 +735,13 @@ if __name__ == "__main__":
         hp.update({"solar_list": solar_list})
         
         logging.info("\n--------------------Test Mode--------------------")        
-        logging.info("test mode: samcheok")        
-        test(hp, flags.model)
+        logging.info("test mode: samcheok")
+
+        samcheok_days_per_month = [31, 28, 31, 30, 31, 30, 31, 31]  # The number of days in each month from 2022.02.01~12.31
+        samcheok_start_month = 1 # 2022.01~08
+        samcheok_end_month = 8    
+        samcheok_filename = "samcheok_test"   
+        test(hp, flags.model, samcheok_days_per_month, samcheok_start_month, samcheok_end_month, samcheok_filename)
 
         # build photovoltaic data list (GWNU_C3)
         solar_list, first_date, last_date = list_up_solar(flags.tst_gwnuC3_solar_dir)

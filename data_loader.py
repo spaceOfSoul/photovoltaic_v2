@@ -242,7 +242,7 @@ class WPD(Dataset):
 
         power_data = torch.tensor(power_data)
         #print(power_data.shape)
-        weather_data = weather_data[self.kernel_range[0]*60:self.kernel_range[1]*60+1, :]
-        power_data = power_data[self.kernel_range[0]:self.kernel_range[1]]
+        #weather_data = weather_data[self.kernel_range[0]*60:self.kernel_range[1]*60+1, :]
+        #power_data = power_data[self.kernel_range[0]:self.kernel_range[1]]
         #print(power_data.shape)
         return weather_data, power_data
