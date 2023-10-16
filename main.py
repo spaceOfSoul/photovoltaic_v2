@@ -449,7 +449,7 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     #lr = learning_params["lr"]   
     #max_epoch = learning_params["max_epoch"] 
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "CNN": CNN}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "CNN": CNN,  "correction_LSTMs": LSTM}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -512,8 +512,9 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     tst_loss = 0
     
     for tst_days, (x, y) in enumerate(tstloader):
-        pass
-    length_tst = tst_days+1        
+        print(f'{x.shape} {y.shape}')
+    length_tst = tst_days+1
+    print(f"length : {length_tst}")
     
     for tst_days, (x, y) in enumerate(tstloader):
         x = x.float()
@@ -549,6 +550,7 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
         pred_daytime = pred[batch_start_idx:batch_end_idx].squeeze()
         y_daytime = y[batch_start_idx:batch_end_idx]   
 
+        #print(f"pred : {pred.shape} y : {y.shape}")
         tst_loss_alltime += criterion(pred.squeeze(), y)
         tst_loss_daytime += criterion(pred_daytime, y_daytime)
         percent_error_tst_alltime += compute_percent_error(pred.squeeze(), y, bias=0.0558) # bias = smallest_non_zero_val
@@ -702,8 +704,13 @@ if __name__ == "__main__":
         hp.update({"solar_list": solar_list})
         
         logging.info("\n--------------------Test Mode--------------------")        
-        logging.info("test mode: samcheok")        
-        test(hp, flags.model)
+        logging.info("test mode: samcheok")    
+        samcheok_days_per_month = [31, 28, 31, 30, 31, 30, 31, 31]  # The number of days in each month from 2022.02.01~12.31
+        samcheok_start_month = 1 # 2022.01~08
+        samcheok_end_month = 8    
+        samcheok_filename = "samcheok_test"
+        test(hp, flags.model, samcheok_days_per_month, samcheok_start_month, 
+             samcheok_end_month, samcheok_filename)
 
         # build photovoltaic data list (GWNU_C3)
         solar_list, first_date, last_date = list_up_solar(flags.tst_gwnuC3_solar_dir)
@@ -714,14 +721,22 @@ if __name__ == "__main__":
         hp.update({"aws_list": aws_list})
         hp.update({"asos_list": asos_list})
         hp.update({"solar_list": solar_list})
+        hp.update({"save_dir": flags.save_dir})
+
         
         logging.info("\n--------------------Test Mode--------------------")
         logging.info("test mode: GWNU_C3")
-        test(hp, flags.model)
+        gwnuC3_days_per_month = [22, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.02.01~12.31
+        gwnuC3_start_month = 6 # 2022.06~12
+        gwnuC3_end_month = 12    
+        gwnuC3_filename = "gwnuC3_test"
+        test(hp, flags.model, gwnuC3_days_per_month, gwnuC3_start_month, 
+             gwnuC3_end_month, gwnuC3_filename)
         
     elif flags.mode == "test":
         hp.update({"load_path": flags.load_path})
         hp.update({"loc_ID": flags.tst_samcheok_loc_ID})
+        hp.update({"save_dir": flags.save_dir})
         
         # =============================== test data list ====================================#
         # build photovoltaic data list (samcheok)
@@ -737,7 +752,7 @@ if __name__ == "__main__":
         logging.info("\n--------------------Test Mode--------------------")        
         logging.info("test mode: samcheok")
 
-        samcheok_days_per_month = [31, 28, 31, 30, 31, 30, 31, 31]  # The number of days in each month from 2022.02.01~12.31
+        samcheok_days_per_month = [31, 28, 31, 30, 31, 30, 31, 31]
         samcheok_start_month = 1 # 2022.01~08
         samcheok_end_month = 8    
         samcheok_filename = "samcheok_test"   
@@ -755,7 +770,12 @@ if __name__ == "__main__":
         
         logging.info("\n--------------------Test Mode--------------------")
         logging.info("test mode: GWNU_C3")
-        test(hp, flags.model)
+        gwnuC3_days_per_month = [22, 31, 31, 30, 31, 30, 31]
+        gwnuC3_start_month = 6 # 2022.06~12
+        gwnuC3_end_month = 12    
+        gwnuC3_filename = "gwnuC3_test"
+        test(hp, flags.model, gwnuC3_days_per_month, gwnuC3_start_month, 
+             gwnuC3_end_month, gwnuC3_filename)
 
         solar_list, first_date, last_date = list_up_solar(flags.val_solar_dir)
         aws_list = list_up_weather(flags.val_aws_dir, first_date, last_date)
@@ -768,4 +788,9 @@ if __name__ == "__main__":
 
         logging.info("\n--------------------Validation Mode--------------------")
         logging.info("test mode: GWNU_Preschool")
-        test(hp, flags.model)
+        gwnuPreSch_days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.02.01~12.31
+        gwnuPreSch_start_month = 2 # 2022.02~12
+        gwnuPreSch_end_month = 12    
+        gwnuPreSch_filename = "GWNU_Preschool"
+        test(hp, flags.model, gwnuPreSch_days_per_month, gwnuPreSch_start_month, 
+             gwnuPreSch_end_month, gwnuPreSch_filename)

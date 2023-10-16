@@ -28,6 +28,9 @@ def hyper_params():
         "nb_filters": [16, 32], # length of nb_filters should be equal to nlayers.
         "pooling": nlayers*[1],   
         
+        "batch_start_idx": 5, # 0~(batch_start_idx-1) 시간대는 제외
+        "batch_end_idx": 21, # batch_end_idx~23 시간대는 제외
+
         # after RNN layers
         "dropout": 0, 
         # correction lstm
@@ -35,7 +38,7 @@ def hyper_params():
     }
 
     learning_params = {
-        "nBatch": 14,  # 24 hours
+        "nBatch": 24,  # 24 hours
         "lr": 1.0e-3,
         "max_epoch": 2000,
     }
