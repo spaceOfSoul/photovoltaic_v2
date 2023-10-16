@@ -1,11 +1,12 @@
 import os
 import torch
+import math
 import numpy as np
 from scipy import integrate
 import logging
 import matplotlib.pyplot as plt
-from statsmodels.tsa.seasonal import STL
 from Visualizer.SeriesDecomp import series_decomp  
+from utility import compute_percent_error
 
 class PlotGenerator:
     def __init__(self, image_dir, days_per_month, start_month):
@@ -14,6 +15,7 @@ class PlotGenerator:
         self.start_month = start_month
 
     def plot_monthly(self, y_true_chunks, result_chunks):
+    
         for i in range(len(self.days_per_month)):
             fig, axes = plt.subplots(4, 1, figsize=(30, 40))
             y = np.concatenate(y_true_chunks[i])
@@ -44,7 +46,7 @@ class PlotGenerator:
             axes[0].plot(hours, y, label='Ground Truth', linewidth=lw_label)
             axes[0].plot(hours, pred, label='Predicted', linewidth=lw_pred)
             axes[0].legend(loc='upper left', fontsize=fs_legend)
-            axes[0].set_title(f'Month {i+self.start_month} - Original (Validation)', fontsize=fs_title)
+            axes[0].set_title(f'Month {i+self.start_month} - Original', fontsize=fs_title)
             axes[0].set_xlabel('hours', fontsize=fs_xlabel)
             axes[0].set_ylabel('kW/h', fontsize=fs_ylabel)
         
@@ -88,8 +90,12 @@ class PlotGenerator:
         y_sum = np.sum(np.array(y).reshape(-1, points_per_day), axis=1)
         pred_sum = np.sum(np.array(pred).reshape(-1, points_per_day), axis=1)
 
-        logging.info(f"\n\nlen(val_y): {len(y_sum)}\nval_y [kW/day]\n{y_sum}")
-        logging.info(f"\n\nlen(val_pred): {len(pred_sum)}\nval_pred [kW/day]\n{pred_sum}")
+        # Filter out zeros and find the minimum of the remaining values
+        smallest_non_zero = np.min(y_sum[y_sum > 0])
+        # print(f"The smallest non-zero value in y_sum is: {smallest_non_zero}") # 4.4711 kW
+    
+        logging.info(f"\n\nlen(y): {len(y_sum)}\ny [kW/day]\n{y_sum}")
+        logging.info(f"\n\nlen(pred): {len(pred_sum)}\npred [kW/day]\n{pred_sum}")
 
         # Compute integrals
         integral_y_sum = integrate.simps(y_sum)
@@ -104,13 +110,13 @@ class PlotGenerator:
         trend_y, seasonal_y, resid_y = series_decomp(y_sum, period, seasonal)
         trend_pred, seasonal_pred, resid_pred = series_decomp(pred_sum, period, seasonal)
         # trend, seasonal, resid 저장
-        logging.info(f"\n\nlen(val_trend_y): {len(trend_y)}\nval_trend_y [kW/day]\n{trend_y}")
-        logging.info(f"\n\nlen(val_trend_pred): {len(trend_pred)}\nval_trend_pred [kW/day]\n{trend_pred}")
-        logging.info(f"\n\nlen(val_seasonal_y): {len(seasonal_y)}\nval_seasonal_y [kW/day]\n{seasonal_y}")
-        logging.info(f"\n\nlen(val_seasonal_pred): {len(seasonal_pred)}\nval_seasonal_pred [kW/day]\n{seasonal_pred}")        
-        logging.info(f"\n\nlen(val_resid_y): {len(resid_y)}\nval_residual_y [kW/day]\n{resid_y}")
-        logging.info(f"\n\nlen(val_resid_pred): {len(resid_pred)}\nval_residual_pred [kW/day]\n{resid_pred}\n")
-
+        logging.info(f"\n\nlen(trend_y): {len(trend_y)}\ntrend_y [kW/day]\n{trend_y}")
+        logging.info(f"\n\nlen(trend_pred): {len(trend_pred)}\ntrend_pred [kW/day]\n{trend_pred}")
+        logging.info(f"\n\nlen(seasonal_y): {len(seasonal_y)}\nseasonal_y [kW/day]\n{seasonal_y}")
+        logging.info(f"\n\nlen(seasonal_pred): {len(seasonal_pred)}\nseasonal_pred [kW/day]\n{seasonal_pred}")        
+        logging.info(f"\n\nlen(resid_y): {len(resid_y)}\nresidual_y [kW/day]\n{resid_y}")
+        logging.info(f"\n\nlen(resid_pred): {len(resid_pred)}\nresidual_pred [kW/day]\n{resid_pred}\n")
+            
         # original, trend, seasonal, resid의 MSE 계산
         criterion = torch.nn.MSELoss()        
         ori_mse = criterion(torch.tensor(y_sum), torch.tensor(pred_sum))
@@ -119,10 +125,23 @@ class PlotGenerator:
         resid_mse = criterion(torch.tensor(resid_y), torch.tensor(resid_pred))
 
           # 계산한 MSE 로깅
-        logging.info(f"\n\nMSE for val original: {(ori_mse.item()):.4f} [(kW/day)^2]")
-        logging.info(f"MSE for val trend: {(trend_mse.item()):.4f} [(kW/day)^2]")
-        logging.info(f"MSE for val seasonal: {(seasonal_mse.item()):.4f} [(kW/day)^2]")
-        logging.info(f"MSE for val resid: {(resid_mse.item()):.4f} [(kW/day)^2]")
+        logging.info(f"\n\nMSE for original: {(ori_mse.item()):.4f} [(kW/day)^2]")
+        logging.info(f"MSE for trend: {(trend_mse.item()):.4f} [(kW/day)^2]")
+        logging.info(f"MSE for seasonal: {(seasonal_mse.item()):.4f} [(kW/day)^2]")
+        logging.info(f"MSE for resid: {(resid_mse.item()):.4f} [(kW/day)^2]")
+
+        # original, trend, seasonal, resid의 Percent Error 계산
+        bias = smallest_non_zero/2
+        ori_percent_error = compute_percent_error(torch.tensor(pred_sum), torch.tensor(y_sum), bias)
+        trend_percent_error = compute_percent_error(torch.tensor(trend_pred), torch.tensor(trend_y), bias)
+        seasonal_percent_error = compute_percent_error(torch.tensor(seasonal_pred), torch.tensor(seasonal_y), bias)
+        resid_percent_error = compute_percent_error(torch.tensor(resid_pred), torch.tensor(resid_y), bias)
+
+        # 계산한 Percent Error 로깅
+        logging.info(f"\n\nPercent Error for original: {(ori_percent_error.item()):.4f} [%/day]")
+        logging.info(f"Percent Error for trend: {(trend_percent_error.item()):.4f} [%/day]")
+        logging.info(f"Percent Error for seasonal: {(seasonal_percent_error.item()):.4f} [%/day]")
+        logging.info(f"Percent Error for resid: {(resid_percent_error.item()):.4f} [%/day]")
 
         # fontsize
         fs_legend = 35
@@ -142,10 +161,11 @@ class PlotGenerator:
         axes[0].plot(days, pred_sum, label='Predicted', linewidth=lw_pred)
         axes[0].legend(loc='upper left', fontsize=fs_legend)
         # Add text to the title
-        title_text = (f'Daily PV Power (Validation)\n'
+        title_text = (f'Daily PV Power\n'
               f'Ground Truth Sum: {integral_y_sum:.2f} [kW / {len(self.days_per_month)} months]\n'
               f'Predicted Sum: {integral_pred_sum:.2f} [kW / {len(self.days_per_month)} months]')
-        logging.info(f'\nVal y Sum: {integral_y_sum:.2f} [kW / {len(self.days_per_month)} months]\nVal Pred Sum: {integral_pred_sum:.2f} [kW / {len(self.days_per_month)} months]\n')
+        logging.info(f'\ny Sum: {integral_y_sum:.2f} [kW / {len(self.days_per_month)} months]\nPred Sum: {integral_pred_sum:.2f} [kW / {len(self.days_per_month)} months]\n')
+        logging.info(f'Percent Error for annual original: {(abs(integral_y_sum-integral_pred_sum)/(abs(integral_y_sum)+1e-7))*100:.4f} [%/{len(self.days_per_month)} months]\n')
 
         axes[0].set_title(title_text, fontsize=fs_title)
         axes[0].set_ylabel('kW/day', fontsize=fs_xlabel)
@@ -179,7 +199,7 @@ class PlotGenerator:
         plt.savefig(os.path.join(self.image_dir, "annual_pattern.png"))
         plt.close()
         
-    def plot_monthly_loss(self, y, pred):
+    def plot_monthly_loss(self, y, pred, month_label):
 
         # Assuming there are 24 data points for each day
         points_per_day = 24 # 지구의 자전으로 인해 24시간 주기로 낮과 밤이 바뀐다.
@@ -197,7 +217,7 @@ class PlotGenerator:
         for i, days in enumerate(self.days_per_month):
             end_day = start_day + days
             monthly_loss[i] = np.sum((y_sum[start_day:end_day] - pred_sum[start_day:end_day])**2)/days
-            logging.info(f"{i+self.start_month} month MSE Val Loss: {monthly_loss[i]:.2f} [(kW/day)^2]")
+            logging.info(f"{i+self.start_month} month MSE Loss: {monthly_loss[i]:.2f} [(kW/day)^2]")
             start_day = end_day
         
         # Plot the monthly loss
@@ -205,10 +225,10 @@ class PlotGenerator:
         months = np.arange(1, len(self.days_per_month)+1)
         ax.bar(months, monthly_loss)
         ax.set_xticks(months)
-        ax.set_xticklabels(['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
+        ax.set_xticklabels(month_label)
         ax.set_xlabel('Months')
         ax.set_ylabel('[(kW/day)^2]')
-        ax.set_title('Monthly MSE Val Loss')
+        ax.set_title('Monthly MSE Loss')
         plt.tight_layout()
         plt.savefig(os.path.join(self.image_dir, "monthly_loss.png"))
         plt.close()

@@ -4,9 +4,10 @@ import logging
 import os
 
 class LossStatistics:
-    def __init__(self, losses, val_losses):
+    def __init__(self, losses, val_losses, filename="loss_distribution.png"):
         self.losses = losses
         self.val_losses = val_losses
+        self.filename = filename
 
     def process(self, save_dir):
         # Calculate statistics
@@ -18,8 +19,8 @@ class LossStatistics:
         val_losses_max = np.max(self.val_losses)
 
         # Print statistics
-        logging.info("\nTraining losses: Mean = {:.4f} [(kW/hour)^2], Variance = {:.4f}, Max = {:.4f}".format(losses_mean, losses_var, losses_max))
-        logging.info("Validation losses: Mean = {:.4f} [(kW/hour)^2], Variance = {:.4f}, Max = {:.4f}".format(val_losses_mean, val_losses_var, val_losses_max))
+        logging.info("Training losses: Mean = {:.4f} [(kW/hour)^2], Variance = {:.4f}, Max = {:.4f}".format(losses_mean, losses_var, losses_max))
+        logging.info("Validation losses: Mean = {:.4f} [(kW/hour)^2], Variance = {:.4f}, Max = {:.4f}\n".format(val_losses_mean, val_losses_var, val_losses_max))
 
         # Plot distributions
         fig, axes = plt.subplots(2, 1, figsize=(15, 10))
@@ -43,6 +44,6 @@ class LossStatistics:
         axes[1].text(0.95, 0.95, stat_text, transform=axes[1].transAxes, ha='right', va='top', fontsize=10)
         
         plt.tight_layout()
-        plt.savefig(os.path.join(save_dir, "loss_distribution.png"))
+        plt.savefig(os.path.join(save_dir, self.filename))
         plt.close()
 

@@ -623,7 +623,11 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     ################################################################################
     # print_parameters(model) # print params infomation
     test_end = time.time()
-    logging.info(f'The number of parameter in model : {count_parameters(model)}')
+    if  model_type in ["correction_LSTMs"]:
+        logging.info(f'The number of parameter in model1 : {count_parameters(model1)}')
+        logging.info(f'The number of parameter in model2 : {count_parameters(model2)}')
+    else:
+        logging.info(f'The number of parameter in model : {count_parameters(model)}')
     logging.info(f'Testing time [sec]: {(test_end - test_start):.2f}')
 
     model_dir = os.path.dirname(modelPath)
