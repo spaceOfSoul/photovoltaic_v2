@@ -1,0 +1,140 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-10-17 02:06:48.616662
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'batch_start_idx': 5, 'batch_end_idx': 21, 'dropout': 0.3, 'previous_steps': 5}
+
+learning: {'nBatch': 24, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: correction_LSTMs
+
+
+--------------------Training Mode (Training and Validating)--------------------
+Training on the interval from 20220101 to 20221231.
+Validating on the interval from 20220201 to 20221231.
+
+The number of parameter in first model : 203016
+
+The number of parameter in second model : 201480
+
+Epoch [1/2000], First Loss: 394.5832, Second Loss: -77777.0000, Val Loss: 340.5486 [(kW/hour)^2], MinVal : 340.5486145019531
+Epoch [2/2000], First Loss: 392.3295, Second Loss: -77777.0000, Val Loss: 338.5049 [(kW/hour)^2], MinVal : 338.5048522949219
+Epoch [3/2000], First Loss: 390.0018, Second Loss: -77777.0000, Val Loss: 336.2722 [(kW/hour)^2], MinVal : 336.2721862792969
+Epoch [4/2000], First Loss: 387.4602, Second Loss: -77777.0000, Val Loss: 333.7069 [(kW/hour)^2], MinVal : 333.7069091796875
+Epoch [5/2000], First Loss: 384.5415, Second Loss: -77777.0000, Val Loss: 330.6016 [(kW/hour)^2], MinVal : 330.60162353515625
+Epoch [6/2000], First Loss: 381.0111, Second Loss: -77777.0000, Val Loss: 326.6429 [(kW/hour)^2], MinVal : 326.6429443359375
+Epoch [7/2000], First Loss: 376.5136, Second Loss: -77777.0000, Val Loss: 321.3406 [(kW/hour)^2], MinVal : 321.3406066894531
+Epoch [8/2000], First Loss: 370.4929, Second Loss: -77777.0000, Val Loss: 313.9071 [(kW/hour)^2], MinVal : 313.9070739746094
+Epoch [9/2000], First Loss: 362.0513, Second Loss: -77777.0000, Val Loss: 303.1937 [(kW/hour)^2], MinVal : 303.1936950683594
+Epoch [10/2000], First Loss: 349.8625, Second Loss: -77777.0000, Val Loss: 288.1927 [(kW/hour)^2], MinVal : 288.1927490234375
+Epoch [11/2000], First Loss: 332.6850, Second Loss: -77777.0000, Val Loss: 269.7433 [(kW/hour)^2], MinVal : 269.7432556152344
+Epoch [12/2000], First Loss: 311.1961, Second Loss: -77777.0000, Val Loss: 251.2638 [(kW/hour)^2], MinVal : 251.2638397216797
+Epoch [13/2000], First Loss: 288.9709, Second Loss: -77777.0000, Val Loss: 236.1088 [(kW/hour)^2], MinVal : 236.10882568359375
+Epoch [14/2000], First Loss: 269.9223, Second Loss: -77777.0000, Val Loss: 225.1492 [(kW/hour)^2], MinVal : 225.1492156982422
+Epoch [15/2000], First Loss: 255.4303, Second Loss: -77777.0000, Val Loss: 217.4725 [(kW/hour)^2], MinVal : 217.47247314453125
+Epoch [16/2000], First Loss: 244.7232, Second Loss: -77777.0000, Val Loss: 212.0050 [(kW/hour)^2], MinVal : 212.0049591064453
+Epoch [17/2000], First Loss: 236.6657, Second Loss: -77777.0000, Val Loss: 207.9319 [(kW/hour)^2], MinVal : 207.93190002441406
+Epoch [18/2000], First Loss: 230.3538, Second Loss: -77777.0000, Val Loss: 204.7398 [(kW/hour)^2], MinVal : 204.73976135253906
+Epoch [19/2000], First Loss: 225.2513, Second Loss: -77777.0000, Val Loss: 202.2679 [(kW/hour)^2], MinVal : 202.2679443359375
+Epoch [20/2000], First Loss: 221.0775, Second Loss: -77777.0000, Val Loss: 200.3560 [(kW/hour)^2], MinVal : 200.35597229003906
+Epoch [21/2000], First Loss: 217.6451, Second Loss: -77777.0000, Val Loss: 198.8835 [(kW/hour)^2], MinVal : 198.88345336914062
+Epoch [22/2000], First Loss: 214.8074, Second Loss: -77777.0000, Val Loss: 197.7509 [(kW/hour)^2], MinVal : 197.75094604492188
+Epoch [23/2000], First Loss: 212.4664, Second Loss: -77777.0000, Val Loss: 196.8750 [(kW/hour)^2], MinVal : 196.875
+Epoch [24/2000], First Loss: 210.5287, Second Loss: -77777.0000, Val Loss: 196.1780 [(kW/hour)^2], MinVal : 196.177978515625
+Epoch [25/2000], First Loss: 208.9301, Second Loss: -77777.0000, Val Loss: 195.5996 [(kW/hour)^2], MinVal : 195.599609375
+Epoch [26/2000], First Loss: 207.5201, Second Loss: -77777.0000, Val Loss: 195.0533 [(kW/hour)^2], MinVal : 195.05325317382812
+Epoch [27/2000], First Loss: 206.2512, Second Loss: -77777.0000, Val Loss: 194.6330 [(kW/hour)^2], MinVal : 194.63296508789062
+Epoch [28/2000], First Loss: 205.0954, Second Loss: -77777.0000, Val Loss: 194.1463 [(kW/hour)^2], MinVal : 194.14633178710938
+Epoch [29/2000], First Loss: 204.0173, Second Loss: -77777.0000, Val Loss: 193.3665 [(kW/hour)^2], MinVal : 193.3665313720703
+Epoch [30/2000], First Loss: 202.9044, Second Loss: -77777.0000, Val Loss: 192.6674 [(kW/hour)^2], MinVal : 192.6674041748047
+Epoch [31/2000], First Loss: 201.7951, Second Loss: -77777.0000, Val Loss: 191.9840 [(kW/hour)^2], MinVal : 191.98402404785156
+Epoch [32/2000], First Loss: 200.8602, Second Loss: -77777.0000, Val Loss: 191.2281 [(kW/hour)^2], MinVal : 191.22811889648438
+Epoch [33/2000], First Loss: 199.8144, Second Loss: -77777.0000, Val Loss: 190.4255 [(kW/hour)^2], MinVal : 190.42552185058594
+Epoch [34/2000], First Loss: 199.0303, Second Loss: -77777.0000, Val Loss: 189.6650 [(kW/hour)^2], MinVal : 189.6649932861328
+Epoch [35/2000], First Loss: 198.0615, Second Loss: -77777.0000, Val Loss: 189.1145 [(kW/hour)^2], MinVal : 189.11447143554688
+Epoch [36/2000], First Loss: 197.2522, Second Loss: -77777.0000, Val Loss: 188.3562 [(kW/hour)^2], MinVal : 188.35618591308594
+Epoch [37/2000], First Loss: 196.7293, Second Loss: -77777.0000, Val Loss: 187.6712 [(kW/hour)^2], MinVal : 187.6711883544922
+Epoch [38/2000], First Loss: 196.2819, Second Loss: -77777.0000, Val Loss: 187.2550 [(kW/hour)^2], MinVal : 187.2550048828125
+Epoch [39/2000], First Loss: 195.5694, Second Loss: -77777.0000, Val Loss: 187.1634 [(kW/hour)^2], MinVal : 187.16336059570312
+Epoch [40/2000], First Loss: 195.1034, Second Loss: -77777.0000, Val Loss: 186.5182 [(kW/hour)^2], MinVal : 186.51821899414062
+Epoch [41/2000], First Loss: 194.5048, Second Loss: -77777.0000, Val Loss: 185.9384 [(kW/hour)^2], MinVal : 185.9384307861328
+Epoch [42/2000], First Loss: 193.9183, Second Loss: -77777.0000, Val Loss: 185.4011 [(kW/hour)^2], MinVal : 185.4010772705078
+Epoch [43/2000], First Loss: 193.4209, Second Loss: -77777.0000, Val Loss: 185.0247 [(kW/hour)^2], MinVal : 185.02468872070312
+Epoch [44/2000], First Loss: 192.8566, Second Loss: -77777.0000, Val Loss: 184.4153 [(kW/hour)^2], MinVal : 184.41526794433594
+Epoch [45/2000], First Loss: 192.3190, Second Loss: -77777.0000, Val Loss: 183.5219 [(kW/hour)^2], MinVal : 183.5219268798828
+Epoch [46/2000], First Loss: 191.7919, Second Loss: -77777.0000, Val Loss: 183.2330 [(kW/hour)^2], MinVal : 183.23297119140625
+Epoch [47/2000], First Loss: 191.1906, Second Loss: -77777.0000, Val Loss: 182.4908 [(kW/hour)^2], MinVal : 182.49078369140625
+Epoch [48/2000], First Loss: 190.5173, Second Loss: -77777.0000, Val Loss: 182.4356 [(kW/hour)^2], MinVal : 182.43556213378906
+Epoch [49/2000], First Loss: 189.8965, Second Loss: -77777.0000, Val Loss: 181.9547 [(kW/hour)^2], MinVal : 181.95469665527344
+Epoch [50/2000], First Loss: 189.4618, Second Loss: -77777.0000, Val Loss: 181.5905 [(kW/hour)^2], MinVal : 181.59046936035156
+Epoch [51/2000], First Loss: 189.0388, Second Loss: -77777.0000, Val Loss: 180.8811 [(kW/hour)^2], MinVal : 180.881103515625
+Epoch [52/2000], First Loss: 188.7437, Second Loss: -77777.0000, Val Loss: 180.2273 [(kW/hour)^2], MinVal : 180.227294921875
+Epoch [53/2000], First Loss: 188.3273, Second Loss: -77777.0000, Val Loss: 179.7174 [(kW/hour)^2], MinVal : 179.71737670898438
+Epoch [54/2000], First Loss: 187.7339, Second Loss: -77777.0000, Val Loss: 178.9325 [(kW/hour)^2], MinVal : 178.93252563476562
+Epoch [55/2000], First Loss: 187.0921, Second Loss: -77777.0000, Val Loss: 178.6477 [(kW/hour)^2], MinVal : 178.64768981933594
+Epoch [56/2000], First Loss: 186.7705, Second Loss: -77777.0000, Val Loss: 178.2242 [(kW/hour)^2], MinVal : 178.2241973876953
+Epoch [57/2000], First Loss: 186.4453, Second Loss: -77777.0000, Val Loss: 177.7497 [(kW/hour)^2], MinVal : 177.74974060058594
+Epoch [58/2000], First Loss: 185.9664, Second Loss: -77777.0000, Val Loss: 177.3703 [(kW/hour)^2], MinVal : 177.3702850341797
+Epoch [59/2000], First Loss: 185.7398, Second Loss: -77777.0000, Val Loss: 176.9612 [(kW/hour)^2], MinVal : 176.96119689941406
+Epoch [60/2000], First Loss: 185.3459, Second Loss: -77777.0000, Val Loss: 176.6377 [(kW/hour)^2], MinVal : 176.63772583007812
+Epoch [61/2000], First Loss: 184.9495, Second Loss: -77777.0000, Val Loss: 176.2130 [(kW/hour)^2], MinVal : 176.21295166015625
+Epoch [62/2000], First Loss: 184.8801, Second Loss: -77777.0000, Val Loss: 175.4634 [(kW/hour)^2], MinVal : 175.46339416503906
+Epoch [63/2000], First Loss: 183.8687, Second Loss: -77777.0000, Val Loss: 174.8526 [(kW/hour)^2], MinVal : 174.85263061523438
+Epoch [64/2000], First Loss: 183.3145, Second Loss: -77777.0000, Val Loss: 174.1021 [(kW/hour)^2], MinVal : 174.10211181640625
+Epoch [65/2000], First Loss: 182.6373, Second Loss: -77777.0000, Val Loss: 173.3256 [(kW/hour)^2], MinVal : 173.32562255859375
+Epoch [66/2000], First Loss: 181.6915, Second Loss: -77777.0000, Val Loss: 172.2656 [(kW/hour)^2], MinVal : 172.26564025878906
+Epoch [67/2000], First Loss: 180.8087, Second Loss: -77777.0000, Val Loss: 171.2705 [(kW/hour)^2], MinVal : 171.27047729492188
+Epoch [68/2000], First Loss: 180.1682, Second Loss: -77777.0000, Val Loss: 170.1694 [(kW/hour)^2], MinVal : 170.16943359375
+Epoch [69/2000], First Loss: 179.0719, Second Loss: -77777.0000, Val Loss: 169.0091 [(kW/hour)^2], MinVal : 169.00914001464844
+Epoch [70/2000], First Loss: 177.9254, Second Loss: -77777.0000, Val Loss: 167.7742 [(kW/hour)^2], MinVal : 167.7742462158203
+Epoch [71/2000], First Loss: 176.6966, Second Loss: -77777.0000, Val Loss: 166.2770 [(kW/hour)^2], MinVal : 166.2770233154297
+Epoch [72/2000], First Loss: 175.5738, Second Loss: -77777.0000, Val Loss: 164.5175 [(kW/hour)^2], MinVal : 164.5175323486328
+Epoch [73/2000], First Loss: 174.2110, Second Loss: -77777.0000, Val Loss: 162.6238 [(kW/hour)^2], MinVal : 162.62379455566406
+Epoch [74/2000], First Loss: 172.6223, Second Loss: -77777.0000, Val Loss: 160.4055 [(kW/hour)^2], MinVal : 160.40545654296875
+Epoch [75/2000], First Loss: 171.4415, Second Loss: -77777.0000, Val Loss: 158.9442 [(kW/hour)^2], MinVal : 158.9441680908203
+Epoch [76/2000], First Loss: 170.7355, Second Loss: -77777.0000, Val Loss: 157.4993 [(kW/hour)^2], MinVal : 157.49928283691406
+Epoch [77/2000], First Loss: 169.8844, Second Loss: -77777.0000, Val Loss: 156.4549 [(kW/hour)^2], MinVal : 156.4548797607422
+Epoch [78/2000], First Loss: 168.7926, Second Loss: -77777.0000, Val Loss: 154.9268 [(kW/hour)^2], MinVal : 154.92684936523438
+Epoch [79/2000], First Loss: 166.6630, Second Loss: -77777.0000, Val Loss: 153.5997 [(kW/hour)^2], MinVal : 153.59971618652344
+Epoch [80/2000], First Loss: 164.5602, Second Loss: -77777.0000, Val Loss: 152.5321 [(kW/hour)^2], MinVal : 152.5320587158203
+Epoch [81/2000], First Loss: 162.6244, Second Loss: -77777.0000, Val Loss: 151.5712 [(kW/hour)^2], MinVal : 151.5711669921875
+Epoch [82/2000], First Loss: 161.0291, Second Loss: -77777.0000, Val Loss: 150.4135 [(kW/hour)^2], MinVal : 150.41346740722656
+Epoch [83/2000], First Loss: 159.4082, Second Loss: -77777.0000, Val Loss: 149.1285 [(kW/hour)^2], MinVal : 149.12847900390625
+Epoch [84/2000], First Loss: 157.9037, Second Loss: -77777.0000, Val Loss: 147.8766 [(kW/hour)^2], MinVal : 147.87661743164062
+Epoch [85/2000], First Loss: 156.4344, Second Loss: -77777.0000, Val Loss: 146.5859 [(kW/hour)^2], MinVal : 146.5859375
+Epoch [86/2000], First Loss: 154.9469, Second Loss: -77777.0000, Val Loss: 145.5219 [(kW/hour)^2], MinVal : 145.52188110351562
+Epoch [87/2000], First Loss: 153.6512, Second Loss: -77777.0000, Val Loss: 144.7711 [(kW/hour)^2], MinVal : 144.7711181640625
+Epoch [88/2000], First Loss: 152.4985, Second Loss: -77777.0000, Val Loss: 144.0180 [(kW/hour)^2], MinVal : 144.0180206298828
+Epoch [89/2000], First Loss: 151.4227, Second Loss: -77777.0000, Val Loss: 142.9315 [(kW/hour)^2], MinVal : 142.93148803710938
+Epoch [90/2000], First Loss: 150.3474, Second Loss: -77777.0000, Val Loss: 141.7821 [(kW/hour)^2], MinVal : 141.78207397460938
+Epoch [91/2000], First Loss: 149.3790, Second Loss: -77777.0000, Val Loss: 140.9129 [(kW/hour)^2], MinVal : 140.91294860839844
+Epoch [92/2000], First Loss: 148.4804, Second Loss: -77777.0000, Val Loss: 140.3642 [(kW/hour)^2], MinVal : 140.36415100097656
+Epoch [93/2000], First Loss: 147.5281, Second Loss: -77777.0000, Val Loss: 140.0195 [(kW/hour)^2], MinVal : 140.01947021484375
+Epoch [94/2000], First Loss: 146.5796, Second Loss: -77777.0000, Val Loss: 139.6604 [(kW/hour)^2], MinVal : 139.66041564941406
+Epoch [95/2000], First Loss: 145.6553, Second Loss: -77777.0000, Val Loss: 138.8926 [(kW/hour)^2], MinVal : 138.8926239013672
+Epoch [96/2000], First Loss: 144.6750, Second Loss: -77777.0000, Val Loss: 137.7852 [(kW/hour)^2], MinVal : 137.78518676757812
+Epoch [97/2000], First Loss: 143.6669, Second Loss: -77777.0000, Val Loss: 136.7982 [(kW/hour)^2], MinVal : 136.79824829101562
+Epoch [98/2000], First Loss: 142.7317, Second Loss: -77777.0000, Val Loss: 136.4112 [(kW/hour)^2], MinVal : 136.41122436523438
+Epoch [99/2000], First Loss: 141.8323, Second Loss: -77777.0000, Val Loss: 136.0464 [(kW/hour)^2], MinVal : 136.04641723632812
+Epoch [100/2000], First Loss: 140.9789, Second Loss: -77777.0000, Val Loss: 134.9568 [(kW/hour)^2], MinVal : 134.95684814453125
+Epoch [101/2000], First Loss: 140.0364, Second Loss: -77777.0000, Val Loss: 133.5879 [(kW/hour)^2], MinVal : 133.58792114257812
+Epoch [102/2000], First Loss: 139.1257, Second Loss: -77777.0000, Val Loss: 132.9098 [(kW/hour)^2], MinVal : 132.90980529785156
+Epoch [103/2000], First Loss: 138.1506, Second Loss: -77777.0000, Val Loss: 132.8819 [(kW/hour)^2], MinVal : 132.8819122314453
+Epoch [104/2000], First Loss: 137.1787, Second Loss: -77777.0000, Val Loss: 132.0705 [(kW/hour)^2], MinVal : 132.07054138183594
+Epoch [105/2000], First Loss: 136.3042, Second Loss: -77777.0000, Val Loss: 130.3509 [(kW/hour)^2], MinVal : 130.35086059570312
+Epoch [106/2000], First Loss: 135.3130, Second Loss: -77777.0000, Val Loss: 130.1984 [(kW/hour)^2], MinVal : 130.19839477539062
+Epoch [107/2000], First Loss: 134.3643, Second Loss: -77777.0000, Val Loss: 128.6666 [(kW/hour)^2], MinVal : 128.66661071777344
+Epoch [108/2000], First Loss: 133.2929, Second Loss: -77777.0000, Val Loss: 128.7870 [(kW/hour)^2], MinVal : 128.66661071777344
