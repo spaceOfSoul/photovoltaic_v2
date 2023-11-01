@@ -1544,3 +1544,1500 @@ Epoch [1513/2000], Trn Loss: 49.7490, Val Loss: 79.1176 [(kW/hour)^2], MinVal : 
 Epoch [1514/2000], Trn Loss: 52.6916, Val Loss: 75.6748 [(kW/hour)^2], MinVal : 68.67009735107422
 Epoch [1515/2000], Trn Loss: 46.3791, Val Loss: 78.3410 [(kW/hour)^2], MinVal : 68.67009735107422
 Epoch [1516/2000], Trn Loss: 46.3986, Val Loss: 77.4234 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1517/2000], Trn Loss: 47.7630, Val Loss: 72.3561 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1518/2000], Trn Loss: 43.9260, Val Loss: 77.5456 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1519/2000], Trn Loss: 45.9144, Val Loss: 79.9392 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1520/2000], Trn Loss: 44.3495, Val Loss: 76.6687 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1521/2000], Trn Loss: 42.3530, Val Loss: 71.0039 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1522/2000], Trn Loss: 43.9378, Val Loss: 73.7825 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1523/2000], Trn Loss: 42.0558, Val Loss: 77.5028 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1524/2000], Trn Loss: 42.6493, Val Loss: 76.4224 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1525/2000], Trn Loss: 42.0974, Val Loss: 71.6825 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1526/2000], Trn Loss: 42.1109, Val Loss: 72.0460 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1527/2000], Trn Loss: 40.3648, Val Loss: 76.8830 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1528/2000], Trn Loss: 41.6042, Val Loss: 73.6979 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1529/2000], Trn Loss: 39.3185, Val Loss: 71.5941 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1530/2000], Trn Loss: 40.7050, Val Loss: 74.1975 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1531/2000], Trn Loss: 39.3594, Val Loss: 75.2328 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1532/2000], Trn Loss: 39.7747, Val Loss: 71.8012 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1533/2000], Trn Loss: 39.5966, Val Loss: 72.0058 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1534/2000], Trn Loss: 38.9168, Val Loss: 75.5754 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1535/2000], Trn Loss: 39.6138, Val Loss: 72.9423 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1536/2000], Trn Loss: 38.4655, Val Loss: 70.7547 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1537/2000], Trn Loss: 39.1833, Val Loss: 73.6508 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1538/2000], Trn Loss: 38.4458, Val Loss: 73.5379 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1539/2000], Trn Loss: 38.5999, Val Loss: 71.7594 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1540/2000], Trn Loss: 38.8435, Val Loss: 73.1803 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1541/2000], Trn Loss: 38.1347, Val Loss: 72.9047 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1542/2000], Trn Loss: 38.4746, Val Loss: 70.8288 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1543/2000], Trn Loss: 38.1909, Val Loss: 73.7414 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1544/2000], Trn Loss: 38.0199, Val Loss: 73.3761 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1545/2000], Trn Loss: 38.0600, Val Loss: 72.0305 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1546/2000], Trn Loss: 37.8426, Val Loss: 72.3817 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1547/2000], Trn Loss: 37.7331, Val Loss: 72.4839 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1548/2000], Trn Loss: 37.7976, Val Loss: 72.5075 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1549/2000], Trn Loss: 37.6758, Val Loss: 71.4789 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1550/2000], Trn Loss: 37.4964, Val Loss: 73.2431 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1551/2000], Trn Loss: 37.5460, Val Loss: 71.9108 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1552/2000], Trn Loss: 37.3425, Val Loss: 71.6281 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1553/2000], Trn Loss: 37.3109, Val Loss: 73.5271 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1554/2000], Trn Loss: 37.3624, Val Loss: 71.6513 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1555/2000], Trn Loss: 37.2255, Val Loss: 71.8648 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1556/2000], Trn Loss: 37.1773, Val Loss: 72.7593 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1557/2000], Trn Loss: 37.1485, Val Loss: 71.7432 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1558/2000], Trn Loss: 37.1196, Val Loss: 72.2891 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1559/2000], Trn Loss: 37.0146, Val Loss: 72.4581 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1560/2000], Trn Loss: 37.0166, Val Loss: 71.7474 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1561/2000], Trn Loss: 36.9772, Val Loss: 72.8624 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1562/2000], Trn Loss: 36.9417, Val Loss: 71.9075 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1563/2000], Trn Loss: 36.9216, Val Loss: 71.9263 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1564/2000], Trn Loss: 36.8426, Val Loss: 72.5108 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1565/2000], Trn Loss: 36.8359, Val Loss: 71.5771 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1566/2000], Trn Loss: 36.7943, Val Loss: 72.7312 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1567/2000], Trn Loss: 36.7723, Val Loss: 71.8640 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1568/2000], Trn Loss: 36.7201, Val Loss: 71.8814 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1569/2000], Trn Loss: 36.6975, Val Loss: 72.2089 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1570/2000], Trn Loss: 36.6725, Val Loss: 71.7116 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1571/2000], Trn Loss: 36.6558, Val Loss: 71.9287 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1572/2000], Trn Loss: 36.6186, Val Loss: 72.3272 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1573/2000], Trn Loss: 36.5932, Val Loss: 71.3876 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1574/2000], Trn Loss: 36.6068, Val Loss: 72.4422 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1575/2000], Trn Loss: 36.5531, Val Loss: 71.3503 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1576/2000], Trn Loss: 36.5571, Val Loss: 72.7398 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1577/2000], Trn Loss: 36.5293, Val Loss: 70.9142 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1578/2000], Trn Loss: 36.5415, Val Loss: 73.0217 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1579/2000], Trn Loss: 36.4999, Val Loss: 71.3278 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1580/2000], Trn Loss: 36.4369, Val Loss: 72.4600 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1581/2000], Trn Loss: 36.3817, Val Loss: 71.8520 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1582/2000], Trn Loss: 36.3658, Val Loss: 72.5150 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1583/2000], Trn Loss: 36.3336, Val Loss: 71.4486 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1584/2000], Trn Loss: 36.3429, Val Loss: 72.9193 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1585/2000], Trn Loss: 36.3710, Val Loss: 71.3006 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1586/2000], Trn Loss: 36.4157, Val Loss: 73.6753 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1587/2000], Trn Loss: 36.6446, Val Loss: 71.7141 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1588/2000], Trn Loss: 36.7729, Val Loss: 73.2295 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1589/2000], Trn Loss: 37.4097, Val Loss: 72.7756 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1590/2000], Trn Loss: 36.8857, Val Loss: 71.7955 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1591/2000], Trn Loss: 36.9240, Val Loss: 72.5167 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1592/2000], Trn Loss: 36.3730, Val Loss: 71.4016 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1593/2000], Trn Loss: 36.2020, Val Loss: 72.9287 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1594/2000], Trn Loss: 36.1842, Val Loss: 71.3312 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1595/2000], Trn Loss: 36.1745, Val Loss: 72.5052 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1596/2000], Trn Loss: 36.2488, Val Loss: 71.8116 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1597/2000], Trn Loss: 36.3658, Val Loss: 72.4588 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1598/2000], Trn Loss: 36.9160, Val Loss: 72.7424 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1599/2000], Trn Loss: 36.8267, Val Loss: 72.7093 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1600/2000], Trn Loss: 37.4432, Val Loss: 72.0348 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1601/2000], Trn Loss: 36.4598, Val Loss: 72.7869 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1602/2000], Trn Loss: 36.1796, Val Loss: 71.1060 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1603/2000], Trn Loss: 36.0379, Val Loss: 72.4053 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1604/2000], Trn Loss: 36.0082, Val Loss: 71.4899 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1605/2000], Trn Loss: 36.2501, Val Loss: 72.6834 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1606/2000], Trn Loss: 36.4450, Val Loss: 72.1704 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1607/2000], Trn Loss: 37.1184, Val Loss: 72.4279 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1608/2000], Trn Loss: 36.5999, Val Loss: 73.1138 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1609/2000], Trn Loss: 36.7924, Val Loss: 71.2626 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1610/2000], Trn Loss: 36.3167, Val Loss: 72.8275 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1611/2000], Trn Loss: 36.1690, Val Loss: 71.8220 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1612/2000], Trn Loss: 35.8914, Val Loss: 71.1740 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1613/2000], Trn Loss: 35.8414, Val Loss: 73.2778 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1614/2000], Trn Loss: 35.9199, Val Loss: 69.9897 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1615/2000], Trn Loss: 36.0705, Val Loss: 75.1202 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1616/2000], Trn Loss: 36.3333, Val Loss: 69.3599 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1617/2000], Trn Loss: 36.3494, Val Loss: 74.9810 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1618/2000], Trn Loss: 36.2609, Val Loss: 69.8878 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1619/2000], Trn Loss: 36.3006, Val Loss: 73.2064 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1620/2000], Trn Loss: 36.1093, Val Loss: 72.7967 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1621/2000], Trn Loss: 36.6980, Val Loss: 71.3030 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1622/2000], Trn Loss: 36.9119, Val Loss: 76.1525 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1623/2000], Trn Loss: 38.4480, Val Loss: 71.5821 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1624/2000], Trn Loss: 36.8215, Val Loss: 71.0380 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1625/2000], Trn Loss: 36.3658, Val Loss: 74.3417 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1626/2000], Trn Loss: 36.0525, Val Loss: 69.3648 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1627/2000], Trn Loss: 36.3274, Val Loss: 76.9504 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1628/2000], Trn Loss: 37.1552, Val Loss: 70.7828 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1629/2000], Trn Loss: 36.1395, Val Loss: 70.1130 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1630/2000], Trn Loss: 35.8966, Val Loss: 75.6343 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1631/2000], Trn Loss: 36.5390, Val Loss: 68.6889 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1632/2000], Trn Loss: 36.8156, Val Loss: 76.5886 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1633/2000], Trn Loss: 36.6857, Val Loss: 71.8042 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1634/2000], Trn Loss: 35.8268, Val Loss: 68.8780 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1635/2000], Trn Loss: 36.1687, Val Loss: 77.8914 [(kW/hour)^2], MinVal : 68.67009735107422
+Epoch [1636/2000], Trn Loss: 37.4831, Val Loss: 68.5223 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1637/2000], Trn Loss: 37.5106, Val Loss: 72.6703 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1638/2000], Trn Loss: 36.2767, Val Loss: 77.8472 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1639/2000], Trn Loss: 37.4677, Val Loss: 69.2273 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1640/2000], Trn Loss: 41.8629, Val Loss: 71.9982 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1641/2000], Trn Loss: 36.6478, Val Loss: 87.0806 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1642/2000], Trn Loss: 45.7921, Val Loss: 83.0835 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1643/2000], Trn Loss: 55.0003, Val Loss: 76.2130 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1644/2000], Trn Loss: 62.0497, Val Loss: 75.6252 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1645/2000], Trn Loss: 55.9262, Val Loss: 79.7256 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1646/2000], Trn Loss: 54.5119, Val Loss: 81.8133 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1647/2000], Trn Loss: 53.2065, Val Loss: 81.7647 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1648/2000], Trn Loss: 52.9629, Val Loss: 83.4300 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1649/2000], Trn Loss: 53.2581, Val Loss: 84.0497 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1650/2000], Trn Loss: 53.0499, Val Loss: 78.7482 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1651/2000], Trn Loss: 49.5525, Val Loss: 77.1099 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1652/2000], Trn Loss: 48.3847, Val Loss: 80.4169 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1653/2000], Trn Loss: 47.0800, Val Loss: 82.2521 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1654/2000], Trn Loss: 46.9356, Val Loss: 77.3923 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1655/2000], Trn Loss: 45.4569, Val Loss: 76.4651 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1656/2000], Trn Loss: 43.0684, Val Loss: 81.4139 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1657/2000], Trn Loss: 43.5287, Val Loss: 72.6459 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1658/2000], Trn Loss: 44.4510, Val Loss: 82.4899 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1659/2000], Trn Loss: 46.3047, Val Loss: 73.7527 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1660/2000], Trn Loss: 43.8057, Val Loss: 73.5110 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1661/2000], Trn Loss: 45.5034, Val Loss: 77.1320 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1662/2000], Trn Loss: 42.5377, Val Loss: 76.2681 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1663/2000], Trn Loss: 41.8927, Val Loss: 71.0409 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1664/2000], Trn Loss: 43.8896, Val Loss: 75.9837 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1665/2000], Trn Loss: 42.3378, Val Loss: 75.6532 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1666/2000], Trn Loss: 39.6614, Val Loss: 79.8742 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1667/2000], Trn Loss: 45.1892, Val Loss: 78.1353 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1668/2000], Trn Loss: 45.2886, Val Loss: 72.8315 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1669/2000], Trn Loss: 39.6244, Val Loss: 80.3204 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1670/2000], Trn Loss: 48.7114, Val Loss: 89.9422 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1671/2000], Trn Loss: 52.7401, Val Loss: 73.9911 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1672/2000], Trn Loss: 42.3045, Val Loss: 76.5423 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1673/2000], Trn Loss: 51.8779, Val Loss: 80.1686 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1674/2000], Trn Loss: 41.9166, Val Loss: 83.1043 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1675/2000], Trn Loss: 45.8846, Val Loss: 69.3533 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1676/2000], Trn Loss: 41.1560, Val Loss: 72.7293 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1677/2000], Trn Loss: 43.9742, Val Loss: 83.0885 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1678/2000], Trn Loss: 44.4673, Val Loss: 78.8864 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1679/2000], Trn Loss: 43.1116, Val Loss: 69.4736 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1680/2000], Trn Loss: 42.2130, Val Loss: 70.1221 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1681/2000], Trn Loss: 42.5802, Val Loss: 77.5732 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1682/2000], Trn Loss: 40.8143, Val Loss: 79.9979 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1683/2000], Trn Loss: 41.8022, Val Loss: 71.4460 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1684/2000], Trn Loss: 38.8276, Val Loss: 69.7791 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1685/2000], Trn Loss: 40.1943, Val Loss: 75.5271 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1686/2000], Trn Loss: 39.2739, Val Loss: 79.5501 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1687/2000], Trn Loss: 40.0803, Val Loss: 72.6902 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1688/2000], Trn Loss: 38.3408, Val Loss: 70.2183 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1689/2000], Trn Loss: 39.1460, Val Loss: 76.0355 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1690/2000], Trn Loss: 38.4956, Val Loss: 74.8700 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1691/2000], Trn Loss: 37.8484, Val Loss: 69.1998 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1692/2000], Trn Loss: 39.1769, Val Loss: 71.5276 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1693/2000], Trn Loss: 36.8751, Val Loss: 76.5331 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1694/2000], Trn Loss: 37.7954, Val Loss: 70.0690 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1695/2000], Trn Loss: 37.6300, Val Loss: 69.6870 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1696/2000], Trn Loss: 36.8846, Val Loss: 75.8353 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1697/2000], Trn Loss: 37.0856, Val Loss: 71.1780 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1698/2000], Trn Loss: 36.5520, Val Loss: 69.0305 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1699/2000], Trn Loss: 37.0841, Val Loss: 74.7697 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1700/2000], Trn Loss: 36.8074, Val Loss: 72.9836 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1701/2000], Trn Loss: 36.1661, Val Loss: 69.7338 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1702/2000], Trn Loss: 37.1454, Val Loss: 74.7509 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1703/2000], Trn Loss: 36.6187, Val Loss: 73.3720 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1704/2000], Trn Loss: 36.1865, Val Loss: 68.5672 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1705/2000], Trn Loss: 37.1069, Val Loss: 74.2900 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1706/2000], Trn Loss: 36.7191, Val Loss: 77.6002 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1707/2000], Trn Loss: 38.1112, Val Loss: 68.6601 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1708/2000], Trn Loss: 39.7963, Val Loss: 69.1480 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1709/2000], Trn Loss: 38.4875, Val Loss: 75.6780 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1710/2000], Trn Loss: 37.7986, Val Loss: 77.9890 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1711/2000], Trn Loss: 37.9161, Val Loss: 69.8486 [(kW/hour)^2], MinVal : 68.5223388671875
+Epoch [1712/2000], Trn Loss: 39.0423, Val Loss: 67.9530 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1713/2000], Trn Loss: 37.8799, Val Loss: 80.4854 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1714/2000], Trn Loss: 40.2979, Val Loss: 72.8043 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1715/2000], Trn Loss: 37.5805, Val Loss: 68.5327 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1716/2000], Trn Loss: 39.8071, Val Loss: 77.4285 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1717/2000], Trn Loss: 39.3004, Val Loss: 76.5481 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1718/2000], Trn Loss: 37.6589, Val Loss: 69.4623 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1719/2000], Trn Loss: 38.4810, Val Loss: 72.1050 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1720/2000], Trn Loss: 38.3646, Val Loss: 72.5020 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1721/2000], Trn Loss: 36.2621, Val Loss: 74.5741 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1722/2000], Trn Loss: 38.1567, Val Loss: 74.5116 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1723/2000], Trn Loss: 38.5243, Val Loss: 69.5873 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1724/2000], Trn Loss: 36.5160, Val Loss: 72.3195 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1725/2000], Trn Loss: 38.9902, Val Loss: 78.9543 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1726/2000], Trn Loss: 40.4904, Val Loss: 70.3120 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1727/2000], Trn Loss: 36.1312, Val Loss: 71.2064 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1728/2000], Trn Loss: 39.6732, Val Loss: 85.4176 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1729/2000], Trn Loss: 47.0790, Val Loss: 71.6255 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1730/2000], Trn Loss: 37.1887, Val Loss: 73.9012 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1731/2000], Trn Loss: 46.9377, Val Loss: 86.8262 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1732/2000], Trn Loss: 50.1453, Val Loss: 78.0916 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1733/2000], Trn Loss: 40.8642, Val Loss: 82.3132 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1734/2000], Trn Loss: 53.5460, Val Loss: 79.4717 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1735/2000], Trn Loss: 45.2195, Val Loss: 83.1304 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1736/2000], Trn Loss: 51.2438, Val Loss: 68.6170 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1737/2000], Trn Loss: 42.6888, Val Loss: 76.4986 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1738/2000], Trn Loss: 46.9135, Val Loss: 82.9888 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1739/2000], Trn Loss: 42.3983, Val Loss: 84.6737 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1740/2000], Trn Loss: 47.7210, Val Loss: 71.1794 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1741/2000], Trn Loss: 42.1730, Val Loss: 74.6693 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1742/2000], Trn Loss: 44.0455, Val Loss: 79.8112 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1743/2000], Trn Loss: 41.6359, Val Loss: 77.6287 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1744/2000], Trn Loss: 42.5000, Val Loss: 71.9409 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1745/2000], Trn Loss: 42.0118, Val Loss: 69.2864 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1746/2000], Trn Loss: 40.2340, Val Loss: 77.6902 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1747/2000], Trn Loss: 40.4367, Val Loss: 76.0868 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1748/2000], Trn Loss: 40.6883, Val Loss: 70.3052 [(kW/hour)^2], MinVal : 67.9530258178711
+Epoch [1749/2000], Trn Loss: 39.8439, Val Loss: 67.9380 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1750/2000], Trn Loss: 39.2083, Val Loss: 76.0967 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1751/2000], Trn Loss: 39.3528, Val Loss: 75.2511 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1752/2000], Trn Loss: 39.7068, Val Loss: 70.6258 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1753/2000], Trn Loss: 37.2462, Val Loss: 71.4095 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1754/2000], Trn Loss: 39.9589, Val Loss: 73.7937 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1755/2000], Trn Loss: 36.7315, Val Loss: 75.5071 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1756/2000], Trn Loss: 38.5902, Val Loss: 70.9398 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1757/2000], Trn Loss: 36.7821, Val Loss: 71.6458 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1758/2000], Trn Loss: 36.8596, Val Loss: 73.3757 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1759/2000], Trn Loss: 37.3795, Val Loss: 70.7429 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1760/2000], Trn Loss: 35.9573, Val Loss: 72.3478 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1761/2000], Trn Loss: 38.1297, Val Loss: 76.1720 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1762/2000], Trn Loss: 37.8472, Val Loss: 72.1916 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1763/2000], Trn Loss: 36.2304, Val Loss: 70.7760 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1764/2000], Trn Loss: 39.9150, Val Loss: 80.4718 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1765/2000], Trn Loss: 40.0991, Val Loss: 75.3989 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1766/2000], Trn Loss: 37.1844, Val Loss: 70.8139 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1767/2000], Trn Loss: 43.2711, Val Loss: 84.4265 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1768/2000], Trn Loss: 43.4683, Val Loss: 80.3760 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1769/2000], Trn Loss: 41.1544, Val Loss: 71.0092 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1770/2000], Trn Loss: 41.3989, Val Loss: 69.6531 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1771/2000], Trn Loss: 37.3725, Val Loss: 79.3822 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1772/2000], Trn Loss: 40.0675, Val Loss: 77.3457 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1773/2000], Trn Loss: 37.8597, Val Loss: 69.6829 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1774/2000], Trn Loss: 39.1380, Val Loss: 69.3070 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1775/2000], Trn Loss: 36.7251, Val Loss: 76.3950 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1776/2000], Trn Loss: 37.6356, Val Loss: 76.1185 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1777/2000], Trn Loss: 37.2634, Val Loss: 68.6589 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1778/2000], Trn Loss: 36.9895, Val Loss: 68.4672 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1779/2000], Trn Loss: 37.1697, Val Loss: 75.1649 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1780/2000], Trn Loss: 36.6837, Val Loss: 74.1687 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1781/2000], Trn Loss: 36.6628, Val Loss: 68.9914 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1782/2000], Trn Loss: 36.1594, Val Loss: 70.0978 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1783/2000], Trn Loss: 36.2662, Val Loss: 73.2003 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1784/2000], Trn Loss: 36.2987, Val Loss: 73.5956 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1785/2000], Trn Loss: 35.9152, Val Loss: 68.5766 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1786/2000], Trn Loss: 35.9460, Val Loss: 69.3931 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1787/2000], Trn Loss: 35.3287, Val Loss: 74.5351 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1788/2000], Trn Loss: 35.9403, Val Loss: 70.8497 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1789/2000], Trn Loss: 35.0662, Val Loss: 68.5629 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1790/2000], Trn Loss: 35.6701, Val Loss: 74.4142 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1791/2000], Trn Loss: 35.5233, Val Loss: 72.2673 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1792/2000], Trn Loss: 35.2362, Val Loss: 69.6443 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1793/2000], Trn Loss: 35.7801, Val Loss: 73.0035 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1794/2000], Trn Loss: 35.2491, Val Loss: 73.8192 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1795/2000], Trn Loss: 35.0810, Val Loss: 69.3802 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1796/2000], Trn Loss: 35.5541, Val Loss: 73.3454 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1797/2000], Trn Loss: 35.1081, Val Loss: 73.8630 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1798/2000], Trn Loss: 35.1923, Val Loss: 67.9760 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1799/2000], Trn Loss: 36.0194, Val Loss: 71.8916 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1800/2000], Trn Loss: 34.8399, Val Loss: 76.6648 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1801/2000], Trn Loss: 36.2842, Val Loss: 68.4870 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1802/2000], Trn Loss: 37.9285, Val Loss: 69.6608 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1803/2000], Trn Loss: 35.7361, Val Loss: 80.4581 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1804/2000], Trn Loss: 38.9133, Val Loss: 71.1768 [(kW/hour)^2], MinVal : 67.93795013427734
+Epoch [1805/2000], Trn Loss: 38.7342, Val Loss: 67.2138 [(kW/hour)^2], MinVal : 67.21375274658203
+Epoch [1806/2000], Trn Loss: 39.2406, Val Loss: 73.8781 [(kW/hour)^2], MinVal : 67.21375274658203
+Epoch [1807/2000], Trn Loss: 36.1125, Val Loss: 82.9978 [(kW/hour)^2], MinVal : 67.21375274658203
+Epoch [1808/2000], Trn Loss: 39.6775, Val Loss: 69.6221 [(kW/hour)^2], MinVal : 67.21375274658203
+Epoch [1809/2000], Trn Loss: 39.0069, Val Loss: 67.0686 [(kW/hour)^2], MinVal : 67.06856536865234
+Epoch [1810/2000], Trn Loss: 42.2586, Val Loss: 72.6044 [(kW/hour)^2], MinVal : 67.06856536865234
+Epoch [1811/2000], Trn Loss: 37.1408, Val Loss: 85.6922 [(kW/hour)^2], MinVal : 67.06856536865234
+Epoch [1812/2000], Trn Loss: 42.4188, Val Loss: 72.3180 [(kW/hour)^2], MinVal : 67.06856536865234
+Epoch [1813/2000], Trn Loss: 37.9073, Val Loss: 67.0184 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1814/2000], Trn Loss: 41.6341, Val Loss: 68.5422 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1815/2000], Trn Loss: 38.1404, Val Loss: 77.2794 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1816/2000], Trn Loss: 37.1686, Val Loss: 81.3129 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1817/2000], Trn Loss: 39.8163, Val Loss: 70.6733 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1818/2000], Trn Loss: 37.9110, Val Loss: 67.4248 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1819/2000], Trn Loss: 40.7530, Val Loss: 70.7596 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1820/2000], Trn Loss: 37.4577, Val Loss: 77.4706 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1821/2000], Trn Loss: 38.9933, Val Loss: 77.0479 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1822/2000], Trn Loss: 38.1608, Val Loss: 71.1090 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1823/2000], Trn Loss: 36.6268, Val Loss: 68.5768 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1824/2000], Trn Loss: 37.9438, Val Loss: 71.3919 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1825/2000], Trn Loss: 36.6023, Val Loss: 74.7976 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1826/2000], Trn Loss: 36.7790, Val Loss: 72.5346 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1827/2000], Trn Loss: 36.9314, Val Loss: 69.6337 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1828/2000], Trn Loss: 37.3983, Val Loss: 71.7219 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1829/2000], Trn Loss: 36.3009, Val Loss: 73.0439 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1830/2000], Trn Loss: 35.5735, Val Loss: 70.3499 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1831/2000], Trn Loss: 35.9796, Val Loss: 69.3321 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1832/2000], Trn Loss: 35.7918, Val Loss: 72.8441 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1833/2000], Trn Loss: 35.2765, Val Loss: 74.7191 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1834/2000], Trn Loss: 35.6582, Val Loss: 70.6961 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1835/2000], Trn Loss: 35.1642, Val Loss: 69.5219 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1836/2000], Trn Loss: 35.1584, Val Loss: 72.7676 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1837/2000], Trn Loss: 35.3157, Val Loss: 70.8175 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1838/2000], Trn Loss: 34.6738, Val Loss: 70.3196 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1839/2000], Trn Loss: 35.1447, Val Loss: 74.1373 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1840/2000], Trn Loss: 35.3534, Val Loss: 70.9187 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1841/2000], Trn Loss: 35.0011, Val Loss: 70.7049 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1842/2000], Trn Loss: 35.0078, Val Loss: 70.6113 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1843/2000], Trn Loss: 34.5608, Val Loss: 71.9211 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1844/2000], Trn Loss: 34.6483, Val Loss: 72.4251 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1845/2000], Trn Loss: 35.0424, Val Loss: 70.6919 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1846/2000], Trn Loss: 34.6767, Val Loss: 73.3733 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1847/2000], Trn Loss: 34.7602, Val Loss: 69.6166 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1848/2000], Trn Loss: 34.4382, Val Loss: 70.4613 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1849/2000], Trn Loss: 34.3158, Val Loss: 73.1579 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1850/2000], Trn Loss: 34.6601, Val Loss: 70.1583 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1851/2000], Trn Loss: 34.4269, Val Loss: 71.7323 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1852/2000], Trn Loss: 34.3873, Val Loss: 71.0099 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1853/2000], Trn Loss: 34.4061, Val Loss: 70.3845 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1854/2000], Trn Loss: 34.3679, Val Loss: 71.9952 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1855/2000], Trn Loss: 34.2128, Val Loss: 71.4910 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1856/2000], Trn Loss: 34.1163, Val Loss: 70.4697 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1857/2000], Trn Loss: 34.0779, Val Loss: 71.2548 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1858/2000], Trn Loss: 34.1257, Val Loss: 70.1791 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1859/2000], Trn Loss: 34.1510, Val Loss: 70.8431 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1860/2000], Trn Loss: 34.1226, Val Loss: 72.2757 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1861/2000], Trn Loss: 34.1834, Val Loss: 69.8503 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1862/2000], Trn Loss: 34.0962, Val Loss: 71.8006 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1863/2000], Trn Loss: 34.0977, Val Loss: 70.3108 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1864/2000], Trn Loss: 34.0336, Val Loss: 70.6548 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1865/2000], Trn Loss: 33.9900, Val Loss: 72.1199 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1866/2000], Trn Loss: 34.0918, Val Loss: 69.8595 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1867/2000], Trn Loss: 34.2227, Val Loss: 72.0338 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1868/2000], Trn Loss: 34.1150, Val Loss: 70.5384 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1869/2000], Trn Loss: 33.9884, Val Loss: 69.8252 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1870/2000], Trn Loss: 34.0002, Val Loss: 74.5522 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1871/2000], Trn Loss: 34.7619, Val Loss: 68.6868 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1872/2000], Trn Loss: 34.8010, Val Loss: 76.5801 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1873/2000], Trn Loss: 35.7877, Val Loss: 70.1718 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1874/2000], Trn Loss: 34.3608, Val Loss: 69.4596 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1875/2000], Trn Loss: 34.3654, Val Loss: 74.5208 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1876/2000], Trn Loss: 34.5821, Val Loss: 68.4404 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1877/2000], Trn Loss: 34.6474, Val Loss: 75.3457 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1878/2000], Trn Loss: 35.5293, Val Loss: 72.2712 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1879/2000], Trn Loss: 35.7210, Val Loss: 71.0355 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1880/2000], Trn Loss: 37.1180, Val Loss: 68.6910 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1881/2000], Trn Loss: 35.0221, Val Loss: 77.7650 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1882/2000], Trn Loss: 37.2526, Val Loss: 73.1943 [(kW/hour)^2], MinVal : 67.01841735839844
+Epoch [1883/2000], Trn Loss: 38.3856, Val Loss: 66.5287 [(kW/hour)^2], MinVal : 66.52867126464844
+Epoch [1884/2000], Trn Loss: 37.9474, Val Loss: 83.9655 [(kW/hour)^2], MinVal : 66.52867126464844
+Epoch [1885/2000], Trn Loss: 39.6523, Val Loss: 71.8152 [(kW/hour)^2], MinVal : 66.52867126464844
+Epoch [1886/2000], Trn Loss: 35.1455, Val Loss: 66.4045 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1887/2000], Trn Loss: 39.2346, Val Loss: 79.0132 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1888/2000], Trn Loss: 39.7646, Val Loss: 80.2626 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1889/2000], Trn Loss: 38.3532, Val Loss: 66.6373 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1890/2000], Trn Loss: 38.6419, Val Loss: 73.8431 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1891/2000], Trn Loss: 39.7026, Val Loss: 72.3670 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1892/2000], Trn Loss: 36.1118, Val Loss: 76.5357 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1893/2000], Trn Loss: 42.8563, Val Loss: 87.3751 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1894/2000], Trn Loss: 47.4598, Val Loss: 70.9510 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1895/2000], Trn Loss: 37.9407, Val Loss: 72.9567 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1896/2000], Trn Loss: 49.1257, Val Loss: 85.9355 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1897/2000], Trn Loss: 43.4746, Val Loss: 85.0609 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1898/2000], Trn Loss: 44.0531, Val Loss: 72.5352 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1899/2000], Trn Loss: 43.3742, Val Loss: 67.1950 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1900/2000], Trn Loss: 37.5402, Val Loss: 78.4978 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1901/2000], Trn Loss: 41.7217, Val Loss: 76.2444 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1902/2000], Trn Loss: 37.5493, Val Loss: 73.2007 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1903/2000], Trn Loss: 41.4286, Val Loss: 72.7835 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1904/2000], Trn Loss: 40.0889, Val Loss: 75.0589 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1905/2000], Trn Loss: 40.7837, Val Loss: 72.6675 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1906/2000], Trn Loss: 38.5249, Val Loss: 72.7155 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1907/2000], Trn Loss: 38.1951, Val Loss: 73.8272 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1908/2000], Trn Loss: 39.3952, Val Loss: 73.8849 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1909/2000], Trn Loss: 37.5180, Val Loss: 73.8069 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1910/2000], Trn Loss: 38.6577, Val Loss: 69.4387 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1911/2000], Trn Loss: 35.8671, Val Loss: 71.7525 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1912/2000], Trn Loss: 37.8276, Val Loss: 69.9060 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1913/2000], Trn Loss: 34.7785, Val Loss: 74.9373 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1914/2000], Trn Loss: 38.4692, Val Loss: 70.9644 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1915/2000], Trn Loss: 37.1683, Val Loss: 70.4817 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1916/2000], Trn Loss: 36.9571, Val Loss: 71.3547 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1917/2000], Trn Loss: 37.3968, Val Loss: 78.8211 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1918/2000], Trn Loss: 36.7858, Val Loss: 72.0549 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1919/2000], Trn Loss: 36.2066, Val Loss: 67.8312 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1920/2000], Trn Loss: 35.9949, Val Loss: 77.2564 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1921/2000], Trn Loss: 36.7995, Val Loss: 72.1059 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1922/2000], Trn Loss: 35.4563, Val Loss: 68.5777 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1923/2000], Trn Loss: 37.4012, Val Loss: 77.2713 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1924/2000], Trn Loss: 36.8625, Val Loss: 75.1447 [(kW/hour)^2], MinVal : 66.404541015625
+Epoch [1925/2000], Trn Loss: 35.5580, Val Loss: 65.8548 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1926/2000], Trn Loss: 39.0244, Val Loss: 78.2973 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1927/2000], Trn Loss: 39.5065, Val Loss: 76.8987 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1928/2000], Trn Loss: 36.0388, Val Loss: 72.4696 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1929/2000], Trn Loss: 40.1279, Val Loss: 74.4530 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1930/2000], Trn Loss: 39.4139, Val Loss: 74.2563 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1931/2000], Trn Loss: 38.2837, Val Loss: 73.0187 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1932/2000], Trn Loss: 40.2747, Val Loss: 70.5889 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1933/2000], Trn Loss: 34.7293, Val Loss: 75.7656 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1934/2000], Trn Loss: 38.0863, Val Loss: 71.6219 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1935/2000], Trn Loss: 35.4386, Val Loss: 69.2439 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1936/2000], Trn Loss: 35.8660, Val Loss: 72.2661 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1937/2000], Trn Loss: 36.6463, Val Loss: 70.1742 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1938/2000], Trn Loss: 35.1751, Val Loss: 71.0911 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1939/2000], Trn Loss: 37.0485, Val Loss: 71.2838 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1940/2000], Trn Loss: 35.3747, Val Loss: 72.6339 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1941/2000], Trn Loss: 35.4720, Val Loss: 71.3818 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1942/2000], Trn Loss: 36.1931, Val Loss: 71.2439 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1943/2000], Trn Loss: 34.4467, Val Loss: 71.1359 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1944/2000], Trn Loss: 34.9665, Val Loss: 70.8462 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1945/2000], Trn Loss: 35.2406, Val Loss: 71.2538 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1946/2000], Trn Loss: 34.5453, Val Loss: 71.2694 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1947/2000], Trn Loss: 34.7290, Val Loss: 70.4154 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1948/2000], Trn Loss: 34.6083, Val Loss: 72.4095 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1949/2000], Trn Loss: 34.2963, Val Loss: 71.0208 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1950/2000], Trn Loss: 34.1481, Val Loss: 70.3334 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1951/2000], Trn Loss: 34.5603, Val Loss: 73.0491 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1952/2000], Trn Loss: 34.8911, Val Loss: 70.8626 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1953/2000], Trn Loss: 34.0049, Val Loss: 70.0468 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1954/2000], Trn Loss: 34.0220, Val Loss: 72.6229 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1955/2000], Trn Loss: 34.4714, Val Loss: 69.5576 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1956/2000], Trn Loss: 33.8425, Val Loss: 70.8204 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1957/2000], Trn Loss: 33.5832, Val Loss: 71.2510 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1958/2000], Trn Loss: 33.9423, Val Loss: 70.2295 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1959/2000], Trn Loss: 33.7992, Val Loss: 70.2991 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1960/2000], Trn Loss: 33.4480, Val Loss: 70.6131 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1961/2000], Trn Loss: 33.6069, Val Loss: 69.3605 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1962/2000], Trn Loss: 33.9527, Val Loss: 74.3594 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1963/2000], Trn Loss: 34.6368, Val Loss: 70.0245 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1964/2000], Trn Loss: 33.7999, Val Loss: 68.8584 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1965/2000], Trn Loss: 33.6207, Val Loss: 73.3976 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1966/2000], Trn Loss: 34.0663, Val Loss: 69.0765 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1967/2000], Trn Loss: 33.5684, Val Loss: 70.8291 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1968/2000], Trn Loss: 33.3270, Val Loss: 72.2128 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1969/2000], Trn Loss: 33.3987, Val Loss: 68.5532 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1970/2000], Trn Loss: 33.5027, Val Loss: 71.0828 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1971/2000], Trn Loss: 33.3218, Val Loss: 70.5984 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1972/2000], Trn Loss: 33.1761, Val Loss: 69.6038 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1973/2000], Trn Loss: 33.3207, Val Loss: 72.0842 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1974/2000], Trn Loss: 33.3174, Val Loss: 69.2967 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1975/2000], Trn Loss: 33.1989, Val Loss: 70.0921 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1976/2000], Trn Loss: 33.1376, Val Loss: 71.1281 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1977/2000], Trn Loss: 33.1344, Val Loss: 68.9212 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1978/2000], Trn Loss: 33.2987, Val Loss: 72.5395 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1979/2000], Trn Loss: 33.3161, Val Loss: 68.8300 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1980/2000], Trn Loss: 33.2155, Val Loss: 71.4130 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1981/2000], Trn Loss: 33.0887, Val Loss: 69.8038 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1982/2000], Trn Loss: 32.9612, Val Loss: 70.4640 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1983/2000], Trn Loss: 32.9377, Val Loss: 70.4557 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1984/2000], Trn Loss: 32.9933, Val Loss: 70.4236 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1985/2000], Trn Loss: 33.2809, Val Loss: 70.0436 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1986/2000], Trn Loss: 33.6844, Val Loss: 75.4281 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1987/2000], Trn Loss: 35.9362, Val Loss: 69.3800 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1988/2000], Trn Loss: 34.6813, Val Loss: 75.9043 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1989/2000], Trn Loss: 35.5034, Val Loss: 69.7388 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1990/2000], Trn Loss: 33.2591, Val Loss: 68.0672 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1991/2000], Trn Loss: 34.0500, Val Loss: 81.8888 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1992/2000], Trn Loss: 38.5101, Val Loss: 69.2692 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1993/2000], Trn Loss: 33.6673, Val Loss: 67.1403 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1994/2000], Trn Loss: 34.6577, Val Loss: 82.9924 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1995/2000], Trn Loss: 39.5438, Val Loss: 71.0690 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1996/2000], Trn Loss: 33.4999, Val Loss: 69.7016 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1997/2000], Trn Loss: 41.8688, Val Loss: 92.6997 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1998/2000], Trn Loss: 50.7004, Val Loss: 80.6796 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [1999/2000], Trn Loss: 38.4178, Val Loss: 72.4423 [(kW/hour)^2], MinVal : 65.85481262207031
+Epoch [2000/2000], Trn Loss: 51.3766, Val Loss: 76.6271 [(kW/hour)^2], MinVal : 65.85481262207031
+
+
+Training time [sec]: 5823.97
+
+len(Trn_Loss): 2000
+Trn Loss [(kW/hour)^2]: 
+395.5474 385.3307 374.5179 361.0671 342.7440 318.3109 290.5617 266.4684 250.1281 239.7525 232.9057 227.9866 224.3239 221.5581 219.2989 217.5280 216.0828 214.8818 213.7232 212.7600 211.8306 211.0284 210.3491 209.6871 209.0351 208.4995 208.0619 207.7047 207.3741 207.1049 206.8649 206.6604 206.4657 206.3188 206.1729 206.0398 205.9184 205.8074 205.7056 205.6119 205.5255 205.4443 205.3632 205.2935 205.2206 205.1617 205.1780 205.1596 205.2009 205.3798 205.1465 205.0451 205.0181 205.0005 204.9836 204.9608 204.9902 205.1171 205.3256 205.6984 205.9238 206.1533 206.2757 206.9007 207.7593 208.2710 208.6911 208.3347 209.7401 211.6205 211.9960 212.5046 212.1698 212.4142 212.1924 211.9386 210.9671 210.6669 210.2850 209.6333 210.5509 210.6983 211.0156 210.9877 212.8187 214.1527 216.5307 218.8737 220.8529 221.8732 220.6357 218.3620 215.6955 214.2410 213.3373 211.9467 211.5428 210.7314 210.2508 209.7364 209.4051 208.8589 208.8176 208.6805 208.4400 208.4252 208.3365 208.3858 208.4411 208.5024 208.9253 208.6422 208.8584 209.0584 209.5421 209.8278 210.8779 211.3930 212.7981 213.1674 211.3448 209.9187 208.7587 207.8088 207.2112 206.7966 206.5568 206.0192 205.6825 205.5597 205.4834 205.4520 205.5899 205.5362 205.6746 205.8691 206.3519 206.4206 206.4246 207.0518 208.1840 208.6654 210.0008 211.2821 213.3410 210.0423 207.9387 206.9841 205.9605 205.2168 204.9553 204.9216 204.7202 204.6825 204.6928 204.6962 204.6690 204.5096 204.6993 204.6146 204.7742 205.4341 205.6546 205.9568 206.6684 207.1383 207.4817 208.1701 209.2885 211.2322 212.3450 214.0293 215.4795 216.8731 218.1649 219.2435 218.8289 217.3366 215.5341 215.5598 223.3171 216.4016 220.8266 206.8188 230.1223 204.3182 207.0042 203.8968 192.9222 184.9905 180.7594 179.4041 172.3701 173.7928 165.8746 163.6256 163.2791 160.3446 161.8731 158.4451 157.7803 155.9862 153.6368 171.2470 155.9949 157.6750 154.8427 152.0612 151.4947 151.4865 150.6599 149.9899 149.0990 148.2720 146.9747 145.6261 143.8431 143.3531 142.5937 140.7075 139.7609 140.4121 141.1240 140.3988 138.5513 137.1608 137.2593 137.9908 137.5038 135.8387 134.3259 135.2232 134.4298 133.3541 132.6715 132.1670 131.9416 132.5118 132.5299 131.7554 130.5931 130.2900 130.5093 130.0824 129.3270 128.7962 128.4686 128.3155 127.8958 127.5862 127.0684 126.6321 126.4913 125.9948 125.5775 125.4332 125.2061 124.8192 124.8442 124.2247 124.5233 123.5637 124.6048 124.7916 123.6800 124.1102 125.9197 124.6457 122.2634 123.6150 125.8592 123.4276 121.3870 122.6858 124.2788 122.1604 120.4393 122.6218 124.6500 122.8420 119.8052 121.7114 122.0870 119.8403 119.8706 120.1074 119.2336 119.0803 119.0418 118.9466 118.6786 118.5922 118.4625 118.3072 118.2782 118.1114 117.9053 117.9335 117.9874 117.8642 117.6929 117.4516 117.6941 118.2310 117.2484 117.3979 118.2595 117.2027 116.8459 117.8003 116.8523 116.5188 116.7496 116.7791 116.6827 116.4485 116.3537 117.3126 116.0988 115.9793 116.4018 116.4971 116.1763 115.6649 116.6816 116.0270 115.6951 115.9817 115.9388 115.5043 115.1721 116.1757 115.1793 115.1845 115.5912 115.0716 114.9150 114.8444 114.7758 114.7526 114.5865 114.5247 114.4731 114.4416 114.3680 114.3120 114.3288 114.1971 114.2066 114.3413 114.3028 114.0160 113.9885 114.1221 114.1321 113.7893 113.9724 113.6660 113.6243 113.5636 113.5964 113.4707 113.4939 113.3715 113.3202 113.2770 113.1927 113.1449 113.1443 113.0974 113.0349 112.9364 113.1725 112.8427 112.8349 112.9311 112.7383 112.6301 112.4686 112.4274 112.2870 112.1869 112.1123 112.0446 111.9300 111.9242 111.7946 111.6665 111.6228 111.4517 111.3230 111.2828 111.3335 111.0389 111.1694 110.8369 110.7563 110.5713 110.4851 110.3173 110.4084 109.9218 109.8147 109.7217 109.6712 109.4408 109.3608 109.0089 109.0897 108.8436 108.6793 108.6945 108.4905 108.0971 108.3578 109.0271 107.7248 107.4508 108.1986 107.5956 106.9052 107.0190 107.2614 107.8221 106.2806 106.8918 109.4690 105.8176 109.6524 114.1016 106.3509 116.4783 108.0275 113.3608 106.1155 110.9136 107.1723 107.3190 109.0138 105.9407 107.5093 107.2781 105.5075 107.3145 106.1636 104.8177 106.7489 104.7077 105.1423 104.9937 104.2504 104.8999 103.8800 104.3237 104.1059 103.5726 103.9141 103.5351 103.4864 103.5972 103.0894 103.3429 103.1804 102.9357 103.0624 102.9472 102.6350 102.8113 102.5224 102.4113 102.5479 102.1510 102.3037 102.0234 101.9317 102.1597 101.7557 102.0331 101.6098 101.7895 101.6375 101.2995 101.4058 101.2892 101.0736 101.1562 100.8592 100.9810 100.7661 100.6257 100.8456 100.5007 100.5643 100.4207 100.2308 100.2022 99.9972 99.9434 99.8057 99.9331 99.8210 99.8059 99.6708 99.9480 99.5775 99.3870 99.2644 99.2532 99.8886 100.2454 100.7327 102.1858 99.1667 100.9178 104.2393 98.7351 101.7474 105.2614 100.2972 105.6617 99.4114 103.8022 99.0021 104.2312 100.8774 102.8522 100.1092 102.5488 98.6805 100.5699 99.4687 100.4099 98.6262 99.4958 99.3795 99.7496 100.0260 99.1950 100.8575 98.4133 98.6847 98.2083 99.1185 98.4701 97.4060 97.6195 98.0957 96.8542 97.2350 96.9558 97.0638 96.1579 96.9826 96.5490 95.9661 96.5528 95.7972 95.6377 96.1902 95.9175 94.9328 94.7012 94.9711 94.9793 95.5831 95.3938 96.0417 93.4456 93.8840 97.6646 97.5011 94.2573 96.2664 100.4102 102.4007 101.9540 102.1600 100.9881 93.9218 100.4560 99.9630 95.9749 98.5372 98.5868 94.4200 96.7556 95.2923 94.9555 94.3413 92.7947 94.8044 91.3648 97.1772 102.9480 102.0983 100.6646 101.1197 103.3839 96.0391 94.4529 98.6594 96.4002 94.5200 94.2549 93.1154 92.7474 93.6142 91.9265 87.8343 92.1730 89.0840 88.4732 91.0361 94.1746 86.5959 94.1835 89.2088 87.7796 95.5174 86.0003 90.1923 85.6803 89.1800 83.6452 86.2288 90.6190 84.1404 83.6709 87.7105 82.5533 84.6022 84.2407 79.8911 80.9983 82.7109 86.0572 98.6968 93.1081 92.5385 93.2270 91.6909 94.1911 89.3058 87.3902 90.4320 87.6491 87.6842 86.2164 86.4710 84.8051 84.0434 83.9492 84.0403 81.3661 83.7082 91.6133 88.6688 84.9806 83.3169 83.8073 80.7030 79.5312 82.2116 77.4634 78.0807 83.7651 111.2497 90.0829 99.0415 94.9455 84.5457 97.3819 84.4938 86.0659 91.9344 88.0081 84.5398 85.8411 83.9585 81.4068 83.4801 81.4698 78.1749 81.4892 76.7698 78.4607 74.2617 76.9216 72.9376 74.1041 70.4613 71.9460 69.1432 73.5932 92.3250 147.2130 130.5325 125.8389 135.0715 144.9669 144.7727 137.3040 127.3255 116.6522 110.0465 111.4462 117.4822 120.3124 116.6445 110.9608 108.3587 109.4767 111.9870 113.4353 112.8106 110.6182 108.1934 106.8596 107.1320 108.3620 109.2579 108.9788 107.7074 106.3239 105.5932 105.6562 106.0894 106.3402 106.1107 105.4868 104.8416 104.5446 104.6614 104.9073 104.9088 104.5649 104.0974 103.7853 103.7205 103.7915 103.8198 103.6945 103.4371 103.1567 102.9714 102.9118 102.9035 102.8402 102.6810 102.4799 102.3177 102.2218 102.1549 102.0629 101.9252 101.7623 101.6090 101.4859 101.3797 101.2579 101.1057 100.9413 100.7901 100.6526 100.5255 100.3794 100.2096 100.0324 99.8829 99.7529 99.6089 99.4553 99.3089 99.1453 98.9847 98.8116 98.6510 98.4761 98.2978 98.1240 97.9409 97.7367 97.5249 97.3180 97.1052 96.8701 96.6089 96.3334 96.0405 95.7219 95.3996 95.0602 94.7028 94.3310 93.9416 93.5323 93.0986 92.6276 92.1391 91.6366 91.1181 90.5612 89.9734 89.3584 88.7444 88.1509 87.5533 87.0127 86.4545 85.9461 85.4708 85.0220 84.6098 84.1965 83.8004 83.3718 82.9221 82.4392 81.9609 81.5013 81.0015 80.4946 79.9470 79.4022 78.8073 78.2009 77.5510 76.8850 76.1874 75.4590 74.7515 74.0431 73.3020 72.5257 71.6968 70.7847 69.8294 69.0699 70.4915 92.6570 89.7082 109.9473 93.8146 88.0715 97.9416 79.1785 97.5743 92.5875 82.8328 86.3123 93.5653 81.0469 83.2241 86.8088 83.9266 77.0255 80.4120 79.4454 73.0542 76.8135 73.3406 71.0935 73.8657 76.7836 78.6269 69.3383 68.6225 80.8574 79.4414 66.1618 89.1651 94.7023 112.8444 105.5961 84.7181 71.6082 103.4450 72.3845 80.2960 86.8084 87.4782 83.2014 77.1080 74.4087 77.5834 78.9249 74.4397 72.5437 73.6743 74.0164 71.9187 69.3584 68.0732 70.5573 93.3162 172.7462 166.8404 140.9410 117.3200 120.0074 136.0232 122.7485 102.3704 102.7157 114.5100 118.7151 108.8088 100.9869 101.2439 103.4459 103.3120 101.0773 99.1683 98.3797 96.7086 93.8937 91.2577 88.7983 88.2867 89.6431 90.0456 89.3723 88.7807 87.8891 86.0375 83.4126 81.5796 80.9061 79.6992 79.1180 78.1717 76.6575 75.6147 74.2444 72.7931 72.1656 71.7437 69.7363 68.2070 67.6349 67.1989 66.1871 64.9409 63.1667 62.2542 61.3036 60.6199 59.7376 58.5739 58.0496 58.6372 67.5280 125.4282 140.8843 153.3265 139.8990 123.6465 117.8639 122.6237 125.0990 120.0595 109.8433 102.4682 102.0802 105.0301 107.2236 106.9751 105.2380 103.5083 101.9935 100.9687 100.6059 100.9103 100.5265 99.0331 97.7566 97.1130 96.1345 95.0722 94.3235 93.9777 93.6054 92.9921 92.2395 91.5417 90.9318 90.3313 89.6886 89.0290 88.4225 87.8684 87.2839 86.6460 86.0242 85.4586 84.9114 84.3237 83.7034 83.1245 82.6104 82.1048 81.5252 80.8594 80.1798 79.5307 78.8639 78.1450 77.4468 76.8248 76.2530 75.6913 75.1291 74.5636 73.9708 73.3815 72.8021 72.2090 71.6063 71.0114 70.4172 69.8195 69.2241 68.6350 68.0811 67.5529 67.0299 66.5572 66.1243 65.7285 65.3684 65.0149 64.6769 64.3505 64.0241 63.6859 63.3334 62.9910 62.6683 62.3730 62.1621 62.2589 63.8554 70.8863 88.1642 101.8966 93.8930 70.6122 92.9247 74.6744 93.2053 93.5965 82.1706 78.6916 84.8806 81.0230 77.6192 80.8162 79.5873 74.7856 72.6512 74.2696 75.9848 74.6493 72.0440 69.7403 69.1555 70.1941 69.5207 67.5072 64.7824 64.3140 64.1143 62.8663 61.9350 61.3410 60.5269 60.1569 58.7090 57.8841 58.2245 64.9722 62.2743 83.1422 67.2055 96.1233 82.3089 99.7452 90.5754 87.4968 80.8706 78.3422 77.8443 70.8996 75.3777 75.6979 72.1808 75.3643 71.1770 70.5865 68.8063 64.2053 66.0893 64.2951 65.1858 62.8059 60.7183 59.0677 59.3509 57.2133 57.5010 54.8978 54.6903 54.3680 52.8969 55.0796 58.9341 52.3757 55.1900 60.0459 54.0069 51.5643 59.8506 51.9622 51.5454 51.9800 50.0400 53.4553 53.6975 49.3895 55.3222 56.4362 50.8863 55.4106 52.9259 51.6030 49.4507 49.7362 48.5248 49.3533 52.2179 48.6494 55.4328 54.1272 59.5457 54.0550 57.0996 55.8334 63.1859 56.1262 53.7566 60.0604 54.3149 56.1025 52.6653 53.1852 57.7914 56.0062 58.3361 55.8417 50.2550 56.4410 53.6781 51.3829 57.7996 59.3099 53.4236 49.1455 51.1085 48.8386 51.3107 54.9138 48.6635 48.4842 49.2876 47.0628 46.7023 48.6031 48.4148 46.4992 45.8199 47.3253 46.6767 45.9741 45.7598 45.4983 45.6171 45.0239 44.9874 43.6929 46.0926 48.2401 51.7321 67.9998 90.9821 97.5005 77.0563 86.3677 73.3968 67.2666 80.0131 71.1420 62.2701 70.1758 69.4068 66.1415 64.7981 58.6357 65.6889 58.0556 58.8907 58.7221 54.6663 55.1016 52.2018 54.5633 50.6697 51.4468 49.8707 51.5350 48.8008 48.8273 48.0090 48.0036 46.7556 45.8688 45.7753 46.4112 45.8637 44.3017 44.8521 46.9864 43.8115 44.9265 48.3446 44.9837 48.4316 52.5994 49.6669 52.9631 54.1729 45.9051 68.6600 64.3150 67.2024 71.1669 57.6520 61.7352 60.3959 59.1929 53.5558 55.0814 51.8600 51.4878 50.8528 51.9199 52.0652 49.2442 49.6612 46.7983 46.5334 49.6346 48.1411 46.1229 47.1538 46.6004 45.6938 45.0185 44.0266 44.1957 44.0774 44.2368 43.8871 42.6428 43.1312 44.3026 45.3182 48.0100 45.7244 43.4333 43.1996 45.2552 49.8029 43.3685 42.4963 44.8956 42.2247 42.9442 45.5146 42.0418 41.9972 44.3069 41.5609 42.6735 45.5523 41.1892 43.0379 49.0491 41.7287 45.6780 56.6058 41.1140 63.0491 112.0575 48.5875 98.3112 55.6815 69.0953 79.9113 62.4362 62.1440 71.2025 60.0960 60.2896 66.2832 60.8180 54.0712 58.8030 58.0270 52.6184 55.3961 52.6907 49.4251 51.6229 50.1892 48.4569 48.8553 47.1432 47.5926 46.7580 45.5081 46.3373 45.1127 44.0839 44.1928 43.5454 43.8785 43.1753 42.3752 42.6019 42.2510 42.1279 41.9300 41.3824 41.5864 40.9905 41.1062 41.0387 41.1184 41.8547 41.4718 41.7770 41.3320 41.6752 41.0018 40.7527 40.1851 40.0793 39.9808 39.9614 40.2029 40.1515 40.2496 40.0917 40.9698 40.2848 41.2409 39.8707 39.4043 39.3985 39.3571 39.3620 39.4773 40.0282 40.2283 41.8397 40.0946 39.7281 39.1193 39.0074 39.1015 38.8774 39.0365 39.2178 39.9936 40.1792 43.4214 41.5440 44.0189 40.8835 46.8183 56.6530 54.6157 45.3113 53.9287 48.6656 49.4734 48.1828 47.0947 47.3158 45.2947 45.7085 42.5395 45.2510 44.2217 43.3419 43.1562 42.1094 41.8946 41.9136 41.4517 40.4414 41.2197 40.7710 39.9224 40.4500 41.2703 40.9066 40.7740 39.3946 39.8051 40.6353 41.1984 42.8509 39.7161 40.8469 43.1233 41.3043 42.9889 39.8349 44.5748 49.2031 44.3250 51.8399 51.1931 43.4409 60.4214 57.7360 68.0058 67.7540 59.4837 52.9863 57.3956 56.4636 48.1637 49.3152 52.7136 49.9820 46.9779 47.4436 47.8908 44.8602 43.9313 44.2517 43.3273 42.8108 42.8135 42.9507 43.2937 42.0768 41.1563 41.1164 40.9608 40.1531 39.9090 40.1658 40.4235 40.2924 40.2648 39.8242 39.3595 39.3801 39.5990 40.3783 40.3988 42.4431 40.9054 40.5589 38.8231 38.2357 38.6970 39.9010 44.1990 40.7837 38.6991 38.7101 40.6053 44.7522 38.9061 41.0533 46.3776 38.2573 48.8525 66.1848 40.8301 70.2669 68.4351 68.7299 47.7280 80.8494 49.7975 77.7509 61.8874 56.9482 64.6803 63.5377 52.9532 58.4121 61.3036 54.8367 49.2375 58.9420 47.5962 49.7490 52.6916 46.3791 46.3986 47.7630 43.9260 45.9144 44.3495 42.3530 43.9378 42.0558 42.6493 42.0974 42.1109 40.3648 41.6042 39.3185 40.7050 39.3594 39.7747 39.5966 38.9168 39.6138 38.4655 39.1833 38.4458 38.5999 38.8435 38.1347 38.4746 38.1909 38.0199 38.0600 37.8426 37.7331 37.7976 37.6758 37.4964 37.5460 37.3425 37.3109 37.3624 37.2255 37.1773 37.1485 37.1196 37.0146 37.0166 36.9772 36.9417 36.9216 36.8426 36.8359 36.7943 36.7723 36.7201 36.6975 36.6725 36.6558 36.6186 36.5932 36.6068 36.5531 36.5571 36.5293 36.5415 36.4999 36.4369 36.3817 36.3658 36.3336 36.3429 36.3710 36.4157 36.6446 36.7729 37.4097 36.8857 36.9240 36.3730 36.2020 36.1842 36.1745 36.2488 36.3658 36.9160 36.8267 37.4432 36.4598 36.1796 36.0379 36.0082 36.2501 36.4450 37.1184 36.5999 36.7924 36.3167 36.1690 35.8914 35.8414 35.9199 36.0705 36.3333 36.3494 36.2609 36.3006 36.1093 36.6980 36.9119 38.4480 36.8215 36.3658 36.0525 36.3274 37.1552 36.1395 35.8966 36.5390 36.8156 36.6857 35.8268 36.1687 37.4831 37.5106 36.2767 37.4677 41.8629 36.6478 45.7921 55.0003 62.0497 55.9262 54.5119 53.2065 52.9629 53.2581 53.0499 49.5525 48.3847 47.0800 46.9356 45.4569 43.0684 43.5287 44.4510 46.3047 43.8057 45.5034 42.5377 41.8927 43.8896 42.3378 39.6614 45.1892 45.2886 39.6244 48.7114 52.7401 42.3045 51.8779 41.9166 45.8846 41.1560 43.9742 44.4673 43.1116 42.2130 42.5802 40.8143 41.8022 38.8276 40.1943 39.2739 40.0803 38.3408 39.1460 38.4956 37.8484 39.1769 36.8751 37.7954 37.6300 36.8846 37.0856 36.5520 37.0841 36.8074 36.1661 37.1454 36.6187 36.1865 37.1069 36.7191 38.1112 39.7963 38.4875 37.7986 37.9161 39.0423 37.8799 40.2979 37.5805 39.8071 39.3004 37.6589 38.4810 38.3646 36.2621 38.1567 38.5243 36.5160 38.9902 40.4904 36.1312 39.6732 47.0790 37.1887 46.9377 50.1453 40.8642 53.5460 45.2195 51.2438 42.6888 46.9135 42.3983 47.7210 42.1730 44.0455 41.6359 42.5000 42.0118 40.2340 40.4367 40.6883 39.8439 39.2083 39.3528 39.7068 37.2462 39.9589 36.7315 38.5902 36.7821 36.8596 37.3795 35.9573 38.1297 37.8472 36.2304 39.9150 40.0991 37.1844 43.2711 43.4683 41.1544 41.3989 37.3725 40.0675 37.8597 39.1380 36.7251 37.6356 37.2634 36.9895 37.1697 36.6837 36.6628 36.1594 36.2662 36.2987 35.9152 35.9460 35.3287 35.9403 35.0662 35.6701 35.5233 35.2362 35.7801 35.2491 35.0810 35.5541 35.1081 35.1923 36.0194 34.8399 36.2842 37.9285 35.7361 38.9133 38.7342 39.2406 36.1125 39.6775 39.0069 42.2586 37.1408 42.4188 37.9073 41.6341 38.1404 37.1686 39.8163 37.9110 40.7530 37.4577 38.9933 38.1608 36.6268 37.9438 36.6023 36.7790 36.9314 37.3983 36.3009 35.5735 35.9796 35.7918 35.2765 35.6582 35.1642 35.1584 35.3157 34.6738 35.1447 35.3534 35.0011 35.0078 34.5608 34.6483 35.0424 34.6767 34.7602 34.4382 34.3158 34.6601 34.4269 34.3873 34.4061 34.3679 34.2128 34.1163 34.0779 34.1257 34.1510 34.1226 34.1834 34.0962 34.0977 34.0336 33.9900 34.0918 34.2227 34.1150 33.9884 34.0002 34.7619 34.8010 35.7877 34.3608 34.3654 34.5821 34.6474 35.5293 35.7210 37.1180 35.0221 37.2526 38.3856 37.9474 39.6523 35.1455 39.2346 39.7646 38.3532 38.6419 39.7026 36.1118 42.8563 47.4598 37.9407 49.1257 43.4746 44.0531 43.3742 37.5402 41.7217 37.5493 41.4286 40.0889 40.7837 38.5249 38.1951 39.3952 37.5180 38.6577 35.8671 37.8276 34.7785 38.4692 37.1683 36.9571 37.3968 36.7858 36.2066 35.9949 36.7995 35.4563 37.4012 36.8625 35.5580 39.0244 39.5065 36.0388 40.1279 39.4139 38.2837 40.2747 34.7293 38.0863 35.4386 35.8660 36.6463 35.1751 37.0485 35.3747 35.4720 36.1931 34.4467 34.9665 35.2406 34.5453 34.7290 34.6083 34.2963 34.1481 34.5603 34.8911 34.0049 34.0220 34.4714 33.8425 33.5832 33.9423 33.7992 33.4480 33.6069 33.9527 34.6368 33.7999 33.6207 34.0663 33.5684 33.3270 33.3987 33.5027 33.3218 33.1761 33.3207 33.3174 33.1989 33.1376 33.1344 33.2987 33.3161 33.2155 33.0887 32.9612 32.9377 32.9933 33.2809 33.6844 35.9362 34.6813 35.5034 33.2591 34.0500 38.5101 33.6673 34.6577 39.5438 33.4999 41.8688 50.7004 38.4178 51.3766
+
+len(Val_Loss): 2000
+Val Loss [(kW/hour)^2]: 
+334.4415 324.9348 313.1686 297.2692 276.3912 253.3332 234.2295 222.0618 214.8069 210.2514 207.1745 204.9827 203.4328 202.2095 201.3271 200.7425 200.2147 199.7713 199.4456 199.1182 198.8834 198.7013 198.6055 198.4735 198.4437 198.4463 198.4780 198.5317 198.5935 198.6750 198.7540 198.8389 198.9578 199.0756 199.1839 199.2929 199.4021 199.5110 199.6183 199.7175 199.8246 199.9202 200.0166 200.1117 200.2560 200.3333 200.4213 200.5964 200.6758 200.7808 200.7927 200.8673 200.9577 201.0308 201.0863 201.1463 201.3177 201.3867 201.5003 202.2719 202.4048 202.3978 202.6057 203.0520 203.4863 204.1238 203.4822 204.2561 206.6103 206.9562 207.1104 206.9899 205.8311 205.7640 205.5389 205.0075 204.7686 204.5462 204.4126 204.4569 204.8776 205.9614 206.1121 207.0591 208.1001 209.8813 210.9255 211.8820 212.4623 211.4340 210.4021 209.0806 207.6902 206.7876 206.3818 205.3597 204.0817 203.5253 203.4020 203.0646 203.0197 202.6932 202.5787 202.5628 202.5082 202.4772 202.4687 202.4627 202.3499 202.6503 202.5953 202.6557 202.7778 203.0516 203.4095 204.0512 204.2536 204.8043 206.5658 204.2319 203.3073 202.5663 202.3996 202.0014 201.8197 201.6127 201.6493 201.3482 201.0951 200.6616 200.6991 200.9048 200.9308 200.9292 200.9230 201.3364 201.6470 201.8332 202.3397 203.4495 204.1873 205.4268 206.1465 206.6393 204.8414 202.6505 201.9670 201.3961 200.7124 200.6449 200.5077 200.4036 200.2159 200.1702 200.0664 200.0016 199.9275 200.0873 199.9517 200.0325 200.1356 200.2541 200.3333 200.6097 201.1990 201.2859 201.3698 201.9420 203.0537 203.1201 203.6352 204.3754 204.9787 205.1375 205.0482 204.7329 202.2836 197.4140 198.7047 197.0757 198.9144 205.3201 188.3668 200.8398 182.1424 193.2018 191.3742 174.3850 167.1645 169.2561 168.1372 158.8303 157.2243 152.6660 155.8490 156.8970 152.5524 151.3702 150.8439 153.0622 151.3309 145.7657 152.4265 143.7314 144.6693 144.1850 145.0965 144.4654 144.2782 145.1898 146.2461 145.7934 144.9897 143.0519 141.1684 137.9084 136.5998 135.9473 135.9449 137.6404 140.9535 142.7781 142.0405 138.9794 135.3553 133.0976 132.4009 131.8098 131.5071 132.8234 136.1412 135.1978 133.3159 132.2184 130.8898 129.6733 128.7826 128.3888 128.3615 129.2928 131.2704 132.5980 132.1295 130.3795 128.4995 127.2753 126.4125 126.1490 125.8191 125.9428 126.5631 127.8007 126.4194 125.2682 124.5097 124.1516 125.4350 126.1534 123.4039 122.2052 123.8893 126.9566 127.8887 125.1581 120.8999 121.1774 120.8106 121.9370 127.3921 132.1520 127.4580 121.2899 119.8202 119.8893 119.4621 121.0171 126.8726 130.9227 127.9177 120.1948 118.5131 118.3996 118.7071 121.7676 122.6677 121.2735 119.4091 118.4426 118.3142 119.0973 119.3532 119.3222 118.7789 117.8245 117.8194 118.2615 119.2277 120.1409 120.0119 119.0691 117.8620 116.6158 116.4262 117.0070 119.7349 122.1492 119.5498 116.8494 116.0784 116.1344 117.6257 119.0101 119.5712 119.5148 118.3735 116.0082 115.7764 116.2230 118.0506 119.7277 120.5270 119.0448 116.4325 115.5335 115.6022 118.3556 119.4994 119.4490 118.1979 115.7420 115.0988 115.4289 117.5576 119.2379 117.5456 115.5727 115.5677 116.6042 116.7361 115.9509 115.7158 115.6354 116.0789 116.0850 115.5626 115.4675 116.4339 116.7354 115.4547 115.4283 116.6189 116.6767 115.2184 115.1036 116.2623 117.0020 115.7341 115.5717 115.6251 116.3757 115.8931 115.3986 115.8720 115.9149 116.0679 115.7120 115.2598 115.0390 115.8135 115.7568 114.8885 114.3958 115.7550 115.9279 114.4643 114.6810 115.9105 115.0340 115.8526 115.1054 115.0268 115.0938 114.5384 114.7630 115.4193 114.2070 114.2515 115.1965 113.6969 113.7997 113.8848 112.9467 113.9814 115.3398 113.6419 113.2481 113.7773 113.0645 113.9326 115.2523 113.4073 112.1247 112.1412 114.8422 114.5888 111.2945 111.7581 114.3444 113.5045 111.7239 114.1936 110.8782 111.7044 114.3480 109.3367 112.8684 112.3336 108.9306 113.4681 109.8081 109.4941 113.8728 107.8348 111.1361 113.8671 107.2626 110.8279 120.1371 108.5146 107.3978 131.2573 106.8080 108.2029 108.4019 122.2085 114.9230 107.6805 107.3470 108.3287 115.9979 116.0688 109.3181 107.4602 107.3087 110.5612 115.6926 110.2875 106.8295 106.7932 109.8328 112.5956 108.5551 106.1420 106.2502 108.6165 110.4688 108.5883 106.6446 106.8490 108.1359 109.5719 108.5290 107.0160 106.8005 107.6611 108.3895 108.1938 106.8854 106.9613 108.2796 107.9527 106.4258 106.3209 107.8988 108.7385 106.6429 106.1203 106.9995 108.6043 106.5447 105.7915 106.9305 107.5238 106.3427 105.9266 106.3037 107.7582 105.3742 105.6396 107.8198 105.5393 105.1058 107.0332 105.9448 105.2789 106.3816 105.7163 105.2252 107.1849 104.4728 107.0184 104.2869 108.3480 104.2197 106.3187 105.6540 103.9534 109.4132 103.1872 111.3454 102.1736 106.4874 112.3326 102.9848 106.4920 113.8472 102.5486 102.9797 119.9050 103.2762 102.4847 106.3591 118.2909 102.0664 102.1745 107.1569 114.4862 104.1509 101.9868 104.8649 110.5186 104.3504 102.3632 104.2496 108.6355 111.4299 103.4609 102.5276 105.8434 109.3440 104.4490 103.1828 103.8638 106.6913 105.7451 104.1140 104.3695 105.4516 103.6878 102.7509 104.6472 107.6523 102.3335 102.3568 107.5729 103.4010 102.0736 107.2411 101.8937 104.1002 103.6928 101.9164 106.4264 100.1987 107.3888 99.2011 103.3364 105.6574 99.4133 110.2664 102.1243 99.4848 118.6596 99.8761 102.0443 109.3779 112.4260 99.4597 104.9516 116.2971 104.3206 99.5395 99.2247 103.1343 112.3109 102.7343 102.8371 107.9177 100.7136 97.5348 98.6530 115.4924 103.4822 117.4415 108.0842 101.1439 100.6751 98.7481 108.3784 116.5910 102.9588 100.5413 106.3001 103.1727 97.6089 99.4991 106.4763 101.1971 96.4624 101.5530 102.0184 96.7370 111.7500 95.1141 95.1868 103.7980 104.3582 98.6429 99.3341 105.0413 95.2221 94.0851 97.2342 105.7047 94.1012 99.7629 100.5167 92.9938 95.9904 103.7538 92.9808 93.9909 98.3263 90.8270 109.2828 97.4740 96.1723 101.6416 107.2421 105.2171 102.3287 98.4798 99.8925 103.2980 98.6862 96.2506 98.0872 103.7065 100.6338 94.2622 93.1584 97.3382 96.1385 96.7097 115.2448 93.2691 97.7403 96.1098 91.6341 98.5341 98.8735 91.8158 94.0218 98.2542 90.6756 136.2371 100.2854 95.6285 94.1923 98.2250 120.3611 99.9470 92.4447 94.6724 94.4519 98.0388 104.9980 103.2365 94.1114 91.8121 91.5138 94.3111 103.0630 89.1934 89.0117 88.6010 96.9682 91.9165 88.2699 87.0503 93.9764 84.1659 94.1329 99.5735 174.8816 140.3297 121.6855 121.7810 127.1962 127.1046 122.5764 116.5778 111.4069 111.7751 120.2875 131.5887 136.1160 130.3864 120.3190 112.8075 109.8731 109.7714 110.1813 109.9827 109.4382 109.5157 111.0666 114.0660 117.3614 119.2900 118.8674 116.4162 113.1967 110.4261 108.6429 107.7676 107.4416 107.4145 107.7051 108.4948 109.8567 111.4921 112.7547 113.0471 112.2593 110.8092 109.2803 108.0663 107.2852 106.8944 106.8267 107.0577 107.5819 108.3376 109.1514 109.7585 109.9242 109.5877 108.8938 108.0906 107.3886 106.9026 106.6656 106.6701 106.8854 107.2500 107.6560 107.9591 108.0311 107.8335 107.4340 106.9559 106.5202 106.2087 106.0566 106.0674 106.2089 106.3950 106.5104 106.4630 106.2506 105.9278 105.5702 105.2861 105.1387 105.1533 105.2287 105.3253 105.3215 105.1814 104.8842 104.5076 104.1482 103.8868 103.7497 103.7268 103.7738 103.7722 103.6184 103.3438 103.1432 102.9651 102.7560 102.5196 102.2763 102.0655 101.8389 101.5857 101.2199 100.7419 100.2774 99.9441 99.7126 99.4555 99.0651 98.6052 98.2281 97.8442 97.5994 97.4197 97.0879 96.5479 96.0868 95.9836 95.9034 95.5256 94.9379 94.6756 94.5706 93.9735 93.3631 93.0284 92.7488 92.0963 91.5693 91.4390 91.1554 90.5005 90.0533 89.7121 89.0388 88.6093 88.2396 87.6451 87.2246 86.6878 86.4221 87.7012 108.4281 99.7150 126.1236 108.6203 95.1268 109.2925 90.0997 107.7342 101.5731 89.5988 95.5051 112.7171 93.3945 91.7342 96.2183 96.2085 92.5320 97.5563 91.8921 87.7973 93.7156 88.5375 86.1216 94.2946 85.5792 96.8011 87.7575 82.1624 106.0985 84.6490 81.7538 120.9906 96.8235 108.0438 102.3424 89.3211 91.7010 135.9563 91.5278 90.3496 92.9156 92.8000 91.0901 90.5271 93.7223 100.8060 103.3694 96.2080 88.5734 86.5705 87.3427 85.6390 87.9774 88.5258 97.8752 105.3621 202.7131 188.3657 152.8221 118.3829 110.1285 120.3140 111.5314 103.0213 114.3870 133.4045 139.6327 124.8793 109.2525 102.8195 101.5773 100.9532 100.5024 101.8636 104.7487 106.4223 106.5717 105.2200 102.3551 100.6350 100.7188 100.5763 99.7087 99.0293 98.2483 96.7155 94.6889 93.7627 94.6211 95.2770 95.3682 93.5771 90.6536 88.6500 87.7847 88.4398 90.5719 91.8950 89.4301 86.1142 84.6436 85.1727 85.9528 86.3630 85.2025 83.5903 81.8040 82.3063 80.8375 79.8970 82.3345 80.7815 94.8136 119.3133 158.8664 165.4304 146.9082 125.4805 114.1272 114.4188 115.5289 112.6201 107.4856 106.0167 110.2631 116.3540 120.3012 120.6094 118.2310 114.9191 111.5607 108.9901 107.5414 107.0376 106.2973 104.8390 103.5023 102.7480 102.3382 102.5168 103.2957 104.1982 104.4902 103.9106 102.7035 101.2316 99.7557 98.4203 97.3582 96.6968 96.4968 96.6163 96.8054 96.8879 96.8372 96.6516 96.2748 95.6641 94.8922 94.1419 93.5642 93.2091 93.0437 93.0082 93.0229 92.9061 92.4693 91.7030 90.8540 90.1815 89.7702 89.5403 89.3556 89.0809 88.6387 88.0866 87.5472 87.1821 87.0632 86.9841 86.6288 86.0142 85.5006 85.2781 85.0817 84.7020 84.3745 84.1099 83.8992 83.9127 83.6641 83.2902 83.2633 83.1653 82.9564 82.6260 82.3273 82.3003 81.6936 81.6969 81.0732 82.2914 81.2937 91.9502 97.2579 121.5020 112.9472 87.7589 99.1231 85.1962 106.9277 108.7290 95.5406 88.7183 92.4673 91.2009 91.7703 96.8378 97.8000 95.3787 91.9708 89.2868 88.8163 88.9182 89.8607 90.2437 88.3568 87.1539 87.1206 87.3376 83.2578 83.0137 85.2979 83.8819 81.8736 82.7454 80.4387 80.8260 82.0201 79.7709 82.6571 79.1135 90.2903 92.5990 82.5497 126.0868 93.7229 103.6450 93.2486 92.7603 95.6502 102.8395 104.4444 93.7622 90.2544 88.4539 90.9318 97.7072 92.8162 87.9620 86.1037 86.2843 87.8528 83.7629 83.3494 83.7290 85.1210 83.3360 80.5426 81.9342 84.3863 78.2340 78.9019 82.3596 78.3394 76.6735 87.9774 78.0527 78.3048 89.4199 79.0863 74.8913 90.0959 76.0935 76.4643 82.3075 79.7762 75.6139 85.1813 79.2751 75.8229 86.7622 82.7009 76.2836 78.9949 85.3626 76.1518 74.1173 80.0338 81.7421 74.0031 72.1660 92.0629 77.8549 73.9126 87.3916 93.4761 75.7076 76.1394 77.0195 84.6709 96.5218 82.3091 75.6272 74.6315 84.8389 89.4238 86.1766 75.4258 83.0787 81.1596 88.4145 82.8868 76.3008 76.6150 89.0739 85.8510 77.4494 78.4458 77.0533 78.3385 88.9607 76.5609 73.5978 77.4354 78.2115 76.8544 77.1763 73.9085 79.9524 79.6733 75.2432 76.5748 77.5491 75.2204 72.3729 78.7913 76.6211 73.6467 74.7750 79.2103 78.0017 72.9527 102.7592 105.9242 119.7250 90.7334 86.5709 83.0371 95.7885 116.3517 105.7397 87.8476 84.3403 82.2544 83.6491 87.2102 85.6673 96.0358 85.4571 81.9451 79.9560 77.2127 81.4997 81.6093 83.6192 77.3973 77.3086 77.0381 79.3792 77.9301 78.1038 77.6665 77.4273 75.7988 77.3793 74.8601 72.8544 77.7332 75.1915 72.1926 79.9921 75.0549 72.2336 81.5148 78.2859 71.1100 86.6728 86.8093 72.1775 79.8550 78.6806 103.2737 88.5350 82.0268 79.6649 80.7073 93.1094 96.1121 93.1052 80.8176 79.7597 75.1331 74.0703 82.4683 85.6742 81.9219 79.0957 78.7697 74.5810 76.0309 81.8002 76.4086 74.0275 75.2938 74.7587 76.3737 78.5053 74.4828 73.7962 75.1155 74.8075 77.1401 73.4423 71.5369 75.8805 73.2460 82.6198 75.5822 76.1701 78.0024 75.3595 83.2496 71.9834 74.5188 79.2393 75.2078 73.1547 79.3809 73.9844 73.0194 77.1207 74.1408 74.3311 78.6781 72.8778 74.2979 83.6439 73.1181 74.2165 91.0719 74.0320 82.0227 144.2365 76.1627 102.4690 76.5292 99.8802 112.6989 94.0784 83.2076 83.7242 77.7380 86.0445 96.3519 91.9513 81.9782 80.2368 76.3406 76.6178 86.7694 85.2418 78.1916 77.2282 76.8843 76.7547 78.5557 78.1633 77.9847 74.4137 73.5743 76.0523 74.8076 73.9242 73.8381 73.5370 75.6785 74.4652 73.3001 74.7094 75.1614 73.2559 73.2417 74.3135 73.9489 73.4634 73.7826 72.6310 74.1558 72.3804 75.2190 72.1397 74.7792 71.8934 76.2381 72.4201 73.5650 71.7768 72.5119 74.1236 71.6038 75.2146 72.4432 73.3308 75.4811 73.9974 71.0333 75.4621 73.0974 72.4111 74.4701 72.0910 73.1223 73.5659 74.3315 73.9475 73.4499 74.6401 72.8651 71.7059 73.8931 72.8282 71.8064 74.9967 71.5627 73.5232 78.3688 76.3644 70.9570 73.9289 84.8277 81.0369 76.2504 71.3366 94.6483 81.9301 71.0197 72.1873 78.5938 82.8792 75.4912 78.0167 76.2651 76.9211 77.9341 76.2850 72.6746 77.0413 77.6139 73.0739 72.8228 74.0992 73.7303 72.8020 71.0591 73.9424 75.2593 71.9290 76.5395 73.4204 70.8266 76.4845 74.5304 76.4537 71.4688 76.3283 76.4280 68.6701 83.7111 72.2306 69.1053 89.0106 85.8369 70.0943 81.7455 80.6088 97.5643 82.8679 85.3286 78.1607 74.8471 81.1462 94.3312 96.2245 82.6568 77.1261 77.1452 74.6150 74.0234 79.5427 83.6839 78.3275 72.2370 71.7363 72.5489 75.2105 77.0318 75.4998 74.5628 75.3362 76.2272 75.9144 72.3435 71.6652 75.1368 73.7183 73.0541 70.1131 75.8168 72.6421 71.2564 72.2504 72.6723 78.3070 71.8230 78.9657 72.2542 77.3365 71.7596 72.9295 75.2769 72.0122 81.6371 72.9470 72.6052 73.9199 72.5691 81.3168 71.7862 72.8827 83.3972 73.0507 74.4281 101.8243 72.1918 90.4218 103.0475 102.0014 72.0682 95.7709 84.3022 111.5560 89.9733 74.9125 81.0637 92.5465 84.5428 87.5177 87.1138 77.7937 74.3532 89.9077 75.5114 75.0159 79.1176 75.6748 78.3410 77.4234 72.3561 77.5456 79.9392 76.6687 71.0039 73.7825 77.5028 76.4224 71.6825 72.0460 76.8830 73.6979 71.5941 74.1975 75.2328 71.8012 72.0058 75.5754 72.9423 70.7547 73.6508 73.5379 71.7594 73.1803 72.9047 70.8288 73.7414 73.3761 72.0305 72.3817 72.4839 72.5075 71.4789 73.2431 71.9108 71.6281 73.5271 71.6513 71.8648 72.7593 71.7432 72.2891 72.4581 71.7474 72.8624 71.9075 71.9263 72.5108 71.5771 72.7312 71.8640 71.8814 72.2089 71.7116 71.9287 72.3272 71.3876 72.4422 71.3503 72.7398 70.9142 73.0217 71.3278 72.4600 71.8520 72.5150 71.4486 72.9193 71.3006 73.6753 71.7141 73.2295 72.7756 71.7955 72.5167 71.4016 72.9287 71.3312 72.5052 71.8116 72.4588 72.7424 72.7093 72.0348 72.7869 71.1060 72.4053 71.4899 72.6834 72.1704 72.4279 73.1138 71.2626 72.8275 71.8220 71.1740 73.2778 69.9897 75.1202 69.3599 74.9810 69.8878 73.2064 72.7967 71.3030 76.1525 71.5821 71.0380 74.3417 69.3648 76.9504 70.7828 70.1130 75.6343 68.6889 76.5886 71.8042 68.8780 77.8914 68.5223 72.6703 77.8472 69.2273 71.9982 87.0806 83.0835 76.2130 75.6252 79.7256 81.8133 81.7647 83.4300 84.0497 78.7482 77.1099 80.4169 82.2521 77.3923 76.4651 81.4139 72.6459 82.4899 73.7527 73.5110 77.1320 76.2681 71.0409 75.9837 75.6532 79.8742 78.1353 72.8315 80.3204 89.9422 73.9911 76.5423 80.1686 83.1043 69.3533 72.7293 83.0885 78.8864 69.4736 70.1221 77.5732 79.9979 71.4460 69.7791 75.5271 79.5501 72.6902 70.2183 76.0355 74.8700 69.1998 71.5276 76.5331 70.0690 69.6870 75.8353 71.1780 69.0305 74.7697 72.9836 69.7338 74.7509 73.3720 68.5672 74.2900 77.6002 68.6601 69.1480 75.6780 77.9890 69.8486 67.9530 80.4854 72.8043 68.5327 77.4285 76.5481 69.4623 72.1050 72.5020 74.5741 74.5116 69.5873 72.3195 78.9543 70.3120 71.2064 85.4176 71.6255 73.9012 86.8262 78.0916 82.3132 79.4717 83.1304 68.6170 76.4986 82.9888 84.6737 71.1794 74.6693 79.8112 77.6287 71.9409 69.2864 77.6902 76.0868 70.3052 67.9380 76.0967 75.2511 70.6258 71.4095 73.7937 75.5071 70.9398 71.6458 73.3757 70.7429 72.3478 76.1720 72.1916 70.7760 80.4718 75.3989 70.8139 84.4265 80.3760 71.0092 69.6531 79.3822 77.3457 69.6829 69.3070 76.3950 76.1185 68.6589 68.4672 75.1649 74.1687 68.9914 70.0978 73.2003 73.5956 68.5766 69.3931 74.5351 70.8497 68.5629 74.4142 72.2673 69.6443 73.0035 73.8192 69.3802 73.3454 73.8630 67.9760 71.8916 76.6648 68.4870 69.6608 80.4581 71.1768 67.2138 73.8781 82.9978 69.6221 67.0686 72.6044 85.6922 72.3180 67.0184 68.5422 77.2794 81.3129 70.6733 67.4248 70.7596 77.4706 77.0479 71.1090 68.5768 71.3919 74.7976 72.5346 69.6337 71.7219 73.0439 70.3499 69.3321 72.8441 74.7191 70.6961 69.5219 72.7676 70.8175 70.3196 74.1373 70.9187 70.7049 70.6113 71.9211 72.4251 70.6919 73.3733 69.6166 70.4613 73.1579 70.1583 71.7323 71.0099 70.3845 71.9952 71.4910 70.4697 71.2548 70.1791 70.8431 72.2757 69.8503 71.8006 70.3108 70.6548 72.1199 69.8595 72.0338 70.5384 69.8252 74.5522 68.6868 76.5801 70.1718 69.4596 74.5208 68.4404 75.3457 72.2712 71.0355 68.6910 77.7650 73.1943 66.5287 83.9655 71.8152 66.4045 79.0132 80.2626 66.6373 73.8431 72.3670 76.5357 87.3751 70.9510 72.9567 85.9355 85.0609 72.5352 67.1950 78.4978 76.2444 73.2007 72.7835 75.0589 72.6675 72.7155 73.8272 73.8849 73.8069 69.4387 71.7525 69.9060 74.9373 70.9644 70.4817 71.3547 78.8211 72.0549 67.8312 77.2564 72.1059 68.5777 77.2713 75.1447 65.8548 78.2973 76.8987 72.4696 74.4530 74.2563 73.0187 70.5889 75.7656 71.6219 69.2439 72.2661 70.1742 71.0911 71.2838 72.6339 71.3818 71.2439 71.1359 70.8462 71.2538 71.2694 70.4154 72.4095 71.0208 70.3334 73.0491 70.8626 70.0468 72.6229 69.5576 70.8204 71.2510 70.2295 70.2991 70.6131 69.3605 74.3594 70.0245 68.8584 73.3976 69.0765 70.8291 72.2128 68.5532 71.0828 70.5984 69.6038 72.0842 69.2967 70.0921 71.1281 68.9212 72.5395 68.8300 71.4130 69.8038 70.4640 70.4557 70.4236 70.0436 75.4281 69.3800 75.9043 69.7388 68.0672 81.8888 69.2692 67.1403 82.9924 71.0690 69.7016 92.6997 80.6796 72.4423 76.6271
+Min validation loss : 65.85481262207031
+Min validation loss : 21995.5078125
+Epoch when minimum validation loss : 1924
+Training losses: Mean = 85.5640 [(kW/hour)^2], Variance = 2807.8279, Max = 395.5474
+Validation losses: Mean = 102.5058 [(kW/hour)^2], Variance = 1491.8348, Max = 334.4415
+
+minimum validation loss: 65.8548 [(kW/hour)^2] at Epoch 1924
+
+--------------------Test Mode--------------------
+test mode: samcheok
+tst Loss_alltime: 47.7426 [(kW/hour)^2]
+tst Daytime Loss: 71.6140 [(kW/hour)^2]
+tst % alltime error:904.47 [%/hour]
+tst % daytime error:1356.71 [%/hour]
+
+################################################################
+samcheok_test results
+
+
+len(y): 243
+y [kW/day]
+[196.70999  158.79001  185.69     197.03     138.48999  197.11
+ 196.11     140.85     138.18     162.07     204.83     206.72
+ 212.47     207.63      81.71     179.7      211.33     207.6
+ 145.73      95.7      189.72     188.17001  117.        48.11
+  48.480003 187.43     196.41     222.70001  174.17001  226.
+ 227.01001  212.47     205.5      236.98     242.24     235.69
+ 244.29     193.61     175.01999  217.83     218.98999  198.74
+ 162.16     148.1      174.68     252.15999  263.89     263.86
+ 261.73     111.29     266.29     178.61     264.3      268.09
+ 266.96002  272.5      150.23     344.86     170.45     174.65
+ 287.09998  268.68     219.07     279.91998  274.57     199.59
+ 261.94     255.93999  253.31999  241.5      234.01999   12.710001
+  80.47     274.03     255.81001   52.3       57.18      64.55
+ 138.3      211.45     317.23     129.43     240.52     161.28
+  87.89     275.49     303.21002  329.27     219.07      54.32
+ 183.81     267.27002  274.99     298.57     288.5      261.59
+ 258.58002  275.15     301.13     265.34     281.31     294.48
+  53.22      59.02     255.16     311.58     236.88998  209.09
+ 303.78003  304.47     224.76999  186.9      226.7      309.24
+ 235.38     148.66     309.69998  228.59      90.43     244.51
+ 265.09     205.76001  308.21997  312.07     319.       323.41998
+  78.       148.45001  318.31     248.13     294.66998  183.8
+  91.770004 266.1      294.63     312.22003  305.22     216.81999
+ 247.09     303.17     317.51     262.53     308.59     308.16
+ 295.78     345.93     139.5      318.35     336.38     124.93
+ 331.46002  286.71002  337.11     188.32     254.17     105.92
+  65.       145.37     207.9      204.09     319.16     148.94
+ 240.23999  223.22     121.53001  136.02     308.72003  308.39
+ 304.05     317.39     326.57     294.97998  298.52     190.15
+ 196.35999  355.32     143.23     148.29999  207.7       99.69
+ 183.79001  343.57     331.47     298.18     208.66     236.87999
+ 230.55     235.03     206.02     271.32     128.01001  149.20999
+ 210.32      95.03999  166.78     219.75     278.48     228.41
+ 161.01001  270.32     251.69     101.91     154.31     237.43001
+ 226.73     200.       173.94     203.72     156.31     186.98999
+  85.26      86.18     104.75     143.64     136.38     226.96
+ 295.95     253.48001  272.81     107.09      60.190002  91.090004
+  73.81     309.93     118.73     202.14     138.07     223.08
+ 125.58     292.       128.73999   82.44     313.19     255.38
+  76.91     106.37     169.21     296.48     255.61     312.91
+  93.61      55.53     101.729996]
+
+
+len(pred): 243
+pred [kW/day]
+[167.47528  211.95297  227.99652  290.32465  147.41104  233.64316
+ 188.2356   192.95468  211.5751   181.70364  273.24466  198.97552
+ 274.45874  202.95973  175.36624  238.83742  301.53638  218.5522
+ 187.75665  207.34343  186.27081  163.25832  173.56235  188.28323
+ 104.65945  216.61398  237.5705   275.34064  237.38858  251.46017
+ 223.00327  216.01941  230.07335  261.0365   262.5974   270.10928
+ 260.69748  263.5504   208.52626  193.94113  252.61693  185.93224
+ 281.11896  184.53484  163.75806  250.01607  293.05133  269.35867
+ 222.63567  196.2789   272.95618  227.70392  293.19232  272.235
+ 255.71652  284.82422  226.7664   256.74918  239.8727   239.16034
+ 221.95508  267.62534  289.46594  326.60455  277.50183  209.93765
+ 216.33763  227.60207  250.24353  241.92325  206.46997   58.631336
+ 115.31831  178.97966  208.43317   71.62069  118.986694  49.494564
+ 141.38983  208.87811  266.9956   183.78848  222.64839  202.96724
+ 171.7927   235.42621  273.89624  248.24304  244.14563   64.4503
+ 238.66142  222.33353  235.80936  282.99884  275.47528  206.59567
+ 237.52332  249.29878  358.0783   337.34363  353.54965  285.2861
+  65.31633  152.36583  270.28345  248.25862  311.06384  303.17746
+ 184.71399  334.52322  356.37665  312.97192  210.87991  339.1364
+ 294.2531   156.05396  294.89227  186.81996   82.274704 207.58359
+ 297.6599   265.84073  299.521    325.37366  273.05878  306.09924
+ 141.24745  184.00006  281.69257  257.19467  213.38559  252.8154
+ 197.23672  333.09103  315.75995  318.3086   374.05884  309.79852
+ 294.57346  320.7539   351.8759   320.2126   281.87686  353.62344
+ 376.21448  356.85046  300.6769   398.05225  325.77252  202.9913
+ 310.78235  338.22174  334.77435  233.72778  205.87906  161.05226
+ 107.44553  200.32162  233.98401  201.2007   205.82947  189.72101
+ 218.2149   234.52638  205.32547  217.20721  190.8323   375.87958
+ 295.95062  301.36096  308.47995  206.41837  192.23376  170.3193
+ 286.1227   411.8076   219.91602  169.92673  344.62305  273.1333
+ 161.31433  313.58124  309.54193  282.54456  271.48788  202.74385
+ 183.09348  232.9626   315.32483  279.61594  173.14262  164.68762
+ 254.45834  151.01321  220.0852   173.01245  236.64662  221.62515
+ 221.06775  259.77664  327.2084   131.22523  218.88293  226.1282
+ 176.34087  221.88583  178.20193  211.0491   195.2988   205.2594
+ 205.39758  174.46313  137.26396  156.26334  235.44125  270.86856
+ 331.96716  341.39862  326.3931   273.78784  121.11446  126.13842
+ 130.04922  276.13654  201.69836  254.37811  299.5907   300.08316
+ 177.22086  239.74243  273.42215  191.94345  225.39737  256.315
+ 246.27234  208.54279  212.76587  314.15375  360.43408  361.40704
+ 144.86868   85.62982  109.45946 ]
+
+
+len(trend_y): 243
+trend_y [kW/day]
+[202.84085574 196.26308671 190.08617299 184.34351892 179.00369832
+ 173.94080835 169.90164508 171.29564454 175.1423216  178.57711301
+ 178.78051313 178.73133566 180.72957976 183.02737019 181.2738303
+ 174.62059863 168.15280068 165.81889885 164.28997551 156.99781586
+ 142.9779833  131.75529641 129.91825673 135.21559561 142.30540816
+ 150.3682113  163.35045903 180.87734764 197.28899478 208.45613017
+ 214.5458674  219.68075602 224.16209884 225.78388546 223.86027581
+ 221.1462059  219.20002757 215.95428562 209.76373437 201.0802635
+ 193.44849625 191.26301608 195.15739323 202.41279071 209.00152352
+ 213.44906594 218.29694101 223.04995512 227.09033319 229.36133839
+ 230.58782992 232.18948744 234.5182612  240.05723448 244.14899718
+ 242.8164495  240.38809728 238.12872234 237.04386566 238.39488757
+ 241.29798794 243.84608343 245.83877775 249.40467829 251.54659948
+ 250.63791945 246.54801329 233.92168917 215.28367071 200.93871447
+ 192.18869496 180.6624041  162.71513326 143.43191117 132.06578967
+ 133.93441366 143.73564411 149.60142818 154.2433743  163.29025498
+ 175.58476793 188.68413203 201.51525406 212.67504972 218.25699384
+ 217.09840603 215.47185578 217.45482183 224.30024799 230.52349001
+ 231.61341739 233.29024562 241.48571795 255.9517921  270.01460347
+ 276.57813891 277.79220648 275.00294921 263.75383146 246.02896638
+ 229.88776247 220.17320807 214.65803461 210.54107418 210.63592466
+ 218.97036862 234.31882857 248.14785418 252.4007066  250.77754272
+ 248.87261901 245.56340404 241.26831026 236.09962973 230.14895002
+ 225.60131047 222.13473032 219.99485051 222.02287971 230.06594223
+ 242.46861611 254.45561472 260.39901978 258.96643735 254.4002008
+ 251.1706817  248.55123902 239.89171845 226.3104692  218.0759682
+ 221.6695063  233.6413691  241.9516186  244.20136039 247.76956789
+ 256.40392878 268.92690733 278.24524564 281.1918334  282.00831544
+ 285.41579465 291.17961058 292.54899352 289.88068697 286.09117203
+ 280.62198402 275.36092582 271.32553259 270.56295303 269.76045659
+ 266.17564784 256.5050577  238.45160294 219.05691832 202.43987195
+ 188.20310779 180.35915886 177.90329637 182.31648551 191.7856011
+ 201.05435293 205.85050594 208.26014576 212.36669262 220.02064769
+ 231.42203803 247.32004303 264.58438705 281.57424824 291.75444704
+ 290.58414684 282.86874729 270.88969863 255.0991702  236.44051271
+ 217.2092056  203.69160996 200.29810134 206.26313435 215.65487929
+ 225.43970073 237.1769024  248.11316219 256.0588714  258.00234909
+ 251.03320605 236.34722012 221.5159134  210.05199809 199.3702113
+ 188.94810234 181.20829553 179.48039133 182.43464041 187.8788957
+ 197.31490363 207.28503375 213.06348178 213.171794   208.86483398
+ 203.97506672 200.9158427  198.66440581 195.67479977 192.42736752
+ 190.74722892 186.55159975 174.64260937 159.1690953  146.47116739
+ 138.63681037 137.38824327 143.96832424 158.61945844 177.21916508
+ 192.30790149 197.77335918 193.23792505 182.97508757 172.53609311
+ 161.09117022 150.60888047 145.62073584 149.61946292 161.36861511
+ 175.19101761 181.90686868 180.7642059  180.28898912 185.47613577
+ 188.37163596 184.80167503 178.92494974 178.91706568 186.76565856
+ 197.87737732 200.45310836 191.97474116 184.25569781 177.57551394
+ 170.96860007 163.66716016 155.40856889]
+
+
+len(trend_pred): 243
+trend_pred [kW/day]
+[214.49492269 213.53112155 212.49253606 211.69900787 211.35762925
+ 211.06879117 208.75562154 208.51862139 211.17627262 215.25785019
+ 217.64827282 220.38537569 224.97978716 229.03696452 229.64834723
+ 226.19605794 221.51616191 216.62412656 210.96750083 202.29600653
+ 190.25638888 181.31211762 179.84179959 185.0246067  194.14529005
+ 204.46904314 214.40578727 223.34601773 231.55935233 237.77052178
+ 240.57997698 242.50336409 244.61354298 247.31105761 248.88718857
+ 248.63141084 246.31506456 241.80140766 237.25107877 231.0505386
+ 223.34838604 218.72054378 220.32673998 226.31509969 231.02410689
+ 232.83484889 234.78030285 238.34119342 244.747229   249.79292759
+ 251.37123402 252.93480626 255.96944937 259.10022396 259.87809476
+ 257.59560705 253.76182691 250.05294512 249.73427388 253.80393553
+ 259.00264639 261.9427934  261.60380812 259.88917021 257.84206468
+ 253.86028577 244.50601549 227.5918974  208.07342213 193.1407407
+ 182.94147372 171.14234029 155.46722312 138.83362375 128.52965767
+ 129.41110248 138.44236805 147.8235785  157.07437303 168.92462734
+ 183.35676571 197.74152864 210.2589848  218.34197058 221.03694758
+ 218.14375645 214.96709787 213.82723277 215.36361186 218.32319381
+ 220.313286   222.41535767 227.48044177 236.72782592 249.92164883
+ 262.88420356 275.30847158 282.79431018 279.95479114 271.43377614
+ 262.94349867 255.04795412 247.77023903 240.25001133 235.15872612
+ 239.68721715 256.31465641 275.96309377 286.59219858 290.06090766
+ 290.70940617 287.89658621 283.2084994  272.9076112  254.01087385
+ 235.22382476 223.95399265 220.05067258 221.57177027 229.57528276
+ 242.2773293  255.56197687 265.21239489 267.47259751 263.0186044
+ 256.11705593 248.73410964 240.51955549 233.66834354 234.5002704
+ 244.0854726  258.88211593 273.29575403 285.5517988  297.69812554
+ 309.02217209 318.2133684  323.85305953 324.16981816 323.39035307
+ 324.75712301 328.5898672  333.02803376 336.96646349 338.62688085
+ 336.01046105 331.18211219 325.89544994 320.31587657 311.82544765
+ 298.35156667 280.00305808 258.98016149 241.09224608 226.19537843
+ 211.39704106 198.46535382 190.70012674 190.88154326 197.07362186
+ 204.84718906 210.0997432  212.85233635 219.52888643 231.32531892
+ 245.5173081  258.33216053 265.86764104 268.17082626 266.25135267
+ 263.06163563 261.426014   257.90157594 253.24363667 251.94528886
+ 255.83435416 261.98083556 265.92268554 266.13822571 264.96766426
+ 265.35595756 265.76087672 261.62408493 255.81455053 254.30893465
+ 253.49778352 246.98690342 237.52469334 230.32064324 226.04281289
+ 223.1309303  216.7082852  208.0917861  202.70711311 203.47942927
+ 210.05957457 218.87998784 225.1566943  228.48684239 228.65974637
+ 227.07288043 223.75466353 217.98308218 210.99873484 204.87475601
+ 201.43037413 200.88788704 198.80770497 194.42675491 189.67981866
+ 187.81046749 192.0726982  202.08808376 217.32436414 236.19395049
+ 254.07811622 264.48488311 264.193219   254.50889521 240.1435432
+ 224.66247616 211.87660585 206.39675342 210.40600355 221.3140971
+ 234.77274936 244.35614352 247.32571445 245.77664278 242.63757908
+ 238.28960092 234.23643268 232.99859397 236.18041987 244.62460136
+ 257.05458864 263.78706595 249.93205669 234.69835075 219.92305523
+ 204.6092557  187.85005763 169.3242671 ]
+
+
+len(seasonal_y): 243
+seasonal_y [kW/day]
+[-34.0447981   -9.94286999 -23.26312722   3.32037223  10.33425771
+  14.15479261  35.51859279 -32.78961256  -8.48462814 -21.79315703
+   6.24170686  10.64132586  11.4485445   30.83307881 -31.46755758
+  -7.08648874 -20.29207774   9.04904094  10.8817333    8.82931404
+  26.21548726 -30.07888335  -5.73913298 -18.77731026  11.71007041
+  11.06453486   6.31136526  21.68244592 -28.61544946  -4.43289322
+ -17.27869503  14.18730231  11.20343927   3.92193441  17.24727897
+ -27.08251744  -3.15842428 -15.82320554  16.45882752  11.3110555
+   1.68910857  12.91956794 -25.49374856  -1.9100733  -14.44244366
+  18.51547273  11.40566742  -0.35962508   8.70870678 -23.87298774
+  -0.68588729 -13.17081102  20.36212775  11.50636953  -2.20184552
+   4.62323398 -22.24732727   0.52129277 -12.04082519  22.01152634
+  11.62671226  -3.82567238   0.66477716 -20.62982182   1.71007231
+ -11.07563921  23.49152028  11.77355858  -5.23322775  -3.17485002
+ -19.01794857   2.84955517 -10.27854439  24.87215179  11.9420274
+  -6.4507792   -6.91272286 -17.41368844   3.88524765  -9.61542493
+  26.27760815  12.10542297  -7.54510414 -10.59134155 -15.83082895
+   4.76594141  -8.97754357  27.88204967  12.17038655  -8.63202046
+ -14.27170809 -14.22809796   5.38459751  -8.13666794  29.88950001
+  11.93302986  -9.89918493 -18.0101231  -12.33710533   5.47322649
+  -6.69140472  32.30078715  11.03456713 -11.33798014 -21.46385721
+  -8.25687259   5.07202068  -6.35219443  31.77094254   8.43936695
+ -11.44313806 -21.44173281  -3.42768187   4.4345609   -6.40955945
+  30.40880732   5.28638475 -11.89773613 -20.65994731   2.02815585
+   3.85697934  -6.79486964  28.30126638   2.16323084 -12.30566316
+ -19.21842912   7.48853713   3.3597654   -7.55807462  25.53223319
+  -0.68299977 -12.36834578 -17.02502034  12.44335823   3.04356213
+  -8.8782445   22.10015484  -3.13184685 -11.91434902 -13.93012101
+  16.47233482   3.07735622 -10.85895312  18.13579604  -5.27526385
+ -11.44192853  -8.70572735  17.81569256   4.65303947 -13.25529722
+  14.10529341  -7.94267218 -10.43251994  -3.38332336  18.15643065
+   7.69678264 -15.39336318   9.1882074  -11.09860738  -9.10589965
+   2.04351782  18.4167116   11.282566   -17.55146803   3.84435048
+ -14.49750503  -7.67945324   7.60466261  18.76834745  15.05833458
+ -19.74100075  -1.66725369 -18.06439933  -6.29329159  13.28911871
+  19.22886397  18.91195472 -21.93677472  -7.21393844 -21.75769698
+  -5.03079618  19.07759651  19.78125237  22.80527131 -24.12166552
+ -12.72883759 -25.54952719  -3.92663494  24.95675909  20.38133854
+  26.73591092 -26.27772554 -18.18072796 -29.40721091  -2.98979275
+  30.90458849  20.97696258  30.71403128 -28.38568231 -23.55761189
+ -33.30423581  -2.22025151  36.90481863  21.51443402  34.76549679
+ -30.42909894 -28.86823619 -37.21743735  -1.60664176  42.94938282
+  21.94103424  38.92037609 -32.3934153  -34.13893686 -41.14205861
+  -1.12050849  49.0437152   22.21252931  43.21022976 -34.27238991
+ -39.4008839  -45.08811934  -0.73344894  55.19274611  22.30153126
+  47.67405049 -36.06150148 -44.68384259 -49.06681707  -0.42173868
+  61.38864485  22.18635975  52.34272668 -37.75215681 -50.00947512
+ -53.08651141  -0.15878956  67.60955352  21.86524129  57.24063752
+ -39.34032774 -55.4064377  -57.15083167]
+
+
+len(seasonal_pred): 243
+seasonal_pred [kW/day]
+[-1.74088413e+01 -3.93584886e+00 -3.15029595e-01  1.10801760e+01
+ -1.93069312e+01  2.54195568e+01  2.76915174e+00 -1.64622875e+01
+ -3.05836081e+00  5.41788285e-01  1.06072560e+01 -1.76680211e+01
+  2.19825982e+01  2.36540789e+00 -1.55624665e+01 -2.15493175e+00
+  1.40127821e+00  1.01624320e+01 -1.60775459e+01  1.86380004e+01
+  1.91416118e+00 -1.46976745e+01 -1.22924087e+00  2.25327043e+00
+  9.71111770e+00 -1.45205061e+01  1.53950637e+01  1.43007461e+00
+ -1.38461319e+01 -2.88817354e-01  3.07170748e+00  9.21977393e+00
+ -1.29797560e+01  1.22641791e+01  9.29951911e-01 -1.29819774e+01
+  6.55707430e-01  3.82237669e+00  8.67271132e+00 -1.14411741e+01
+  9.25494070e+00  4.23614024e-01 -1.20805589e+01  1.58880755e+00
+  4.46941643e+00  8.06891921e+00 -9.88922435e+00  6.37534106e+00
+ -8.07031284e-02 -1.11241830e+01  2.49088747e+00  4.97335791e+00
+  7.42083748e+00 -8.30583686e+00  3.62709202e+00 -5.68078629e-01
+ -1.01083907e+01  3.34468828e+00  5.30333754e+00  6.74956092e+00
+ -6.68439067e+00  1.00310731e+00 -1.01712811e+00 -9.02833405e+00
+  4.12888021e+00  5.43835473e+00  6.08518476e+00 -5.02794418e+00
+ -1.51074004e+00 -1.40820117e+00 -7.88280408e+00  4.81598420e+00
+  5.37099496e+00  5.48222697e+00 -3.34229938e+00 -3.94221421e+00
+ -1.72919691e+00 -6.70084426e+00  5.37623136e+00  5.12833321e+00
+  5.03996561e+00 -1.64836846e+00 -6.34771068e+00 -1.98715627e+00
+ -5.56530502e+00  5.81016791e+00  4.80113055e+00  4.92011325e+00
+ -2.31700936e-02 -8.81226792e+00 -2.21646987e+00 -4.64341589e+00
+  6.16878792e+00  4.58155978e+00  5.39422528e+00  1.34559880e+00
+ -1.14399400e+01 -2.52583712e+00 -4.25080460e+00  6.57431888e+00
+  4.76788143e+00  6.71106467e+00  2.07890750e+00 -1.41332497e+01
+ -3.02827549e+00 -2.26685717e+00  6.57452401e+00  3.81441608e+00
+  7.32934570e+00  1.69720288e+00 -1.62637791e+01 -1.89791078e+00
+  9.04821378e-02  6.51919057e+00  2.91511789e+00  7.39097823e+00
+  9.25480731e-01 -1.83816023e+01 -5.18537733e-01  2.78067005e+00
+  6.41690942e+00  1.97686014e+00  6.93010792e+00  1.82829599e-01
+ -2.01948395e+01  9.29050833e-01  5.71070033e+00  6.20019221e+00
+  7.71498473e-01  6.01283505e+00 -3.81677316e-01 -2.14713705e+01
+  2.38491786e+00  8.79478312e+00  5.87651848e+00 -7.75608434e-01
+  4.65985157e+00 -8.13569929e-01 -2.21656129e+01  3.95288374e+00
+  1.18321968e+01  5.43350603e+00 -2.68241526e+00  3.02779589e+00
+ -1.30094444e+00 -2.27812356e+01  6.81380478e+00  1.41890176e+01
+  4.97301826e+00 -3.82969217e+00  1.08263102e+00 -2.99293226e+00
+ -2.32834753e+01  9.86103460e+00  1.63780496e+01  5.56283214e+00
+ -4.87703126e+00 -1.19340090e+00 -5.33761443e+00 -2.38030134e+01
+  1.30712550e+01  1.87466973e+01  6.56900888e+00 -6.12661021e+00
+ -3.60366741e+00 -7.92198526e+00 -2.44119453e+01  1.64439194e+01
+  2.12936115e+01  7.72585342e+00 -7.49181290e+00 -6.07187882e+00
+ -1.06506338e+01 -2.51540903e+01  1.99664241e+01  2.39794632e+01
+  8.94826968e+00 -8.87918661e+00 -8.57169247e+00 -1.34998462e+01
+ -2.60356292e+01  2.36075945e+01  2.67619495e+01  1.02048322e+01
+ -1.02297142e+01 -1.10886363e+01 -1.64497420e+01 -2.70388219e+01
+  2.73352261e+01  2.95859776e+01  1.14909659e+01 -1.14944960e+01
+ -1.36265234e+01 -1.94861206e+01 -2.81339449e+01  3.11178294e+01
+  3.24029974e+01  1.28118684e+01 -1.26416074e+01 -1.61897265e+01
+ -2.25918085e+01 -2.92987390e+01  3.49244428e+01  3.51735616e+01
+  1.41851738e+01 -1.36465843e+01 -1.87926524e+01 -2.57541980e+01
+ -3.05191628e+01  3.87398038e+01  3.78701623e+01  1.56344912e+01
+ -1.44945706e+01 -2.14559406e+01 -2.89825253e+01 -3.17764132e+01
+  4.25600266e+01  4.04762574e+01  1.71892592e+01 -1.51803568e+01
+ -2.41964724e+01 -3.22963407e+01 -3.30596275e+01  4.63856792e+01
+  4.29816214e+01  1.88790915e+01 -1.56984198e+01 -2.70188748e+01
+ -3.57156594e+01 -3.43663576e+01  5.02147890e+01  4.53777349e+01
+  2.07226133e+01 -1.60553029e+01 -2.99160633e+01 -3.92491963e+01
+ -3.56915939e+01  5.40421828e+01  4.76720245e+01  2.27345797e+01
+ -1.62743772e+01 -3.28929854e+01 -4.28951974e+01]
+
+
+len(resid_y): 243
+residual_y [kW/day]
+[ 2.79139338e+01 -2.75302082e+01  1.88669567e+01  9.36610764e+00
+ -5.08479658e+01  9.01439965e+00 -9.31023726e+00  2.34397412e+00
+ -2.84777008e+01  5.28605135e+00  1.98077818e+01  1.73473397e+01
+  2.02918770e+01 -6.23044411e+00 -6.80962736e+01  1.21658871e+01
+  6.34692789e+01  3.27320663e+01 -2.94417131e+01 -7.01271330e+01
+  2.05265307e+01  8.64936004e+01 -7.17912375e+00 -6.83282847e+01
+ -1.05535475e+02  2.59972465e+01  2.67481794e+01  2.01402186e+01
+  5.49646810e+00  2.19767631e+01  2.97428374e+01 -2.13980571e+01
+ -2.98655381e+01  7.27417586e+00  1.13245072e+00  4.16263140e+01
+  2.82483900e+01 -6.52107948e+00 -5.12025729e+01  5.43868283e+00
+  2.38523854e+01 -5.44257853e+00 -7.50364101e+00 -5.24027113e+01
+ -1.98790872e+01  2.01954497e+01  3.41874062e+01  4.11696553e+01
+  2.59309710e+01 -9.41983497e+01  3.63880659e+01 -4.04086758e+01
+  9.41959884e+00  1.65263923e+01  2.50128703e+01  2.50603165e+01
+ -6.79107743e+01  1.06209970e+02 -5.45530435e+01 -8.57564200e+01
+  3.41752754e+01  2.86595816e+01 -2.74335476e+01  5.11451264e+01
+  2.13133355e+01 -3.99722839e+01 -8.09953113e+00  1.02447394e+01
+  4.32695491e+01  4.37361356e+01  6.08492426e+01 -1.70801958e+02
+ -7.19665876e+01  1.05725936e+02  1.11802196e+02 -7.51836352e+01
+ -7.96429209e+01 -6.76377367e+01 -1.98286189e+01  5.77751669e+01
+  1.15367635e+02 -7.13595623e+01  4.65498544e+01 -4.08037094e+01
+ -1.14536166e+02  5.36256428e+01  9.67157098e+01  8.39331175e+01
+ -1.74006272e+01 -1.67571470e+02 -3.35317117e+01  4.82078719e+01
+  2.81196748e+01  5.07548832e+01 -1.14041035e+01 -2.69211724e+01
+ -9.31300447e+00  1.81571678e+01  4.97132788e+01  1.38378035e+01
+  5.81136398e+01  4.20060158e+01 -1.72472601e+02 -1.40183094e+02
+  6.59879362e+01  1.00866491e+02 -2.50086512e+00 -3.27056634e+01
+  1.96083802e+01  4.52530916e+01 -1.26594919e+01 -3.72216773e+01
+ -1.11406314e+01  6.87057996e+01  1.16406143e+01 -1.07350114e+02
+  8.22788666e+01  2.04928820e+01 -1.10932932e+02  1.24158964e+01
+  1.87644009e+01 -4.19007353e+01  1.95196845e+01  5.09403391e+01
+  7.69054624e+01  9.14677303e+01 -1.78039776e+02 -9.48014716e+01
+  9.95576030e+01  4.52180350e+00  7.36834764e+01 -3.74730203e+01
+ -1.33156594e+02  9.45528749e+00  4.38168749e+01  6.46943475e+01
+  1.41929391e+01 -5.82934067e+01 -2.21874880e+01  3.50918190e+01
+  1.56218803e+01 -3.17269680e+01  2.68999559e+01  1.43520650e-01
+  1.49640906e+01  7.67499372e+01 -1.27155198e+02  2.92087810e+01
+  6.11640124e+01 -1.31575159e+02  5.11790807e+01  3.81476365e+01
+  1.09090902e+02 -2.73535876e+01  3.35736956e+01 -8.99798923e+01
+ -9.99657957e+01 -4.17215087e+01  3.66821158e+01  2.14102949e+01
+  1.16062133e+02 -7.53272151e+01  2.06972785e+01  2.84047766e+01
+ -1.02334992e+02 -8.09045287e+01  6.90794419e+01  3.62009650e+01
+  3.70739210e+00  1.05772330e+01  5.57268612e+01  1.37784869e+01
+  4.56946897e+01 -5.86558847e+01 -5.33696461e+01  1.18881938e+02
+ -7.93735690e+01 -3.00613388e+01  8.65080105e+00 -9.42071799e+01
+ -3.66188960e+01  8.73155084e+01  6.35755867e+01  1.93158500e+01
+ -2.52206799e+01 -1.42437884e+00  1.97523101e+01  1.74407203e+01
+ -2.89887529e+01  5.15684575e+01 -8.76740035e+01 -5.72057853e+00
+  4.90203440e+01 -5.79874362e+01 -1.81091042e+01 -8.46949213e+00
+  5.02180147e+01 -1.53675094e+01 -2.37761019e+01  8.50127852e+01
+  8.10191715e+01 -9.67855875e+01 -8.12592269e+01  2.02407741e+01
+ -4.62868583e-01  3.96818700e+01  1.62566389e+01  6.62948292e+01
+ -1.25245598e+00 -2.43055997e+00 -7.53178425e+01 -9.01286191e+01
+ -6.82490895e+00  1.91594778e+01  3.02898416e-01  3.57726137e+01
+  4.91329378e+01  3.80295566e+01  4.66246802e+01 -3.11737069e+01
+ -6.15002839e+01 -1.44307572e+01 -7.10772893e+01  1.05117784e+02
+ -6.49401430e+01 -2.07250687e+01 -7.77535988e+00  8.69996385e+01
+ -5.64217021e+00  1.06945603e+02 -1.21020291e+02 -1.24548032e+02
+  8.19223260e+01  1.14215096e+02 -5.98461798e+01 -3.84208632e+01
+ -3.10843121e+01  3.68957163e+01  4.94890615e+01  7.80938522e+01
+ -3.80182717e+01 -5.27307237e+01  3.47225850e+00]
+
+
+len(resid_pred): 243
+residual_pred [kW/day]
+[ -29.61080059    2.35769972   15.81901453   67.54546215  -44.63965682
+   -2.84519002  -23.28917758    0.89834748    3.45719195  -34.09599467
+   44.98913062   -3.74182971   27.49635488  -28.44264035  -38.71963929
+   14.79629142   78.61893683   -8.23435822   -7.13330211  -13.59057737
+   -5.89973708   -3.35612704   -5.05021131    1.00535651  -99.19696103
+   26.66544614    7.76964459   50.56454487   19.67535992   13.97847014
+  -20.64841908  -35.70372883   -1.56043797    1.46126232   12.78027163
+   34.45984999   13.72670725   17.92663069  -37.39752972  -25.66823294
+   20.01360136  -33.21192208   72.87277643  -43.36907143  -71.73546668
+    9.1122994    68.16025207   24.64213862  -22.03085998  -42.38984443
+   19.09405526  -30.20424571   29.80203493   21.44059826   -7.78866456
+   27.79669032  -16.88703305    3.35154262  -15.1649155   -21.3931571
+  -30.3631776     4.67943498   28.87926237   75.74371706   15.53088617
+  -49.36098791  -34.25356903    5.03811282   43.68084819   50.19070875
+   31.41130106 -117.32698828  -45.51990448   34.66380931   83.24580822
+  -53.84819887  -17.72647681  -91.62817018  -21.06077285   34.82515224
+   78.59887415  -12.30467751   18.7371176   -13.38757493  -43.67894847
+   11.47228413   54.12801182   29.49569597   28.80518812 -145.06062377
+   20.56460659    4.56158483    2.160127     41.68945463   20.15940665
+  -57.63412975  -26.34521611  -30.96969071   82.37432157   59.33553291
+   85.838272     23.5270835  -184.53281658  -73.7509322    38.15299663
+   10.83826124   48.17466236   23.39994987 -109.20755502   42.76511334
+   81.93102086   26.9732484   -72.4190682    59.7096118    37.32712106
+  -86.56084791   70.01279957  -14.84910877 -138.77852855  -24.77236517
+   48.9656734     8.30189175   27.37849329   57.71823012   30.23501199
+   49.0531364  -113.19735819  -62.71968666   47.25272391   16.68156618
+  -30.31820568   15.40465369  -78.44394703   38.74445201   12.1853047
+   10.06203009   51.18561792  -13.24096665   -7.43074941   -6.58933056
+   15.28656517  -13.81078778  -48.46875693   13.62918422   38.88854112
+   43.62123846  -37.31900657   57.96777857    0.48362714 -105.004453
+   11.34815094   61.21161491   99.07766688  -17.22549747  -36.6943692
+  -55.90761185  -86.1427888    10.81489891   48.44007996   27.93009037
+  -12.08897627  -39.12543224   -1.20644044   21.12410623  -22.39618154
+  -20.38810848  -43.0879093    93.5680172     6.4861848    27.38375582
+   52.91012722  -48.9357697   -55.01717751  -57.77024097   14.21099827
+  131.99376929  -51.01308961  -87.11677163   87.05651363   21.66548271
+  -78.00599731   24.21276654   21.15589672   16.52517294   27.4086641
+  -39.66529655  -47.44368608   22.47672923   57.66895974   23.98714579
+  -61.4792723   -40.52616714   59.99308079  -32.20777837   44.73972074
+  -68.16495276  -14.63636349  -16.34341016    5.22251407   47.30662199
+  122.72733257  -63.23068953  -34.02459039  -20.04409209  -42.7190637
+   34.10204389   -3.8932998    37.99559583   31.39120554  -23.16022306
+  -20.28304684  -33.24405465  -50.32955141  -39.60508736   28.22982845
+   48.56685781   24.92225336   36.72914424   54.69494253   48.8246554
+  -79.35153991  -53.44184506  -43.28790102   19.34485292  -62.59735423
+    0.72627196   70.93297455   79.7763207   -32.8401277    31.4712102
+  -15.08224024  -87.67071663  -28.32383791   36.18988545   31.56380083
+   -9.26260669  -15.32960286   10.17950806   78.06370682  118.74940852
+  -43.46619566  -69.3272505   -16.96961234]
+
+
+
+MSE for original: 3615.5566 [(kW/day)^2]
+MSE for trend: 1132.6523 [(kW/day)^2]
+MSE for seasonal: 220.1572 [(kW/day)^2]
+MSE for resid: 2040.2064 [(kW/day)^2]
+
+
+Percent Error for original: 29.9988 [%/day]
+Percent Error for trend: 13.6089 [%/day]
+Percent Error for seasonal: 62.7804 [%/day]
+Percent Error for resid: 102.6411 [%/day]
+
+y Sum: 51377.22 [kW / 8 months]
+Pred Sum: 57525.83 [kW / 8 months]
+
+Percent Error for annual original: 11.9676 [%/8 months]
+
+1 month MSE Loss: 3358.51 [(kW/day)^2]
+2 month MSE Loss: 2078.71 [(kW/day)^2]
+3 month MSE Loss: 2022.05 [(kW/day)^2]
+4 month MSE Loss: 3621.58 [(kW/day)^2]
+5 month MSE Loss: 3557.26 [(kW/day)^2]
+6 month MSE Loss: 4996.76 [(kW/day)^2]
+7 month MSE Loss: 2481.88 [(kW/day)^2]
+8 month MSE Loss: 6703.72 [(kW/day)^2]
+################################################################
+
+# Alltime Info Of Test
+MSE loss(alltime) and Percent Error(alltime) of (trend, seasonal, residual)
+original_loss: 47.7427 [(kW/hour)^2]
+trend_loss: 5.8944 [(kW/hour)^2]
+seasonal_loss: 10.5787 [(kW/hour)^2]
+resid_loss: 29.0678 [(kW/hour)^2]
+
+percent_error_orignal: 575.8422 [%/hour]
+percent_error_trend: 31.0512 [%/hour]
+percent_error_seasonal: 56.8806 [%/hour]
+percent_error_resid: 181.2372 [%/hour]
+
+1 month MSE Loss: 40.9490 [(kW/hour)^2]
+2 month MSE Loss: 47.5628 [(kW/hour)^2]
+3 month MSE Loss: 28.7054 [(kW/hour)^2]
+4 month MSE Loss: 59.0226 [(kW/hour)^2]
+5 month MSE Loss: 62.1743 [(kW/hour)^2]
+6 month MSE Loss: 51.5283 [(kW/hour)^2]
+7 month MSE Loss: 36.2070 [(kW/hour)^2]
+8 month MSE Loss: 56.2605 [(kW/hour)^2]
+
+1 month Percent Error: 971.0087 [%/hour]
+2 month Percent Error: 1337.7035 [%/hour]
+3 month Percent Error: 960.8429 [%/hour]
+4 month Percent Error: 906.2503 [%/hour]
+5 month Percent Error: 574.3751 [%/hour]
+6 month Percent Error: 541.3835 [%/hour]
+7 month Percent Error: 935.4612 [%/hour]
+8 month Percent Error: 1039.0193 [%/hour]
+
+################################################################
+
+# Daytime Info Of Test
+MSE loss(daytime) and Percent Error(daytime) of (trend, seasonal, residual)
+original_loss: 71.6140 [(kW/hour)^2]
+trend_loss: 13.8105 [(kW/hour)^2]
+seasonal_loss: 0.5259 [(kW/hour)^2]
+resid_loss: 51.3869 [(kW/hour)^2]
+
+percent_error_orignal: 863.7633 [%/hour]
+percent_error_trend: 30.0960 [%/hour]
+percent_error_seasonal: 143.1994 [%/hour]
+percent_error_resid: 167.9145 [%/hour]
+
+1 month MSE Loss: 62.0449 [(kW/hour)^2]
+2 month MSE Loss: 61.7423 [(kW/hour)^2]
+3 month MSE Loss: 54.5078 [(kW/hour)^2]
+4 month MSE Loss: 89.1234 [(kW/hour)^2]
+5 month MSE Loss: 85.6825 [(kW/hour)^2]
+6 month MSE Loss: 70.2544 [(kW/hour)^2]
+7 month MSE Loss: 75.7815 [(kW/hour)^2]
+8 month MSE Loss: 56.9528 [(kW/hour)^2]
+
+1 month Percent Error: 1507.6509 [%/hour]
+2 month Percent Error: 1907.1232 [%/hour]
+3 month Percent Error: 1639.3096 [%/hour]
+4 month Percent Error: 1294.4374 [%/hour]
+5 month Percent Error: 883.0940 [%/hour]
+6 month Percent Error: 958.7159 [%/hour]
+7 month Percent Error: 1053.5079 [%/hour]
+8 month Percent Error: 1309.0778 [%/hour]
+The number of parameter in model : 50952
+Testing time [sec]: 5.57
+
+--------------------Test Mode--------------------
+test mode: GWNU_C3
+tst Loss_alltime: 59.0321 [(kW/hour)^2]
+tst Daytime Loss: 88.5482 [(kW/hour)^2]
+tst % alltime error:931.57 [%/hour]
+tst % daytime error:1397.36 [%/hour]
+
+################################################################
+gwnuC3_test results
+
+
+len(y): 206
+y [kW/day]
+[ 22.59     279.1      109.77     255.56     282.47      97.15
+ 100.45     288.61     330.03     309.19     296.02002  323.
+ 318.82     291.37997  144.82     284.2      348.       102.689995
+ 103.63     117.060005 117.94     101.39     334.35     328.79
+ 308.61     213.51999  266.09998  167.11     179.94     272.65997
+ 224.75      86.82001  141.64001  164.19      61.340004 126.509995
+ 295.32     243.12999  220.61     225.73999  200.31999  210.95
+  66.58     173.85     222.5      249.66     177.85     142.28
+ 216.59     159.07999  111.9       90.9       61.059998  94.85
+ 141.4      163.04     251.41     274.59003  226.96     235.16998
+  52.510002  63.79     117.77      88.81999  308.82      90.009995
+ 157.27      82.130005 209.7      124.94     253.47     107.07001
+  72.619995 303.29     218.16      56.809998 102.52     133.06
+ 272.44     311.53998  305.53998   79.18      53.75      69.28
+ 247.37999  202.1      236.31      70.19      35.24     171.88
+ 295.88     291.83002  286.35     211.56     145.33     181.93
+ 102.14     173.8      208.1      224.57     260.18      56.879997
+  55.079998  78.09     281.58002  241.70999  244.45001  280.12
+ 150.54999  221.62     247.09998  144.89     250.26     252.48
+ 245.73001   61.550003  81.490005  47.46      41.46      40.03
+  54.       139.53     119.54001  262.12     253.56999  242.45999
+ 240.10999  193.45001  228.89      70.53     139.99     230.85
+ 240.42     233.76001  100.3      208.87      43.08      61.659996
+  90.58     214.19     190.66      43.71      93.740005  89.16
+ 186.29001  184.51001  203.90001   77.33     210.98001  213.75
+ 201.04999  153.29999  179.7      170.32     147.76001  102.72
+ 168.88      25.369999  94.99     189.82     184.56     176.43
+ 176.99      90.37     151.82      98.53     105.380005  64.11
+ 144.18     173.35     166.69     163.1       81.07      46.93
+ 182.73999  184.63     186.33      79.2       95.32     147.17
+ 151.70999  169.14     114.2       81.979996  98.950005 134.72
+ 103.40001  102.34     178.07     130.54001  159.16     161.54
+ 178.86     171.44     167.79001  105.479996 168.37     172.04999
+ 151.04     158.04999  134.27     164.42     163.16     168.86
+ 165.55     165.07    ]
+
+
+len(pred): 206
+pred [kW/day]
+[196.4216   317.85657  157.4859   225.19783  207.68663  137.94014
+ 131.60059  251.47047  366.6358   393.2824   365.7669   399.89316
+ 349.31622  403.92493  263.24466  315.53137  392.68372  202.89688
+ 201.71361  306.65558  289.83633  161.2612   375.5164   379.5637
+ 407.6582   356.51434  334.3341   245.14923  310.57104  328.91406
+ 296.46014  183.73856  178.97226  192.0245   150.30344  178.50867
+ 307.0702   296.38684  242.90555  276.19873  240.02054  306.63754
+ 113.95033  160.29523  257.07224  245.27863  187.79944  226.29303
+ 268.9537   221.1128   244.79347  189.42947  171.387    200.40836
+ 202.95998  276.9444   297.3573   358.78717  342.5083   374.27954
+ 294.472    181.91539  171.66273  128.21791  399.13065  243.92502
+ 235.02289  304.394    347.35587  155.82935  278.58893  298.6469
+ 179.28342  324.47668  352.43127  193.85309  189.15512  249.54878
+ 302.04834  343.8744   372.97638  150.17377   86.66524  129.41086
+ 271.9347   222.15184  211.14752  119.84526  118.63803  174.73215
+ 366.20483  353.05658  330.28644  297.7664   203.56052  218.2091
+ 187.77383  279.8373   224.86694  247.4728   322.64307  184.25247
+ 122.646324 119.401505 269.57452  282.73462  345.06897  311.39294
+ 258.1704   299.04144  281.3202   231.1318   349.8248   385.38974
+ 367.90692  184.61139  135.08408   71.762955  85.78467   76.12909
+  74.731895 169.5079   173.14218  267.21973  245.182    279.4248
+ 273.73187  256.19086  261.84998  180.81717  255.2566   251.35742
+ 301.29404  323.90796  299.49445   95.74549  103.32947  160.26462
+ 160.26462  280.07117  295.84076   95.805725 114.5021   150.43639
+ 229.6648   273.57727  278.0962   220.23703  283.40137  256.63962
+ 244.9365   260.8496   247.02185  311.04147  294.91034  139.84155
+ 295.91678   99.06901  198.11852  229.64873  232.24565  221.09265
+ 260.80704  201.11034  234.58424  247.26321  219.74469   98.315834
+ 195.02826  319.13513  304.15884  210.16681  219.52469  196.37596
+ 274.81445  239.83157  295.95367  170.98384  242.72215  203.80855
+ 182.73438  233.12482  243.00563  177.9017   187.25336  207.58337
+ 235.14764  180.4612   292.91104  145.27634  231.11565  258.981
+ 297.86505  286.6857   239.87686  139.90805  261.96893  303.2401
+ 169.31734  212.64188  193.02939  240.89737  239.4649   273.46072
+ 229.59654  251.503   ]
+
+
+len(trend_y): 206
+trend_y [kW/day]
+[114.25446089 133.89145289 153.25601979 172.35056721 191.50230728
+ 210.92513591 229.24830463 244.62665399 260.36186327 277.14371834
+ 288.73634242 289.81560868 284.32027176 273.255528   254.30195363
+ 229.26712171 203.39290692 183.08187658 173.36060454 175.06454162
+ 184.16886185 198.69151692 217.84566641 233.9826104  244.11398568
+ 247.60688263 242.36163793 227.26703221 208.66527649 192.08693981
+ 177.26633111 165.1035382  159.02285647 159.36765625 165.76226414
+ 176.78993731 189.70275515 200.29994119 204.9745075  203.14175007
+ 197.18389143 192.14922541 188.97876988 185.43362591 183.14068497
+ 182.91421064 181.49583867 175.14778036 161.14348742 144.19788213
+ 131.1329633  125.13881417 126.93912054 136.10193989 152.87203031
+ 172.61247509 185.35357697 187.76177727 181.3428849  170.25062703
+ 159.7035957  148.64245626 139.51855627 134.47432974 136.84872532
+ 145.78448164 154.88572769 157.18100845 154.05794409 155.61822034
+ 163.84298453 168.34977828 165.16301805 158.49459703 158.82176601
+ 169.44006618 185.04001192 191.35887402 186.13896698 180.89270668
+ 181.21876516 181.51605501 176.5217857  163.58009057 148.69790375
+ 143.91874031 154.07583396 170.83718036 184.86778961 193.09745094
+ 200.19484852 208.24355409 213.642334   211.27522925 201.09627147
+ 190.04182061 183.31709436 177.50183689 169.79699393 161.77304015
+ 159.55804381 163.59059157 169.11153807 175.01844368 182.4690947
+ 195.27590125 211.34790344 221.33641144 223.34752685 220.97323012
+ 218.19203639 211.47116184 198.78646982 180.83542114 158.34022332
+ 134.2512394  110.47876442  89.75812861  79.24550737  84.83232816
+ 104.14161755 129.88790365 157.4489409  182.64230958 201.78273341
+ 210.02414068 208.07281133 201.48227328 194.91598343 190.81774962
+ 186.25368266 181.26760761 175.04745714 166.77965371 156.7947304
+ 146.03651896 136.60810495 127.65005767 119.75690427 115.79353869
+ 118.53321273 127.58167691 135.34286699 137.52003969 140.20749053
+ 149.84778687 164.00203937 174.19289015 177.68909606 177.10626161
+ 175.56302262 173.00349124 167.33235664 155.18227078 141.75643399
+ 132.92481478 130.02917081 131.66032833 135.54662798 139.23706099
+ 143.25044948 146.19082608 145.57778551 138.0708585  128.22756436
+ 122.73829953 122.67562595 126.13069501 128.28865318 127.30641205
+ 128.67174234 133.77912047 138.9537029  138.26825186 133.83819378
+ 131.62739853 134.10628819 138.96957781 139.38441848 133.4854464
+ 127.0634022  124.46870619 123.83200865 121.26979934 118.41382325
+ 118.05150232 121.84689593 129.17410583 138.02025537 146.43236766
+ 152.92532743 156.48573125 157.83212684 158.48146579 159.10048059
+ 158.41841784 155.98419013 153.70060973 153.513654   155.52852348
+ 157.47784717 159.62663255 161.49592289 163.24476837 165.07869344
+ 167.13573592]
+
+
+len(trend_pred): 206
+trend_pred [kW/day]
+[196.07262305 199.907931   205.43831514 212.26901515 220.18156168
+ 228.99913183 241.60166005 267.61902353 295.12870388 323.30846597
+ 345.76612059 356.25199476 355.90964646 346.20566264 329.85374882
+ 312.51379616 296.8849483  283.58270326 275.38882397 276.22725492
+ 285.8585909  300.84023822 316.51253062 326.14422761 331.06914111
+ 333.84897193 330.96998734 317.05446597 295.28214546 272.03806599
+ 250.9709551  233.92009854 222.05824491 215.82675216 216.54401683
+ 223.24173813 233.98153493 245.35991491 250.7787836  247.58168876
+ 239.44571925 231.18923075 224.42316222 219.04308431 215.99851305
+ 217.08068199 221.45815499 225.78326831 225.12295647 220.47357979
+ 216.88846766 216.85665019 220.56169634 229.62876975 245.40884324
+ 266.42996938 286.31632723 297.46830627 296.39501494 286.07110961
+ 274.68598417 263.90704387 253.65070518 247.11614111 247.78880913
+ 254.25993141 262.95156969 268.14967992 267.06843921 265.4130042
+ 267.51460161 267.21546889 262.32645885 258.06048916 258.75964257
+ 263.76654533 271.35399256 271.77891055 260.51523005 246.59266324
+ 238.03305955 230.72578729 218.90889028 201.56383439 183.960908
+ 177.0810495  186.96294117 205.36929205 223.07055334 237.74129841
+ 251.21682378 263.10857373 271.21770913 272.41917954 264.42951611
+ 251.9454842  243.45345553 238.50504995 232.75787318 225.3657493
+ 219.61094336 218.59942071 222.78334834 230.32710074 239.03708147
+ 251.11586936 267.2146222  281.17907377 290.26434143 296.54129105
+ 301.81188114 301.56691323 292.15985298 273.51266546 247.98425233
+ 217.85007165 184.05266489 151.2523858  128.88926362 124.02980277
+ 135.86491608 157.7319404  183.72914109 209.3570975  230.98055739
+ 244.55695615 250.17170555 251.68008177 252.78710475 256.09904097
+ 259.00624616 255.87591861 246.148655   233.09927747 220.41412238
+ 210.37794998 202.05778643 191.49601297 181.18638078 177.3608646
+ 182.23049893 191.05425508 198.52245546 203.00692215 208.78736164
+ 220.9650574  237.57645684 250.20762887 256.35213843 259.46151493
+ 261.13022574 260.14366023 256.88535905 248.78415249 238.76058739
+ 229.57405027 221.2934773  214.66246413 211.03417287 211.8234311
+ 216.52974482 222.17247697 226.72641797 223.76980341 217.10772847
+ 215.18489161 219.12172423 224.00537465 226.17035084 226.69400463
+ 230.68644311 238.46503602 244.96344753 243.54955736 237.99172802
+ 233.66470854 231.10184938 228.74594622 225.07106944 219.3853991
+ 213.5780212  209.66673717 208.60134154 208.75605157 210.60986927
+ 210.80896047 210.71639356 214.51964621 223.11903336 232.85854156
+ 239.27472    240.66277669 241.22302634 243.74343102 245.38605118
+ 240.95446424 231.63279853 224.21733666 222.83446971 225.93876692
+ 229.44126741 233.15492134 237.06056468 241.28362756 245.86184343
+ 250.75427805]
+
+
+len(seasonal_y): 206
+seasonal_y [kW/day]
+[-62.53787878  97.99170144  36.86123253  31.28854573  -5.34690831
+ -36.15526524 -61.78914854 -55.77544707  93.19073818  36.62597138
+  27.30158487  -8.48100097 -35.74849136 -56.71998482 -49.13305277
+  88.36916089  36.42308989  23.20167431 -11.43001183 -35.25066152
+ -51.67841209 -42.64251988  83.5164257   36.27843063  18.97784869
+ -14.21000819 -34.63331974 -46.65931595 -36.32907502  78.62773854
+  36.19423268  14.63899709 -16.83025176 -33.86933212 -41.65872339
+ -30.20689521  73.69422839  36.15332436  10.20040842 -19.29415556
+ -32.94166695 -36.66640446 -24.28676668  68.70388875  36.12639125
+   5.69740821 -21.60732212 -31.8474228  -31.66251574 -18.56973715
+  63.64249029  36.07305546   1.17734917 -23.78417202 -30.597817
+ -26.63567955 -13.032816    58.51260223  35.94205711  -3.30693924
+ -25.84677577 -29.21776631 -21.59491809  -7.64247471  53.34088058
+  35.67634784  -7.68119786 -27.8182377  -27.75155628 -16.565059
+  -2.35811139  48.16430627  35.20501447 -11.85760995 -29.70874398
+ -26.26621814 -11.58800529   2.88972819  43.01727729  34.45806575
+ -15.73453805 -31.51636446 -24.88597509  -6.72583685   8.20002261
+  37.97720071  33.38094134 -19.23735029 -33.23154095 -23.7926892
+  -2.05595218  13.71294019  33.17868333  31.92099335 -22.3893614
+ -34.6944514  -23.19782094   2.3321804   19.39311512  28.82429029
+  30.41036639 -25.49989059 -35.27821734 -22.99297246   6.29826972
+  21.94561826  25.22779727  28.61578197 -26.10238883 -33.80800947
+ -21.20197986   8.257587    21.44999023  22.89667175  25.94018124
+ -26.00437978 -32.0142678  -19.36119106   9.69952247  20.85362578
+  20.76347747  23.45208619 -25.95936313 -30.05743723 -17.34225716
+  10.979271    20.15308109  18.4685229   21.09294713 -26.01411314
+ -27.96932246 -15.11817086  12.24426601  19.34216411  16.00344825
+  18.74389631 -26.08683923 -25.78972621 -12.72335689  13.52598787
+  18.4152355   13.42521218  16.32765914 -26.08837192 -23.54664818
+ -10.2074566   14.81420949  17.36498388  10.7990934   13.79855169
+ -25.94515492 -21.25960445  -7.6144308   16.07908736  16.18782324
+   8.18721834  11.1400126  -25.6053221  -18.95418583  -4.98728207
+  17.29044959  14.90192257   5.63519709   8.34454783 -25.03645501
+ -16.6515766   -2.36669742  18.42281667  13.52805513   3.17951013
+   5.40892081 -24.20890817 -14.36512551   0.20696017  19.455344
+  12.0820236    0.84295831   2.34055437 -23.10879916 -12.10181615
+   2.70537772  20.38060213  10.57474842  -1.36721636  -0.85180562
+ -21.73684547  -9.86082458   5.12002541  21.19007485   9.01010841
+  -3.45479887  -4.14945521 -20.09673481  -7.64280586   7.44660925
+  21.87097765   7.39389447  -5.42139513  -7.53039389 -18.20167711
+  -5.44845401   9.68744394  22.41218743   5.73613019  -7.27067549
+ -10.97541205]
+
+
+len(seasonal_pred): 206
+seasonal_pred [kW/day]
+[-59.01273989  65.61152273  39.52661968  16.14105047  -5.76772044
+ -22.67858333 -34.86170778 -53.7611466   63.63313157  38.35036647
+  13.99862804  -6.71486733 -24.05961033 -32.45170687 -48.48267951
+  61.62318621  37.15823622  11.73867329  -7.63645313 -25.35398443
+ -29.97567695 -43.21125087  59.55637986  35.96355895   9.35410517
+  -8.53228463 -26.52804454 -27.42525814 -37.97803186  57.41672974
+  34.76598735   6.85329162  -9.3931194  -27.55876099 -24.80205333
+ -32.80049342  55.19150278  33.55739553   4.24351503 -10.20809489
+ -28.43005192 -22.10084998 -27.70027331  52.86830259  32.32248349
+   1.54240356 -10.96271582 -29.13160668 -19.31342079 -22.69655517
+  50.43769895  31.03689063  -1.22273671 -11.64481951 -29.66368126
+ -16.45161962 -17.79234501  47.91372198  29.66797051  -4.01897203
+ -12.23870116 -30.0414802  -13.55279443 -12.98437521  45.33170249
+  28.1813136   -6.80002112 -12.72459141 -30.29248085 -10.67687463
+  -8.25814162  42.74432406  26.53275777  -9.5187621  -13.08845972
+ -30.46163543  -7.89541527  -3.55386715  40.21177604  24.67399941
+ -12.11835315 -13.33972892 -30.6535391   -5.28408585   1.25698763
+  37.83095722  22.56359622 -14.5617237  -13.53989213 -31.04344226
+  -2.91878051   6.44437532  35.76752301  20.14074253 -16.91487804
+ -13.76891044 -31.83913348  -0.81803914  12.38794871  34.20784556
+  17.64529972 -19.38492862 -13.9067146  -32.83232661   1.31893403
+  15.98198755  32.20483017  15.58180514 -20.52975419 -12.78072623
+ -31.07595981   2.62647152  16.04213372  30.37716877  13.60684613
+ -20.71743737 -11.60643293 -29.38408003   3.42514027  15.99812548
+  28.802843    11.62115664 -20.77842012 -10.45429473 -27.58776214
+   4.1421561   16.06876698  27.11760927   9.53444893 -20.88881629
+  -9.26481503 -25.61839681   4.90425938  16.20019421  25.29006892
+   7.3029601  -21.04917548  -8.00732898 -23.46753984   5.72031533
+  16.32565092  23.350119     4.92221978 -21.22099607  -6.66935991
+ -21.15054135   6.56397769  16.38616158  21.32621547   2.42390333
+ -21.35649636  -5.24700454 -18.69378098   7.39177991  16.33097882
+  19.2588423   -0.14867575 -21.41250178  -3.74620274 -16.13434359
+   8.16013135  16.13209386  17.1871859   -2.76167171 -21.35083259
+  -2.175781   -13.50846991   8.8269394   15.77001638  15.15573999
+  -5.39855973 -21.12998006  -0.5457652  -10.85255866   9.36178095
+  15.23633737  13.19661025  -8.04847793 -20.71947597   1.13007158
+  -8.19880507   9.7591004   14.53530928  11.32061742 -10.7111863
+ -20.09702211   2.84274439  -5.56755759  10.01566295  13.67551947
+   9.52645351 -13.3813363  -19.25214299   4.58664518  -2.96917748
+  10.12374335  12.66753102   7.81685788 -16.05251518 -18.18568317
+   6.35176857  -0.4055606   10.07215521  11.53808855   6.19460417
+ -18.72285061]
+
+
+len(resid_y): 206
+residual_y [kW/day]
+[-2.91265820e+01  4.72168518e+01 -8.03472557e+01  5.19208846e+01
+  9.63146022e+01 -7.76198691e+01 -6.70091591e+01  9.97587784e+01
+ -2.35226027e+01 -4.57968728e+00 -2.00179078e+01  4.16653923e+01
+  7.02482269e+01  7.48444312e+01 -6.03488935e+01 -3.34362704e+01
+  1.08184003e+02 -1.03593556e+02 -5.83005955e+01 -2.27538749e+01
+ -1.45504473e+01 -5.46589977e+01  3.29879140e+01  5.85289675e+01
+  4.55181510e+01 -1.98768854e+01  5.83716574e+01 -1.34977156e+01
+  7.60380097e+00  1.94529479e+00  1.12894362e+01 -9.29225280e+01
+ -5.52590067e-01  3.86916783e+01 -6.27635368e+01 -2.00730476e+01
+  3.19230238e+01  6.67672408e+00  5.43508469e+00  4.18923957e+01
+  3.60777676e+01  5.54671760e+01 -9.81120014e+01 -8.02875086e+01
+  3.23292378e+00  6.10483848e+01  1.79614896e+01 -1.02035877e+00
+  8.71090247e+01  3.34518416e+01 -8.28754521e+01 -7.03118681e+01
+ -6.70564722e+01 -1.74677694e+01  1.91257806e+01  1.70631978e+01
+  7.90892427e+01  2.83156474e+01  9.67506471e+00  6.82262951e+01
+ -8.13468178e+01 -5.56346890e+01 -1.53641537e-01 -3.80118630e+01
+  1.18630401e+02 -9.14508350e+01  1.00654744e+01 -4.72327659e+01
+  8.33936091e+01 -1.41131589e+01  9.19851281e+01 -1.09444077e+02
+ -1.27748037e+02  1.56653021e+02  8.90469816e+01 -8.63638505e+01
+ -7.09320100e+01 -6.11886047e+01  4.32837582e+01  9.61892056e+01
+  1.40055751e+02 -7.08196902e+01 -9.78858106e+01 -8.75742549e+01
+  9.04820633e+01  2.02040651e+01  4.88532223e+01 -8.14098276e+01
+ -1.16396247e+02  2.57524314e+00  9.77411085e+01  6.98735228e+01
+  3.95289888e+01 -3.16362250e+01 -3.33769082e+01  2.65826235e+01
+ -5.79792740e+01 -6.03401424e+00  1.89098971e+01  3.39726769e+01
+  7.02115825e+01 -8.12107037e+01 -7.87533227e+01 -7.39354749e+01
+  9.28126527e+01  2.44884719e+01  7.87431150e+00  3.01678017e+01
+ -4.66951502e+01  3.44547745e+01  5.01099191e+01 -7.48387494e+01
+  3.00235345e+01  4.87479028e+01  6.14496064e+01 -4.66968566e+01
+  3.02550888e+00 -2.29369385e+01 -4.74850308e+01 -6.56559552e+01
+ -7.09050950e+01 -1.38099911e+01 -1.19495692e+01  1.09535123e+02
+  6.91295158e+01  2.14565798e+01  1.18840929e+01 -2.65007840e+01
+  1.28810688e+01 -9.42736377e+01 -1.82943547e+01  6.47005694e+01
+  5.31282750e+01  4.76381919e+01 -7.24981756e+01  4.40895798e+01
+ -6.74412639e+01 -4.02003354e+01 -1.64535456e+01  8.48704759e+01
+  5.37115554e+01 -9.72968900e+01 -5.79305206e+01 -2.22716641e+01
+  6.96291662e+01  4.48696795e+01  2.50837603e+01 -1.14227872e+02
+  2.24918215e+01  2.28451867e+01  5.14321201e+01  1.55610101e+00
+  1.99820711e+01 -9.41350815e-01 -1.01842475e+01 -3.83920319e+01
+  2.77108215e+01 -8.06850073e+01 -2.16024443e+01  5.55702284e+01
+  2.40190985e+01  1.53372440e+01  2.57770229e+01 -5.60454036e+01
+  4.86288980e+01 -7.55672415e+00 -1.49289236e+01 -8.04435111e+01
+  2.36328436e+00  4.28640839e+01  3.26093393e+01  5.35297938e+01
+ -4.35185777e+01 -9.15452117e+01  2.94464524e+01  4.09205828e+01
+  5.13807553e+01 -6.21101352e+01 -2.09556196e+01  2.57863679e+01
+  2.19412115e+01  2.42906911e+01 -2.02067601e+01 -3.79225873e+01
+ -1.86120131e+01  3.84053444e+01 -8.58606219e+00 -3.19541349e+01
+  1.88596771e+01 -2.49024675e+01  9.68947510e+00  9.20371725e+00
+  4.11246086e+01  2.06013425e+01  1.24291870e+00 -7.48093998e+01
+  4.99191052e+00  2.37707732e+01  5.05673318e+00  2.07231414e+01
+ -1.77593889e+01 -4.89407831e+00 -2.07481067e+01 -1.20897941e-01
+  7.74198509e+00  8.90968346e+00]
+
+
+len(resid_pred): 206
+residual_pred [kW/day]
+[  59.36171718   52.33711365  -87.47903394   -3.21223542   -6.72721098
+  -68.38040873  -75.13936634   37.61259731    7.87396777   31.62357723
+    6.00215811   50.35603053   17.46618702   90.17097098  -18.12640989
+  -58.6056103    58.6405313   -92.42449545  -66.03876306   55.78230813
+   33.95342028  -96.3677874    -0.55252255   17.45590362   67.23495684
+   31.19765596   29.89216365  -44.47997688   53.26693133   -0.54073323
+   10.72320159  -57.03483424  -33.69286599    3.75651445  -41.43852723
+  -11.93257772   17.89715272   17.46953038  -12.11675054   38.82513659
+   29.004871     97.54916196  -82.77255627 -111.61615985    8.75123856
+   26.65553993  -22.69600069   29.64136815   63.14416915   23.33576835
+  -22.53269432  -58.46406695  -47.95196623  -17.57559452  -12.78518578
+   26.96604721   28.83331758   13.40514215   16.44531533   92.22740343
+   32.02470186  -51.95017365  -68.43517576 -105.91385513  106.01013413
+  -38.5162267   -21.12866038   48.96892394  110.57990712  -98.90678386
+   19.33246823  -11.31288133 -109.57579988   75.9349575   106.76009156
+  -39.45182152  -74.30345644  -18.67626105    1.32133375   72.607727
+  147.061673    -67.21229128 -101.59011375  -66.86889039   86.71679675
+    7.23983349    1.62098458  -70.96230773  -90.8926302   -31.96570893
+  117.90679071   83.50363054   23.30120585    5.20646587  -43.95412171
+  -19.96746732  -23.84048782   42.15029998  -20.27887854  -12.10080128
+   85.38682333  -14.96202017  -86.23030958  -78.09326961   29.21850842
+   15.63676223   45.64951736   14.63206543  -11.56417708   15.28087805
+   10.5842691   -73.06157933   41.62281189   81.49990576  106.31582293
+  -12.52124512  -37.36215603  -50.10535106  -46.52973591  -63.89883889
+  -89.93586363    0.15480702   10.19146043   68.31692379   41.78921158
+   30.72569244    7.49140002  -22.60683411   -0.4715781   -54.39305549
+    5.51517593   21.09990007   50.24112249   74.60848731   53.7902545
+ -121.93541906  -77.67914318  -23.22406607    2.54577698   96.98998706
+   97.28460943 -118.59864899  -88.94257716  -31.34953996   27.5467932
+   73.76275446   33.95575687  -46.35676042    5.72301329   -5.24580035
+    5.16276354    5.95295369    8.83027251   54.86554099   39.81877314
+ -108.99133984   74.77197702  -94.18095447   -9.16945512   33.95963991
+    7.55577507  -17.21191947   16.89343349  -19.89779539   38.82734789
+   34.2541035    14.13143562 -134.51648001  -46.91210795   77.28538722
+   78.87096062   -7.16824687  -24.89299361  -36.3210374    27.46094415
+   -9.06947242   51.65521469  -49.71362735   38.37055924  -16.70692271
+  -22.64484112   13.69897932   19.86897967  -42.17496611  -12.64532604
+   16.87143566   21.58850609  -28.49089172   59.77634496 -101.25772435
+  -17.68552716   31.69954717   75.89416791   38.35562326   -2.54001212
+ -111.17015706   17.66860356   71.20591776  -37.4646175     4.88879247
+  -42.76364755    8.14800864   -7.66781511   20.63900776  -22.45990524
+   19.47157854]
+
+
+
+MSE for original: 7748.7510 [(kW/day)^2]
+MSE for trend: 5944.5107 [(kW/day)^2]
+MSE for seasonal: 115.2983 [(kW/day)^2]
+MSE for resid: 1551.8163 [(kW/day)^2]
+
+
+Percent Error for original: 58.9105 [%/day]
+Percent Error for trend: 43.2386 [%/day]
+Percent Error for seasonal: 29.3525 [%/day]
+Percent Error for resid: 75.8230 [%/day]
+
+y Sum: 34700.21 [kW / 7 months]
+Pred Sum: 49609.07 [kW / 7 months]
+
+Percent Error for annual original: 42.9647 [%/7 months]
+
+6 month MSE Loss: 8320.60 [(kW/day)^2]
+7 month MSE Loss: 5371.22 [(kW/day)^2]
+8 month MSE Loss: 12168.19 [(kW/day)^2]
+9 month MSE Loss: 4876.76 [(kW/day)^2]
+10 month MSE Loss: 5844.88 [(kW/day)^2]
+11 month MSE Loss: 9910.23 [(kW/day)^2]
+12 month MSE Loss: 7892.48 [(kW/day)^2]
+################################################################
+
+# Alltime Info Of Test
+MSE loss(alltime) and Percent Error(alltime) of (trend, seasonal, residual)
+original_loss: 59.0321 [(kW/hour)^2]
+trend_loss: 13.2566 [(kW/hour)^2]
+seasonal_loss: 16.3890 [(kW/hour)^2]
+resid_loss: 27.8600 [(kW/hour)^2]
+
+percent_error_orignal: 4913.8228 [%/hour]
+percent_error_trend: 67.3009 [%/hour]
+percent_error_seasonal: 67.5696 [%/hour]
+percent_error_resid: 250.5701 [%/hour]
+
+6 month MSE Loss: 168.9184 [(kW/hour)^2]
+7 month MSE Loss: 35.5880 [(kW/hour)^2]
+8 month MSE Loss: 65.4939 [(kW/hour)^2]
+9 month MSE Loss: 30.8338 [(kW/hour)^2]
+10 month MSE Loss: 37.0405 [(kW/hour)^2]
+11 month MSE Loss: 55.2487 [(kW/hour)^2]
+12 month MSE Loss: 50.9724 [(kW/hour)^2]
+
+6 month Percent Error: 1941.3333 [%/hour]
+7 month Percent Error: 579.8831 [%/hour]
+8 month Percent Error: 855.8308 [%/hour]
+9 month Percent Error: 806.7426 [%/hour]
+10 month Percent Error: 929.7599 [%/hour]
+11 month Percent Error: 1024.6520 [%/hour]
+12 month Percent Error: 674.9406 [%/hour]
+
+################################################################
+
+# Daytime Info Of Test
+MSE loss(daytime) and Percent Error(daytime) of (trend, seasonal, residual)
+original_loss: 88.5481 [(kW/hour)^2]
+trend_loss: 30.7403 [(kW/hour)^2]
+seasonal_loss: 0.4587 [(kW/hour)^2]
+resid_loss: 49.8585 [(kW/hour)^2]
+
+percent_error_orignal: 7370.7344 [%/hour]
+percent_error_trend: 68.5723 [%/hour]
+percent_error_seasonal: 215.4134 [%/hour]
+percent_error_resid: 222.3846 [%/hour]
+
+6 month MSE Loss: 266.3651 [(kW/hour)^2]
+7 month MSE Loss: 49.7759 [(kW/hour)^2]
+8 month MSE Loss: 109.3175 [(kW/hour)^2]
+9 month MSE Loss: 38.0653 [(kW/hour)^2]
+10 month MSE Loss: 61.2906 [(kW/hour)^2]
+11 month MSE Loss: 63.1925 [(kW/hour)^2]
+12 month MSE Loss: 89.6892 [(kW/hour)^2]
+
+6 month Percent Error: 2995.8953 [%/hour]
+7 month Percent Error: 827.5877 [%/hour]
+8 month Percent Error: 1335.3428 [%/hour]
+9 month Percent Error: 1102.9137 [%/hour]
+10 month Percent Error: 1475.9091 [%/hour]
+11 month Percent Error: 1468.3929 [%/hour]
+12 month Percent Error: 1195.4008 [%/hour]
+The number of parameter in model : 50952
+Testing time [sec]: 4.68
