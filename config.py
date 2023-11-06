@@ -32,7 +32,7 @@ def hyper_params():
         "batch_end_idx": 21, # batch_end_idx~23 시간대는 제외
 
         # after RNN layers
-        "dropout": 0.8, 
+        "dropout": 0.5, 
         # correction lstm
         "previous_steps" : 5
     }
