@@ -3057,3 +3057,13 @@ Model name: LSTM
 Training on the interval from 20220101 to 20221231.
 Validating on the interval from 20220201 to 20221231.
 
+The number of parameter in model : 203016
+
+Epoch [1/2000], Trn Loss: 394.0335, Val Loss: 340.0291 [(kW/hour)^2], MinVal : 340.0291442871094
+Epoch [2/2000], Trn Loss: 391.6699, Val Loss: 337.8653 [(kW/hour)^2], MinVal : 337.86529541015625
+Epoch [3/2000], Trn Loss: 389.2015, Val Loss: 335.5113 [(kW/hour)^2], MinVal : 335.5113220214844
+Epoch [4/2000], Trn Loss: 386.5159, Val Loss: 332.8389 [(kW/hour)^2], MinVal : 332.8388977050781
+Epoch [5/2000], Trn Loss: 383.4675, Val Loss: 329.6677 [(kW/hour)^2], MinVal : 329.66766357421875
+Epoch [6/2000], Trn Loss: 379.8506, Val Loss: 325.7209 [(kW/hour)^2], MinVal : 325.720947265625
+Epoch [7/2000], Trn Loss: 375.3497, Val Loss: 320.5448 [(kW/hour)^2], MinVal : 320.5447998046875
+Epoch [8/2000], Trn Loss: 369.4475, Val Loss: 313.3622 [(kW/hour)^2], MinVal : 313.3621826171875
