@@ -75,7 +75,8 @@ def train(hparams, model_type):
     lr = learning_params["lr"]   
     max_epoch = learning_params["max_epoch"]  
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "correction_LSTMs": LSTM}
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM,
+                     "correction_LSTMs": (LSTM,LSTM), "2-stageLR":(LSTM,RNN), "2-stageRL":(RNN,LSTM), "2-stageRR":(RNN,RNN)}
 
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
@@ -84,17 +85,17 @@ def train(hparams, model_type):
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)
-    elif model_type in ["correction_LSTMs"]:
-        model1 = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
+    elif model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
+        model1 = model_classes[model_type][0](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)
-        model2 = model_classes[model_type](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
+        model2 = model_classes[model_type][1](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           in_moving_mean, decomp_kernel, feature_wise_norm)
         prev_preds = deque(maxlen=previous_steps)
         val_prev_preds = deque(maxlen=previous_steps)
     else:
         pass
 
-    if model_type in ["correction_LSTMs"]:
+    if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
         logging.info(f'The number of parameter in first model : {count_parameters(model1)}\n')
         logging.info(f'The number of parameter in second model : {count_parameters(model2)}\n')
         model1.cuda()
@@ -125,7 +126,7 @@ def train(hparams, model_type):
     torch.autograd.set_detect_anomaly(True)
 
     for epoch in range(max_epoch): # epoch is current epoch
-        if model_type in ['correction_LSTMs']:
+        if model_type in ['correction_LSTMs', "2-stageLR", "2-stageRL", "2-stageRR"]:
             model1.train()
             model2.train()
         else:
@@ -166,7 +167,7 @@ def train(hparams, model_type):
             batch_mean = batch_data.mean(dim=1) # [batch: 24, nFeatures: 8]
            
             y = y.squeeze().cuda() # y.shape: torch.Size([24 hours])
-            if model_type in ["correction_LSTMs"]: 
+            if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]: 
                 first_pred= model1(batch_data.cuda()).squeeze()
                 loss1 += criterion(first_pred, y)
                 
@@ -191,7 +192,7 @@ def train(hparams, model_type):
             #    pv_pcc, features_pcc, pv_ktc, features_ktc = correlations(concat_y_us, concat_batch_mean, plot=hparams["plot_corr"])
         
         
-        if model_type in ["correction_LSTMs"]: 
+        if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]: 
             loss1 = loss1/(length_trn) # loss = (1/(24*length_trn)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_trn) [(kW/h)^2]
 
             optimizer1.zero_grad()
@@ -216,7 +217,7 @@ def train(hparams, model_type):
 
         ######### Validation ######### 
 
-        if model_type in ["correction_LSTMs"]:
+        if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
             model1.eval()
             model2.eval()
         else:
@@ -251,7 +252,7 @@ def train(hparams, model_type):
                 batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))               
             batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
 
-            if model_type in ["correction_LSTMs"]: 
+            if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]: 
                 first_pred= model1(batch_data.cuda()).squeeze()
                 pred = first_pred
                 if epoch > PREV_EPOCH:
@@ -277,7 +278,7 @@ def train(hparams, model_type):
             val_y_append.append(y.detach().cpu().numpy())
                                                            
         if val_loss < prev_loss:
-            if model_type in ['correction_LSTMs']:
+            if model_type in ['correction_LSTMs', "2-stageLR", "2-stageRL", "2-stageRR"]:
                 savePath1 = os.path.join(hparams["save_dir"], "best_model1")
                 savePath2 = os.path.join(hparams["save_dir"], "best_model2")
                 model_dict1 = {"kwargs": model_params, "paramSet": model1.state_dict()}
@@ -296,7 +297,7 @@ def train(hparams, model_type):
         
         val_loss = val_loss/(length_val) # val_loss = (1/(24*length_val)) * Σ(y_i - ŷ_i)^2 (i: from 1 to 24*length_val) [(kW/h)^2]
         
-        if model_type in ['correction_LSTMs']:
+        if model_type in ['correction_LSTMs', "2-stageLR", "2-stageRL", "2-stageRR"]:
             loss_trn1 = loss1.item() 
             loss_trn2 = -77777
             if epoch > PREV_EPOCH:
@@ -318,7 +319,7 @@ def train(hparams, model_type):
         #print(f"Epoch [{epoch+1}/{max_epoch}]- lstm2 Output: Mean {layer_outputs['final_lstm'][-1][0]}, Std {layer_outputs['final_lstm'][-1][1]}")
         #print()
 
-        if model_type in ['correction_LSTMs']:
+        if model_type in ['correction_LSTMs', "2-stageLR", "2-stageRL", "2-stageRR"]:
             logging.info(f"Epoch [{epoch+1}/{max_epoch}], First Loss: {loss_trn1:.4f}, Second Loss: {loss_trn2:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2], MinVal : {prev_loss/length_val}")
         else:                                                                                                                                                                                                             
             logging.info(f"Epoch [{epoch+1}/{max_epoch}], Trn Loss: {loss_trn:.4f}, Val Loss: {loss_val:.4f} [(kW/hour)^2], MinVal : {prev_loss/length_val}")
@@ -383,7 +384,7 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     modelPath = hparams['load_path']
     
     try:
-        if model_type in ["correction_LSTMs"]:
+        if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
             model1Path = os.path.join(os.path.dirname(modelPath), "best_model1")
             model2Path = os.path.join(os.path.dirname(modelPath), "best_model2")
 
@@ -449,29 +450,27 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     #lr = learning_params["lr"]   
     #max_epoch = learning_params["max_epoch"] 
     
-    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM, "CNN": CNN,  "correction_LSTMs": LSTM}
-
+    model_classes = {"RCNN": RCNN, "RNN": RNN, "LSTM": LSTM,
+                     "correction_LSTMs": (LSTM,LSTM), "2-stageLR":(LSTM,RNN), "2-stageRL":(RNN,LSTM), "2-stageRR":(RNN,RNN)}
+    
     if model_type in ["RCNN"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                           activ, cnn_dropout, kernel_size, padding, stride, nb_filters, 
                                           pooling, dropout, in_moving_mean, decomp_kernel, feature_wise_norm)      
     elif model_type in ["RNN", "LSTM"]: 
         model = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
-                                          in_moving_mean, decomp_kernel, feature_wise_norm)  
-    elif model_type in ["CNN"]: 
-        model = model_classes[model_type](input_dim, output_dim,
-                                          activ, cnn_dropout, kernel_size, padding, stride, nb_filters, 
-                                          pooling, in_moving_mean, decomp_kernel, feature_wise_norm)
-    elif model_type in ["correction_LSTMs"]:
-        model1 = model_classes[model_type](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
-                                           in_moving_mean, decomp_kernel, feature_wise_norm)
-        model2 = model_classes[model_type](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
-                                          in_moving_mean, decomp_kernel, feature_wise_norm) 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
+    elif model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
+        model1 = model_classes[model_type][0](input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
+        model2 = model_classes[model_type][1](previous_steps, output_dim, hidden_dim, rec_dropout, num_layers, 
+                                          in_moving_mean, decomp_kernel, feature_wise_norm)
         prev_preds = deque(maxlen=previous_steps)
+        val_prev_preds = deque(maxlen=previous_steps)
     else:
         pass
         
-    if model_type in ["correction_LSTMs"]:
+    if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
         model1.load_state_dict(paramSet1)
         model2.load_state_dict(paramSet2)   
         model1.cuda().eval()
@@ -534,7 +533,7 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
             batch_data.append(x[stridx:endidx, :].view(1, seqLeng, nFeat))
              
         batch_data = torch.cat(batch_data, dim=0) # concatenate along the batch dim
-        if model_type in ["correction_LSTMs"]:
+        if model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
             first_pred= model1(batch_data.cuda()).squeeze()
                 
             #if epoch >PREV_EPOCH:
@@ -623,7 +622,7 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     ################################################################################
     # print_parameters(model) # print params infomation
     test_end = time.time()
-    if  model_type in ["correction_LSTMs"]:
+    if  model_type in ["correction_LSTMs", "2-stageLR", "2-stageRL", "2-stageRR"]:
         logging.info(f'The number of parameter in model1 : {count_parameters(model1)}')
         logging.info(f'The number of parameter in model2 : {count_parameters(model2)}')
     else:
