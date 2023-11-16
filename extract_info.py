@@ -32,7 +32,7 @@ def extract_losses_from_txt(file_path):
 
     return region_metrics
 
-test_record_path = 'train_models/RNN_2000_drop0.8/test_record.txt'
+test_record_path = 'train_models/2-stageRR_2000_drop0.5/test_record.txt'
 losses = extract_losses_from_txt(test_record_path)
 for region_key in losses.keys():
     print(region_key)
