@@ -55,6 +55,7 @@ def list_up_weather(weather_directory, first_date, last_date):
     weather_list = []
     stridx, endidx, cnt = -1, -1, -1
     for folder in weather_dir:
+        print(folder)
         wlist = os.listdir(weather_directory+'/'+folder)
         wlist = [file for file in wlist if file.find('csv') > 0]
         wlist.sort()
