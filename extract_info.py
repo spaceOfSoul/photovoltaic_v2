@@ -32,8 +32,34 @@ def extract_losses_from_txt(file_path):
 
     return region_metrics
 
-test_record_path = 'train_models/2-stageRR_2000_drop0.5/test_record.txt'
-losses = extract_losses_from_txt(test_record_path)
-for region_key in losses.keys():
-    print(region_key)
-    print(losses[region_key])
+if __name__ == "__main__":
+    test_record_paths = ['train_models/2-stageRR_2000_drop0.5/test_record.txt'
+                         ,'train_models/2-stageRR_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/2-stageRR_2000_drop0.5_3/test_record.txt'
+                         ,'train_models/2-stageRL_2000_drop0.5/test_record.txt'
+                         ,'train_models/2-stageRL_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/2-stageRL_2000_drop0.5_3/test_record.txt'
+                         ,'train_models/2-stageLR_2000_drop0.5/test_record.txt'
+                         ,'train_models/2-stageLR_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/2-stageLR_2000_drop0.5_3/test_record.txt'
+                         ,'train_models/lstm_z-score_correction-with-lstm_500,2000_dropout0.5/test_record.txt'
+                         ,'train_models/2-stageLL_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/2-stageLL_2000_drop0.5_3/test_record.txt']
+    
+    markdown_content = ""
+
+    for path in test_record_paths:
+        losses = extract_losses_from_txt(path)
+        file_name = path.split('/')[-1].replace('.txt', '')
+        markdown_content += f"### {file_name}\n\n"
+
+        for region, loss_values in losses.items():
+            markdown_content += f"- **{region}**\n\n"
+            markdown_content += "| Loss Type | Value |\n"
+            markdown_content += "| --- | --- |\n"
+            for loss_type, value in loss_values.items():
+                markdown_content += f"| {loss_type} | {value} |\n"
+            markdown_content += "\n"
+            
+    with open("results", 'w') as file:
+        file.write(markdown_content)
