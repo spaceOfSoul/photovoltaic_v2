@@ -1,0 +1,26 @@
+
+###################################################################
+###################################################################
+###################################################################
+
+Current time: 2023-11-19 02:46:32.864414
+
+--------------------Hyperparameters--------------------
+
+model: {'seqLeng': 60, 'input_dim': 8, 'output_dim': 1, 'in_moving_mean': False, 'decomp_kernel': [3, 6, 12], 'feature_wise_norm': False, 'nHidden': 128, 'rec_dropout': 0, 'num_layers': 2, 'activ': 'relu', 'cnn_dropout': 0, 'kernel_size': [3, 3], 'padding': [1, 1], 'stride': [1, 1], 'nb_filters': [16, 32], 'pooling': [1, 1], 'batch_start_idx': 5, 'batch_end_idx': 21, 'dropout': 0.5, 'previous_steps': 5}
+
+learning: {'nBatch': 24, 'lr': 0.001, 'max_epoch': 2000}
+
+plot_corr: False
+
+loss_plot_flag: True
+
+save_losses: True
+
+save_result: True
+
+Model name: 2-stageRR
+
+
+--------------------Test Mode--------------------
+test mode: samcheok
