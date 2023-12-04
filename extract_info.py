@@ -1,4 +1,7 @@
 import re
+import os
+from collections import defaultdict
+import numpy as np
 
 def extract_losses_from_txt(file_path):
     # 지역
@@ -42,24 +45,42 @@ if __name__ == "__main__":
                          ,'train_models/2-stageLR_2000_drop0.5/test_record.txt'
                          ,'train_models/2-stageLR_2000_drop0.5_2/test_record.txt'
                          ,'train_models/2-stageLR_2000_drop0.5_3/test_record.txt'
-                         ,'train_models/lstm_z-score_correction-with-lstm_500,2000_dropout0.5/test_record.txt'
+                         ,'train_models/2-stageLL_2000_drop0.5/test_record.txt'
                          ,'train_models/2-stageLL_2000_drop0.5_2/test_record.txt'
                          ,'train_models/2-stageLL_2000_drop0.5_3/test_record.txt']
     
     markdown_content = ""
+    aggregated_losses = defaultdict(lambda: defaultdict(list))
 
     for path in test_record_paths:
         losses = extract_losses_from_txt(path)
-        file_name = path.split('/')[-1].replace('.txt', '')
-        markdown_content += f"### {file_name}\n\n"
+        directory_name = os.path.dirname(path).split('/')[-1]
+        base_directory_name = re.sub(r'_\d+$', '', directory_name)
 
+        markdown_content += f"### {directory_name}\n\n"
         for region, loss_values in losses.items():
             markdown_content += f"- **{region}**\n\n"
             markdown_content += "| Loss Type | Value |\n"
             markdown_content += "| --- | --- |\n"
             for loss_type, value in loss_values.items():
                 markdown_content += f"| {loss_type} | {value} |\n"
+                aggregated_losses[base_directory_name][loss_type].append(value)
             markdown_content += "\n"
-            
-    with open("results", 'w') as file:
+
+    stats_content = "\n\n## Aggregated Statistics\n\n"
+    for base_directory, losses in aggregated_losses.items():
+        stats_content += f"### {base_directory}\n\n"
+        for loss_type, values in losses.items():
+            avg = np.mean(values)
+            std = np.std(values)
+            stats_content += f"- **{loss_type}**\n"
+            stats_content += f"  - Average: {avg:.3f}\n"
+            stats_content += f"  - Standard Deviation: {std:.3f}\n"
+        stats_content += "\n"
+
+    # 이 부분에서 두 개의 markdown 파일에 내용을 작성합니다.
+    with open("results.md", 'w') as file:
         file.write(markdown_content)
+
+    with open("results_stat.md", 'w') as file:
+        file.write(stats_content)
