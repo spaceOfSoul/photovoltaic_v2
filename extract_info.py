@@ -50,13 +50,13 @@ if __name__ == "__main__":
                          ,'train_models/2-stageLL_2000_drop0.5_3/test_record.txt']
     
     markdown_content = ""
-    aggregated_losses = defaultdict(lambda: defaultdict(list))
-
+    aggregated_losses = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    
     for path in test_record_paths:
         losses = extract_losses_from_txt(path)
         directory_name = os.path.dirname(path).split('/')[-1]
         base_directory_name = re.sub(r'_\d+$', '', directory_name)
-
+    
         markdown_content += f"### {directory_name}\n\n"
         for region, loss_values in losses.items():
             markdown_content += f"- **{region}**\n\n"
@@ -64,19 +64,27 @@ if __name__ == "__main__":
             markdown_content += "| --- | --- |\n"
             for loss_type, value in loss_values.items():
                 markdown_content += f"| {loss_type} | {value} |\n"
-                aggregated_losses[base_directory_name][loss_type].append(value)
+                # 지역별로 로스 값을 집계
+                aggregated_losses[loss_type][region][base_directory_name].append(value)
             markdown_content += "\n"
-
+    
+    # 평균 및 표준편차 계산을 위한 새로운 섹션
     stats_content = "\n\n## Aggregated Statistics\n\n"
-    for base_directory, losses in aggregated_losses.items():
-        stats_content += f"### {base_directory}\n\n"
-        for loss_type, values in losses.items():
-            avg = np.mean(values)
-            std = np.std(values)
-            stats_content += f"- **{loss_type}**\n"
-            stats_content += f"  - Average: {avg:.3f}\n"
-            stats_content += f"  - Standard Deviation: {std:.3f}\n"
-        stats_content += "\n"
+    for loss_type, regions in aggregated_losses.items():
+        stats_content += f"### {loss_type}\n\n"
+        
+        # 첫 번째 모델의 이름 목록을 얻기 위한 수정
+        first_model_name = next(iter(regions.values())).keys()
+        stats_content += "| Region | " + " | ".join([f"{model} (Avg, Std)" for model in first_model_name]) + " |\n"
+        stats_content += "| --- |" + " --- |" * len(first_model_name) + "\n"
+    
+        for region, models in regions.items():
+            stats_content += f"| {region} |"
+            for model, values in models.items():
+                avg = np.mean(values)
+                std = np.std(values)
+                stats_content += f" {avg:.3f} ({std:.3f}) |"
+            stats_content += "\n"
 
     # 이 부분에서 두 개의 markdown 파일에 내용을 작성합니다.
     with open("results.md", 'w') as file:
