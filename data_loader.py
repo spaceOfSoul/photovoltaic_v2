@@ -10,10 +10,11 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from utility import insolation_aprox
 
 class WPD(Dataset):
-    def __init__(self,aws_list,asos_list,energy_list,region_ID,input_dim=8,datapath="../dataset/",kernel_range=(6,20)):
+    def __init__(self,aws_list,asos_list,energy_list, iso_list ,region_ID,input_dim=8,datapath="../dataset/",kernel_range=(6,20)):
         self.aws_list = aws_list  # all files for weather info
         self.asos_list = asos_list
         self.elist = energy_list  # all files for power gener.
+        self.isolation_list = iso_list
         
         self.rID = region_ID
         self.input_dim = input_dim
@@ -107,12 +108,6 @@ class WPD(Dataset):
             
         all_data_concatenated = np.concatenate(all_data, axis=0)
 
-        #self.global_min  = np.min(all_data_concatenated, axis=0)
-        #self.global_max  = np.max(all_data_concatenated, axis=0)
-        
-        #self.weather_scaler = MinMaxScaler()
-        #self.weather_scaler.min_ = self.global_min[1:]
-        #self.weather_scaler.scale_ = self.global_max[1:] - self.global_min[1:]
         self.global_mean = np.mean(all_data_concatenated, axis=0)
         self.global_std = np.std(all_data_concatenated, axis=0)
         
@@ -241,8 +236,6 @@ class WPD(Dataset):
             np.save(efile_npy, power_data)
 
         power_data = torch.tensor(power_data)
-        #print(power_data.shape)
-        #weather_data = weather_data[self.kernel_range[0]*60:self.kernel_range[1]*60+1, :]
-        #power_data = power_data[self.kernel_range[0]:self.kernel_range[1]]
-        #print(power_data.shape)
-        return weather_data, power_data
+
+
+        return weather_data, isolation_data, power_data
