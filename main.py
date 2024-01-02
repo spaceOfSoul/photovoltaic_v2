@@ -31,6 +31,8 @@ PREV_EPOCH = 500
 def train(hparams, model_type):
     model_params = hparams["model"]
     learning_params = hparams["learning"]
+    
+    print(hparams["solar_list"])
 
     trnset = WPD(
         hparams["aws_list"],

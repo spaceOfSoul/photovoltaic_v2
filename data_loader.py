@@ -6,14 +6,25 @@ import os
 import torch
 from torch.utils.data import Dataset
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import re
+from datetime import datetime, timedelta
 
 from utility import insolation_aprox
 
 class WPD(Dataset):
-    def __init__(self,aws_list,asos_list,energy_list,region_ID,input_dim=8,datapath="../dataset/",kernel_range=(6,20)):
+    def __init__(self,aws_list,asos_list,energy_list, isolation_list, start2end,region_ID,input_dim=8,datapath="../dataset/",kernel_range=(6,20)):
         self.aws_list = aws_list  # all files for weather info
         self.asos_list = asos_list
         self.elist = energy_list  # all files for power gener.
+        self.isolation_list = isolation_list # 
+        
+        if 'samcheck' in self.isolation_list[0]:
+            self.isol_data = pd.read_csv(isolation_list[0])
+            self.isol_data['date'] = pd.to_datetime(self.isol_data['date'])
+            self.isol_data = self.isol_data[(self.isol_data['date'] >= pd.to_datetime(start2end[0])) & 
+                                  (self.isol_data['date'] <= pd.to_datetime(start2end[1]))]
+            self.isol_data = self.isol_data.set_index('date').resample('H').sum()
+            self.grouped_data = self.isol_data.groupby(self.isol_data.index.date)
         
         self.rID = region_ID
         self.input_dim = input_dim
@@ -106,13 +117,7 @@ class WPD(Dataset):
             all_data.append(weather_data)
             
         all_data_concatenated = np.concatenate(all_data, axis=0)
-
-        #self.global_min  = np.min(all_data_concatenated, axis=0)
-        #self.global_max  = np.max(all_data_concatenated, axis=0)
         
-        #self.weather_scaler = MinMaxScaler()
-        #self.weather_scaler.min_ = self.global_min[1:]
-        #self.weather_scaler.scale_ = self.global_max[1:] - self.global_min[1:]
         self.global_mean = np.mean(all_data_concatenated, axis=0)
         self.global_std = np.std(all_data_concatenated, axis=0)
         
@@ -221,7 +226,7 @@ class WPD(Dataset):
 
         weather_data[:, 1:] = self.weather_scaler.transform(weather_data[:, 1:])
         
-        insolation = np.array([insolation_aprox(t, n=4, I_max=1) for t in weather_data[:, 0]]) # 일조량(sin 기반)
+        insolation = np.array([insolation_aprox(t, n=4, I_max=1) for t in weather_data[:, 0]]) # (sin 기반 조정)
         weather_data[:, 0] = insolation
         weather_data = torch.tensor(weather_data)
 
@@ -239,10 +244,93 @@ class WPD(Dataset):
             power_data = power_data[:, 1].astype(float)
 
             np.save(efile_npy, power_data)
+            
+            data = pd.read_html(efilepath, header=[0, 1])[0]
+            data.columns = [' '.join(col).strip() for col in data.columns.values]
+
+            # Extracting datetime using regex
+            pattern = r'\d{4}-\d{2}-\d{2} \d{2}'
+            data['datetime'] = data.iloc[:, 0].astype(str).apply(lambda x: re.search(pattern, x).group(0) if re.search(pattern, x) else None)
+            data['irradiance'] = data['일사량(W/㎡) 경사']
+            data = data.dropna(subset=['datetime'])
+            data['datetime'] = pd.to_datetime(data['datetime'], format='%Y-%m-%d %H')
+
+            # Assuming start and end dates of the month
+            start_date = data['datetime'].min().strftime('%Y-%m-%d')
+            end_date = (data['datetime'].max() + timedelta(days=1)).strftime('%Y-%m-%d')
+
+            # Creating a full range of hourly timestamps
+            full_range = pd.date_range(start=start_date, end=end_date, freq='H')
+            full_range_df = pd.DataFrame(full_range, columns=['datetime'])
+
+            # Merging and filling missing data
+            merged_data = pd.merge(full_range_df, data, left_on='datetime', right_on='datetime', how='left')
+            merged_data['irradiance'] = merged_data['irradiance'].fillna(0)
+
+            # Extracting the solar irradiance values
+            isolation_data = merged_data['irradiance'].values
 
         power_data = torch.tensor(power_data)
+        
+        # isolation
+        if 'samcheck' in self.isolation_list[0]:
+            date = list(self.grouped_data.groups)[idx]
+            daily_data = self.grouped_data.get_group(date)
+
+            # zero padding
+            if len(daily_data) < 24:
+                padded_data = daily_data.reindex(pd.date_range(start=date, periods=24, freq='H'), fill_value=0)
+                daily_values = padded_data['SOL_RAD_LEVEL'].values
+            else:
+                daily_values = daily_data['SOL_RAD_LEVEL'].values
+            isolation_data = torch.tensor(daily_values, dtype=torch.float32)
+        elif 'PreSchool' in self.isolation_list:
+            base_date = datetime(year=2022, month=1, day=1)  # Replace 2022 with the actual year
+            specific_date = base_date + pd.Timedelta(days=idx - 1)
+            month = specific_date.month
+            day = specific_date.day
+
+            # Access the file for the identified month
+            monthly_iso_path = self.isolation_list[month - 1]  # Assuming list is 0-indexed for January
+
+            # File path for the processed numpy file for the specific day
+            iso_npy_path = monthly_iso_path.replace(".xlsx", f"_day{idx}.npy")
+
+            if os.path.isfile(iso_npy_path):
+                iso_data = np.load(iso_npy_path)
+            else:
+                # Read and process the solar irradiance data from the Excel file
+                solar_irradiance = pd.read_html(monthly_iso_path, header=[0, 1])[0]
+                solar_irradiance.columns = [' '.join(col).strip() for col in solar_irradiance.columns.values]
+
+                # Extracting datetime using regex
+                pattern = r'\d{4}-\d{2}-\d{2} \d{2}'
+                solar_irradiance['datetime'] = solar_irradiance.iloc[:, 0].astype(str).apply(lambda x: re.search(pattern, x).group(0) if re.search(pattern, x) else None)
+                solar_irradiance['irradiance'] = solar_irradiance['일사량(W/㎡) 경사']
+                solar_irradiance = solar_irradiance.dropna(subset=['datetime'])
+                solar_irradiance['datetime'] = pd.to_datetime(solar_irradiance['datetime'], format='%Y-%m-%d %H')
+
+                # Filter out data for the specific day
+                day_data = solar_irradiance[solar_irradiance['datetime'].dt.day == day]
+
+                # Creating a full range of hourly timestamps for the day
+                start_datetime = datetime(specific_date.year, specific_date.month, specific_date.day)
+                end_datetime = start_datetime + pd.Timedelta(days=1)
+                full_range = pd.date_range(start=start_datetime, end=end_datetime, freq='H', closed='left')
+                full_range_df = pd.DataFrame(full_range, columns=['datetime'])
+
+                # Merging and filling missing data
+                merged_data = pd.merge(full_range_df, day_data, left_on='datetime', right_on='datetime', how='left')
+                merged_data['irradiance'] = merged_data['irradiance'].fillna(0)
+
+                # Extracting the solar irradiance values
+                iso_data = merged_data['irradiance'].values
+                np.save(iso_npy_path, iso_data)
+
+                iso_data = torch.tensor(iso_data, dtype=torch.float32)
+
         #print(power_data.shape)
         #weather_data = weather_data[self.kernel_range[0]*60:self.kernel_range[1]*60+1, :]
         #power_data = power_data[self.kernel_range[0]:self.kernel_range[1]]
         #print(power_data.shape)
-        return weather_data, power_data
+        return weather_data, isolation_data, power_data
