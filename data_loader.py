@@ -123,7 +123,9 @@ class WPD(Dataset):
         aws_path = self.aws_list[idx]
         asos_path = self.asos_list[idx]
         efilepath = self.elist[idx]
+        isolation_path = self.isolation_list[idx]
 
+        # weather
         weather_datapath = asos_path.replace(".csv", ".npy")
         weather_datapath = weather_datapath.replace("ASOS", "Weather")
         weather_datapath = weather_datapath.replace("asos", "weather_%d" % self.rID)
@@ -220,6 +222,7 @@ class WPD(Dataset):
         weather_data[:, 0] = insolation
         weather_data = torch.tensor(weather_data)
 
+        # energy file
         efile_npy = efilepath.replace(".xlsx", ".npy")
         if os.path.isfile(efile_npy):
             power_data = np.load(efile_npy)
@@ -236,6 +239,21 @@ class WPD(Dataset):
             np.save(efile_npy, power_data)
 
         power_data = torch.tensor(power_data)
+        
+        # isolation file
+        isolation_npy = isolation_path.replace(".xlsx", ".npy")
+        if os.path.isfile(isolation_npy):
+            isol_data = np.load(isolation_npy)
+        else:
+            xlsx = pd.read_excel(efilepath, engine="openpyxl", skiprows=range(3))
+            xlsx = xlsx.iloc[:-1, :]
+            isol = xlsx.to_numpy()
+            isol = pd.DataFrame(isol, columns=["date", "SOL_RAD_LEVEL"])
+            isol_data = power.to_numpy()
+            isol_data = isol_data[:, 1].astype(float)
 
+            np.save(isolation_npy, isol_data)
 
-        return weather_data, isolation_data, power_data
+        isol_data = torch.tensor(isol_data)
+
+        return weather_data, isol_data, power_data

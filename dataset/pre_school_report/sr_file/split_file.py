@@ -2,35 +2,31 @@ import pandas as pd
 import os
 import glob
 
-def find_header_row(file_path):
-    # 파일을 10개의 행을 read.
-    for i in range(10):
-        df = pd.read_excel(file_path, header=i)
-        if not any(df.columns.str.contains('Unnamed')):
-            return i
-    return 0  # 뭐 없으면 첫 번째
+def process(file_path, base_folder_path):
+    df = pd.read_excel(file_path, header=3)
 
-def save_excel_by_day_fixed(df, base_folder_path):
-    date_time_col = df.columns[df.first_valid_index()]
+    df['일시'] = pd.to_datetime(df.iloc[:, 0])
 
-    df_filtered = df[df[date_time_col].str.match(r'\d{4}-\d{2}-\d{2}', na=False)]
+    for date, day_df in df.groupby(df['일시'].dt.date):
+        year = date.year
+        month = date.month
+        day = date.day
 
-    for date, day_df in df_filtered.groupby(df_filtered[date_time_col].str[:10]):
-        year, month, day = date.split('-')
+        full_day = pd.date_range(start=f"{year}-{month}-{day}", end=f"{year}-{month}-{day} 23:00:00", freq='H')
+        full_day_df = pd.DataFrame(full_day, columns=['date'])  # '일시'를 'date'로 변경
+
+        merged_df = full_day_df.merge(day_df, left_on='date', right_on='일시', how='left').fillna(0)
+        merged_df.drop('일시', axis=1, inplace=True)  # 원본 '일시' 열 삭제
 
         folder_path = os.path.join(base_folder_path, f"{year}_{month}")
         os.makedirs(folder_path, exist_ok=True)
+        save_file_path = os.path.join(folder_path, f"{day}.xlsx")
 
-        file_path = os.path.join(folder_path, f"{day}.xlsx")
-        day_df.to_excel(file_path, index=False)
-
-def process_all_excel_files(directory):
-    excel_files = glob.glob(os.path.join(directory, '*.xlsx'))
-
-    for file in excel_files:
-        header_row = find_header_row(file)
-        df = pd.read_excel(file, header=header_row)
-        save_excel_by_day_fixed(df, directory)
+        merged_df.rename(columns={df.columns[15]: 'SOL_RAD_LEVEL'}, inplace=True)
+        merged_df.to_excel(save_file_path, index=False, columns=['date', 'SOL_RAD_LEVEL'])
 
 directory = 'dataset/pre_school_report/sr_file'
-process_all_excel_files(directory)
+paths = glob.glob(os.path.join(directory, '*.xlsx'))
+for file_path in paths:
+    process(file_path, directory)
+
