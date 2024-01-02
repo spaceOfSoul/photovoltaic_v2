@@ -2,6 +2,14 @@ import pandas as pd
 import os
 import glob
 
+def find_header_row(file_path):
+    # 파일을 10개의 행을 read.
+    for i in range(10):
+        df = pd.read_excel(file_path, header=i)
+        if not any(df.columns.str.contains('Unnamed')):
+            return i
+    return 0  # 뭐 없으면 첫 번째
+
 def save_excel_by_day_fixed(df, base_folder_path):
     date_time_col = df.columns[df.first_valid_index()]
 
@@ -17,15 +25,12 @@ def save_excel_by_day_fixed(df, base_folder_path):
         day_df.to_excel(file_path, index=False)
 
 def process_all_excel_files(directory):
-    # Find all Excel files in the given directory
     excel_files = glob.glob(os.path.join(directory, '*.xlsx'))
 
-    # Process each file
     for file in excel_files:
-        print(file)
-        df = pd.read_excel(file)
+        header_row = find_header_row(file)
+        df = pd.read_excel(file, header=header_row)
         save_excel_by_day_fixed(df, directory)
 
 directory = 'dataset/pre_school_report/sr_file'
-
 process_all_excel_files(directory)
