@@ -15,10 +15,7 @@ from statsmodels.tsa.seasonal import STL
 from config import hyper_params 
 from ParseFlags import parse_flags 
 
-from Corr import correlations
-from Visualizer.LossDistribution import LossStatistics
-from Visualizer.plot_generate import PlotGenerator
-from Visualizer.VisualDecom import visualize_decomp
+
 from model import *
 from data_loader import WPD
 from torch.utils.data import DataLoader
@@ -73,9 +70,8 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
     #max_epoch = learning_params["max_epoch"] 
     
     
-    tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['loc_ID'], input_dim=hparams["model"]["input_dim"],)    
+    tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['isol_list'], hparams['loc_ID'], input_dim=hparams["model"]["input_dim"],)    
     tstloader = DataLoader(tstset, batch_size=1, shuffle=False, drop_last=True)
-    visualize_decomp(tstloader, period=7, seasonal=29, show=False) # show: bool
     
     prev_data = torch.zeros([seqLeng, input_dim]).cuda()	# 7 is for featDim
 
@@ -103,8 +99,8 @@ def test(hparams, model_type, days_per_month, start_month, end_month, filename):
 
     tst_loss = 0
     
-    for tst_days, (x, y) in enumerate(tstloader):
-        print(f'{x.shape} {y.shape}')
+    for tst_days, (x, y, z) in enumerate(tstloader):
+        print(f'{x.shape} {y.shape} {z.shape}')
     length_tst = tst_days+1
     print(f"length : {length_tst}")
     
@@ -153,6 +149,7 @@ if __name__ == "__main__":
         # =============================== test data list ====================================#
         # build photovoltaic data list (samcheok)
         solar_list, first_date, last_date = list_up_solar(flags.tst_samcheok_solar_dir)
+        isol_list, _, _ = list_up_solar(flags.tst_samcheok_isol_dir)
         aws_list = list_up_weather(flags.tst_samcheok_aws_dir, first_date, last_date)
         asos_list = list_up_weather(flags.tst_samcheok_asos_dir, first_date, last_date)
         
@@ -160,6 +157,7 @@ if __name__ == "__main__":
         hp.update({"aws_list": aws_list})
         hp.update({"asos_list": asos_list})
         hp.update({"solar_list": solar_list})
+        hp.update({"isol_list": isol_list})
         
         logging.info("\n--------------------Test Mode--------------------")        
         logging.info("test mode: samcheok")

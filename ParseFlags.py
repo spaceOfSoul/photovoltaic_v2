@@ -27,7 +27,7 @@ def parse_flags(hparams):
     validation_group.add_argument("--val_aws_dir", type=str, default="./dataset/AWS/")
     validation_group.add_argument("--val_asos_dir", type=str, default="./dataset/ASOS/")
     validation_group.add_argument("--val_solar_dir", type=str, default="./dataset/photovoltaic/PreSchool/")
-    validation_group.add_argument("--isol_dir", type=str, default="./dataset/preSchool_report/sr_file/")
+    validation_group.add_argument("--val_isol_dir", type=str, default="./dataset/preSchool_report/sr_file/")
 
     # validation_group.add_argument("--val_solar_dir", type=str, default="./dataset/photovoltaic/GWNU_C3/")
     
@@ -38,13 +38,13 @@ def parse_flags(hparams):
     test_group.add_argument("--tst_samcheok_asos_dir", type=str, default="./dataset/ASOS/")
     test_group.add_argument("--tst_samcheok_solar_dir", type=str, default="./samcheok/data/")
     test_group.add_argument("--tst_samcheok_loc_ID", type=int, default=106)
-    test_group.add_argument("--tst_samcheok_isol_dir", type=int, default="./dataset/samcheck_report/")
+    test_group.add_argument("--tst_samcheok_isol_dir", type=str, default="./dataset/samcheck_report/")
 
 
     test_group.add_argument("--tst_gwnuC3_aws_dir", type=str, default="./dataset/AWS/")
     test_group.add_argument("--tst_gwnuC3_asos_dir", type=str, default="./dataset/ASOS/")
     test_group.add_argument("--tst_gwnuC3_solar_dir", type=str, default="./dataset/photovoltaic/GWNU_C3/")
-    test_group.add_argument("--tst_gwnuC3_isol_dir", type=int, default="./dataset/preSchool_report/sr_file/")
+    test_group.add_argument("--tst_gwnuC3_isol_dir", type=str, default="./dataset/preSchool_report/sr_file/")
     test_group.add_argument("--tst_gwnuC3_loc_ID", type=int, default=678)
         
     # Flags for training params

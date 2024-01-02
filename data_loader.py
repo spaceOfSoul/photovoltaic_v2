@@ -249,7 +249,7 @@ class WPD(Dataset):
             xlsx = xlsx.iloc[:-1, :]
             isol = xlsx.to_numpy()
             isol = pd.DataFrame(isol, columns=["date", "SOL_RAD_LEVEL"])
-            isol_data = power.to_numpy()
+            isol_data = isol.to_numpy()
             isol_data = isol_data[:, 1].astype(float)
 
             np.save(isolation_npy, isol_data)
