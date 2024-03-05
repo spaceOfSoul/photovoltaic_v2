@@ -36,18 +36,15 @@ def extract_losses_from_txt(file_path):
     return region_metrics
 
 if __name__ == "__main__":
-    test_record_paths = ['train_models/2-stageRR_2000_drop0.5/test_record.txt'
-                         ,'train_models/2-stageRR_2000_drop0.5_2/test_record.txt'
-                         ,'train_models/2-stageRR_2000_drop0.5_3/test_record.txt'
-                         ,'train_models/2-stageRL_2000_drop0.5/test_record.txt'
-                         ,'train_models/2-stageRL_2000_drop0.5_2/test_record.txt'
-                         ,'train_models/2-stageRL_2000_drop0.5_3/test_record.txt'
-                         ,'train_models/2-stageLR_2000_drop0.5/test_record.txt'
-                         ,'train_models/2-stageLR_2000_drop0.5_2/test_record.txt'
-                         ,'train_models/2-stageLR_2000_drop0.5_3/test_record.txt'
-                         ,'train_models/2-stageLL_2000_drop0.5/test_record.txt'
-                         ,'train_models/2-stageLL_2000_drop0.5_2/test_record.txt'
-                         ,'train_models/2-stageLL_2000_drop0.5_3/test_record.txt']
+    test_record_paths = ['train_models/lstm_2000_drop0.5/test_record.txt'
+                         ,'train_models/lstm_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/lstm_2000_drop0.5_3/test_record.txt'
+                         ,'train_models/rcnn_2000_dropout0.5/test_record.txt'
+                         ,'train_models/RCNN_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/RCNN_2000_drop0.5_3/test_record.txt'
+                         ,'train_models/RNN_2000_drop0.5/test_record.txt'
+                         ,'train_models/RNN_2000_drop0.5_2/test_record.txt'
+                         ,'train_models/RNN_2000_drop0.5_3/test_record.txt']
     
     markdown_content = ""
     aggregated_losses = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))

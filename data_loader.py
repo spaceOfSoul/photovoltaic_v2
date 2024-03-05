@@ -1,259 +1,206 @@
+
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import csv
 import os
-
+import sys
 import torch
-from torch.utils.data import Dataset
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import time
+import logging
+import datetime
+from collections import deque
 
-from utility import insolation_aprox
+from statsmodels.tsa.seasonal import STL
+from config import hyper_params 
+from ParseFlags import parse_flags 
 
-class WPD(Dataset):
-    def __init__(self,aws_list,asos_list,energy_list, iso_list ,region_ID,input_dim=8,datapath="../dataset/",kernel_range=(6,20)):
-        self.aws_list = aws_list  # all files for weather info
-        self.asos_list = asos_list
-        self.elist = energy_list  # all files for power gener.
-        self.isolation_list = iso_list
+
+from model import *
+from data_loader import WPD
+from torch.utils.data import DataLoader
+from utility import list_up_solar, list_up_weather, print_parameters, count_parameters, weights_init, compute_percent_error, monthly_mse_per_hour, compute_mse_and_errors
+from functools import partial
+
+hparams = hyper_params()
+flags, hparams, flags.model = parse_flags(hparams)
+
+PREV_EPOCH = 500
+
+def test(hparams, model_type, days_per_month, start_month, end_month, filename):
+    model_params = hparams['model']
+    learning_params = hparams['learning']
+
+    modelPath = hparams['load_path']
+    
+    seqLeng = model_params["seqLeng"]
+    input_dim = model_params["input_dim"] # feature 7 + time 1
+    output_dim = model_params["output_dim"]
+
+    #apply_kernel_func = model_params["apply_kernel_func"] 
+    #kernel_start_idx = model_params["kernel_start_idx"]
+    #kernel_end_idx = model_params["kernel_end_idx"]
+    #kernel_center = model_params["kernel_center"]
+    #kernel_feature_idx = model_params["kernel_feature_idx"]
+    #kernel_type = model_params["kernel_type"]
+
+    batch_start_idx = model_params["batch_start_idx"]
+    batch_end_idx = model_params["batch_end_idx"]
+
+    in_moving_mean = model_params["in_moving_mean"]
+    decomp_kernel = model_params["decomp_kernel"]
+    feature_wise_norm = model_params["feature_wise_norm"]
+           
+    hidden_dim = model_params["nHidden"]
+    rec_dropout = model_params["rec_dropout"]
+    num_layers = model_params["num_layers"]
+    activ = model_params["activ"]
+    cnn_dropout = model_params["cnn_dropout"]  
+    kernel_size = model_params["kernel_size"]
+    padding = model_params["padding"]
+    stride = model_params["stride"]
+    nb_filters = model_params["nb_filters"]
+    pooling = model_params["pooling"]
+    dropout = model_params["dropout"]
+           
+    previous_steps = model_params["previous_steps"]
+     
+    nBatch = learning_params["nBatch"]
+    #lr = learning_params["lr"]   
+    #max_epoch = learning_params["max_epoch"] 
+    
+    
+    tstset = WPD(hparams['aws_list'], hparams['asos_list'], hparams['solar_list'], hparams['isol_list'], hparams['loc_ID'], input_dim=hparams["model"]["input_dim"],)    
+    tstloader = DataLoader(tstset, batch_size=1, shuffle=False, drop_last=True)
+    
+    prev_data = torch.zeros([seqLeng, input_dim]).cuda()	# 7 is for featDim
+
+    criterion = torch.nn.MSELoss()
+
+    tst_losses_alltime = []
+    tst_losses_daytime = []
+    percent_errors_tst_alltime = []
+    percent_errors_tst_daytime = []
+
+    tst_loss_alltime = 0
+    tst_loss_daytime = 0
+    percent_error_tst_alltime = 0
+    percent_error_tst_daytime = 0
+    tst_pred_append = []
+    tst_y_append=[] 
+    concat_pred_tst_alltime = torch.zeros(0).cuda()
+    concat_y_tst_alltime = torch.zeros(0).cuda()     
+    concat_pred_tst_daytime = torch.zeros(0).cuda()
+    concat_y_tst_daytime = torch.zeros(0).cuda()  
+    alltime_hours = 24 # 24 hours
+    daytime_hours = (batch_end_idx - batch_start_idx -1)    
+
+    test_start = time.time()
+
+    tst_loss = 0
+    
+    for tst_days, (x, y, z) in enumerate(tstloader):
+        print(f'{x.shape} {y.shape} {z.shape}')
+    length_tst = tst_days+1
+    print(f"length : {length_tst}")
+    
+    for tst_days, (x, y, z) in enumerate(tstloader):
+        x = x.float()
+        y = y.float()
+        x = x.squeeze().cuda()   
+                                 
+        logging.info(x.shape)
+        logging.info(y.shape)
+        logging.info(z.shape)
+
+    
+
+if __name__ == "__main__":
+
+    hp = hyper_params()
+    flags, hp, model_name = parse_flags(hp)
+
+    # python main.py --mode train --model RCNN --save_dir temp_train --log_filename text_file.txt
+
+    # python main.py --mode test --model RCNN --load_path temp_train/best_model --save_dir temp_test --log_filename text_file.txt
+ 
+    # Set up logging
+    if not os.path.isdir(flags.save_dir):
+        os.makedirs(flags.save_dir)
         
-        self.rID = region_ID
-        self.input_dim = input_dim
-        self.kernel_range = kernel_range
+    log_filename = os.path.join(flags.save_dir, flags.log_filename)
+    logging.basicConfig(filename=log_filename, level=logging.INFO, format='%(message)s')
 
-        self.tags1 = ["지점","지점명","일시","기온(°C)","1분 강수량(mm)","풍향(deg)","풍속(m/s)","현지기압(hPa)","해면기압(hPa)","습도(%)",]
-        self.tags2 = ["지점","지점명","일시","기온(°C)","누적강수량(mm)","풍향(deg)","풍속(m/s)","현지기압(hPa)","해면기압(hPa)","습도(%)",]
+    # Then replace 'print' with 'logging.info' in your code   
+    logging.info('\n###################################################################')
+    logging.info('###################################################################')
+    logging.info('###################################################################\n')
+    current_time = datetime.datetime.now()
+    logging.info(f"Current time: {current_time}\n")
 
-        if not os.path.isdir(datapath):
-            os.makedirs(datapath)
-            
-        ## 연간 모든 데이터에 대해서 일단 한번 로드
-        ## 평균, 표준편차를 구하기 위함
-        all_data = []
-        for aws_path, asos_path in zip(self.aws_list, self.asos_list):
-            aws_csv = pd.read_csv(aws_path, encoding="CP949")[self.tags1]
-            asos_csv = pd.read_csv(asos_path, encoding="CP949")[self.tags2]
-            asos_csv.iloc[:, 4] = asos_csv.iloc[:, 4].diff()
-            asos_csv = asos_csv.rename(columns={self.tags2[4]: self.tags1[4]})
-            csv = pd.concat([aws_csv, asos_csv])
-            csv = csv.drop(["지점명"], axis=1)\
-            
-            groups = csv.groupby(csv.columns[0])
-            weather_by_region = {}
-            for i in groups:
-                if weather_by_region.get(i[0]) is not None:
-                    weather_by_region[i[0]].append(list(i))
-                else:
-                    weather_by_region[i[0]] = list(i)
+    # Log hyperparameters and model name
+    logging.info('--------------------dataloader test--------------------\n')
 
-            # Choose region & Time alignment
-            rid = self.rID
-            region_data = weather_by_region[rid]
-            region_data = region_data[1].values
-            weather_data = np.zeros(
-                [1440, self.input_dim]
-            )  # hard coding for 1 day, 14 features & time
-            timeflag = np.ones(1440)
-            for i in range(len(region_data)):
-                timestamp = region_data[i][1]
-                date_, time_ = timestamp.split(" ")
-                data = region_data[i][2:].astype(float)
-                data = np.nan_to_num(data, nan=0)
-
-                hh = int(time_[:2])
-                mm = int(time_[-2:])
-                idx = hh * 60 + mm - 1
-
-                weather_data[idx, 0] = idx
-                weather_data[idx, 1:] = data
-                timeflag[idx] = 0
-
-            # interpolation for missing data
-            idx = np.where(timeflag == 1)[0]
-            indices, temp = [], []
-            if len(idx) == 1:
-                indices.append(idx)
-            else:
-                diff = np.diff(idx)
-                for i in range(len(diff)):
-                    temp.append(idx[i].tolist())
-                    if diff[i] == 1:
-                        temp.append(idx[i + 1])
-                    else:
-                        indices.append(np.unique(temp).tolist())
-                        temp = []
-                if len(temp) > 0:  # add the last block
-                    indices.append(np.unique(temp).tolist())
-                    temp = []
-
-            for n in range(len(indices)):
-                idx = indices[n]
-                maxV, minV = np.max(idx).astype(int), np.min(idx).astype(int)
-                if minV > 0:
-                    prev = weather_data[minV - 1, :]
-                else:
-                    prev = None
-                if maxV < 1439:
-                    post = weather_data[maxV + 1, :]
-                else:
-                    post = prev
-                if prev is None:
-                    prev = post
-
-                nsteps = len(idx)
-                for i in range(nsteps):
-                    weather_data[i + minV] = (nsteps - i) * prev / (nsteps + 1) + (
-                        i + 1
-                    ) * post / (nsteps + 1)
-            all_data.append(weather_data)
-            
-        all_data_concatenated = np.concatenate(all_data, axis=0)
-
-        self.global_mean = np.mean(all_data_concatenated, axis=0)
-        self.global_std = np.std(all_data_concatenated, axis=0)
+    if flags.mode == "test":
+        hp.update({"load_path": flags.load_path})
+        hp.update({"loc_ID": flags.tst_samcheok_loc_ID})
+        hp.update({"save_dir": flags.save_dir})
         
-        self.weather_scaler = StandardScaler()
-        self.weather_scaler.mean_ = self.global_mean[1:]
-        self.weather_scaler.scale_ = self.global_std[1:]
-
+        # =============================== test data list ====================================#
+        # build photovoltaic data list (samcheok)
+        solar_list, first_date, last_date = list_up_solar(flags.tst_samcheok_solar_dir)
+        isol_list, _, _ = list_up_solar(flags.tst_samcheok_isol_dir)
+        aws_list = list_up_weather(flags.tst_samcheok_aws_dir, first_date, last_date)
+        asos_list = list_up_weather(flags.tst_samcheok_asos_dir, first_date, last_date)
         
-    def __len__(self):
-        return len(self.aws_list)
-
-    def __getitem__(self, idx):
-        aws_path = self.aws_list[idx]
-        asos_path = self.asos_list[idx]
-        efilepath = self.elist[idx]
-        isolation_path = self.isolation_list[idx]
-
-        # weather
-        weather_datapath = asos_path.replace(".csv", ".npy")
-        weather_datapath = weather_datapath.replace("ASOS", "Weather")
-        weather_datapath = weather_datapath.replace("asos", "weather_%d" % self.rID)
-        if os.path.isfile(weather_datapath):
-            weather_data = np.load(weather_datapath)
-        else:
-            ############## weather data loading  #################
-            # Loading: weather data for all regions (thanks to chy)
-            aws_csv = pd.read_csv(aws_path, encoding="CP949")
-            aws_csv = aws_csv.get(self.tags1)
-            asos_csv = pd.read_csv(asos_path, encoding="CP949")
-            asos_csv = asos_csv.get(self.tags2)
-            asos_csv.iloc[:, 4] = asos_csv.iloc[:, 4].diff()
-            asos_csv = asos_csv.rename(columns={self.tags2[4]: self.tags1[4]})
-            csv = pd.concat([aws_csv, asos_csv])
-
-            csv = csv.drop(["지점명"], axis=1)
-            groups = csv.groupby(csv.columns[0])
-            weather_by_region = {}
-            for i in groups:
-                if weather_by_region.get(i[0]) is not None:
-                    weather_by_region[i[0]].append(list(i))
-                else:
-                    weather_by_region[i[0]] = list(i)
-
-            # Choose region & Time alignment
-            rid = self.rID
-            region_data = weather_by_region[rid]
-            region_data = region_data[1].values
-            weather_data = np.zeros(
-                [1440, self.input_dim]
-            )  # hard coding for 1 day, 14 features & time
-            timeflag = np.ones(1440)
-            for i in range(len(region_data)):
-                timestamp = region_data[i][1]
-                date_, time_ = timestamp.split(" ")
-                data = region_data[i][2:].astype(float)
-                data = np.nan_to_num(data, nan=0)
-
-                hh = int(time_[:2])
-                mm = int(time_[-2:])
-                idx = hh * 60 + mm - 1
-
-                weather_data[idx, 0] = idx
-                weather_data[idx, 1:] = data
-                timeflag[idx] = 0
-
-            # interpolation for missing data
-            idx = np.where(timeflag == 1)[0]
-            indices, temp = [], []
-            if len(idx) == 1:
-                indices.append(idx)
-            else:
-                diff = np.diff(idx)
-                for i in range(len(diff)):
-                    temp.append(idx[i].tolist())
-                    if diff[i] == 1:
-                        temp.append(idx[i + 1])
-                    else:
-                        indices.append(np.unique(temp).tolist())
-                        temp = []
-                if len(temp) > 0:  # add the last block
-                    indices.append(np.unique(temp).tolist())
-                    temp = []
-
-            for n in range(len(indices)):
-                idx = indices[n]
-                maxV, minV = np.max(idx).astype(int), np.min(idx).astype(int)
-                if minV > 0:
-                    prev = weather_data[minV - 1, :]
-                else:
-                    prev = None
-                if maxV < 1439:
-                    post = weather_data[maxV + 1, :]
-                else:
-                    post = prev
-                if prev is None:
-                    prev = post
-
-                nsteps = len(idx)
-                for i in range(nsteps):
-                    weather_data[i + minV] = (nsteps - i) * prev / (nsteps + 1) + (
-                        i + 1
-                    ) * post / (nsteps + 1)
-
-            dirname = os.path.dirname(weather_datapath)
-            if not os.path.isdir(dirname):
-                os.makedirs(dirname)
-            np.save(weather_datapath, weather_data)
-
-        weather_data[:, 1:] = self.weather_scaler.transform(weather_data[:, 1:])
+        hp.update({"loc_ID": flags.tst_samcheok_loc_ID})        
+        hp.update({"aws_list": aws_list})
+        hp.update({"asos_list": asos_list})
+        hp.update({"solar_list": solar_list})
+        hp.update({"isol_list": isol_list})
         
-        insolation = np.array([insolation_aprox(t, n=4, I_max=1) for t in weather_data[:, 0]]) # 일조량(sin 기반)
-        weather_data[:, 0] = insolation
-        weather_data = torch.tensor(weather_data)
+        logging.info("\n--------------------Test Mode--------------------")        
+        logging.info("test mode: samcheok")
 
-        # energy file
-        efile_npy = efilepath.replace(".xlsx", ".npy")
-        if os.path.isfile(efile_npy):
-            power_data = np.load(efile_npy)
-        else:
-            ############## Photovoltaic data loading  #################
-            # Loading: power generation data written by chy
-            xlsx = pd.read_excel(efilepath, engine="openpyxl", skiprows=range(3))
-            xlsx = xlsx.iloc[:-1, :]  # row remove
-            power = xlsx.to_numpy()
-            power = pd.DataFrame(power, columns=["Datetime", "Power"])
-            power_data = power.to_numpy()
-            power_data = power_data[:, 1].astype(float)
+        samcheok_days_per_month = [31, 28, 31, 30, 31, 30, 31, 31]
+        samcheok_start_month = 1 # 2022.01~08
+        samcheok_end_month = 8    
+        samcheok_filename = "samcheok_test"   
+        test(hp, flags.model, samcheok_days_per_month, samcheok_start_month, samcheok_end_month, samcheok_filename)
 
-            np.save(efile_npy, power_data)
-
-        power_data = torch.tensor(power_data)
+        # build photovoltaic data list (GWNU_C3)
+        solar_list, first_date, last_date = list_up_solar(flags.tst_gwnuC3_solar_dir)
+        aws_list = list_up_weather(flags.tst_gwnuC3_aws_dir, first_date, last_date)
+        asos_list = list_up_weather(flags.tst_gwnuC3_asos_dir, first_date, last_date)
         
-        # isolation file
-        isolation_npy = isolation_path.replace(".xlsx", ".npy")
-        if os.path.isfile(isolation_npy):
-            isol_data = np.load(isolation_npy)
-        else:
-            xlsx = pd.read_excel(efilepath, engine="openpyxl", skiprows=range(3))
-            xlsx = xlsx.iloc[:-1, :]
-            isol = xlsx.to_numpy()
-            isol = pd.DataFrame(isol, columns=["date", "SOL_RAD_LEVEL"])
-            isol_data = isol.to_numpy()
-            isol_data = isol_data[:, 1].astype(float)
+        hp.update({"loc_ID": flags.tst_gwnuC3_loc_ID})
+        hp.update({"aws_list": aws_list})
+        hp.update({"asos_list": asos_list})
+        hp.update({"solar_list": solar_list})
+        
+        logging.info("\n--------------------Test Mode--------------------")
+        logging.info("test mode: GWNU_C3")
+        gwnuC3_days_per_month = [22, 31, 31, 30, 31, 30, 31]
+        gwnuC3_start_month = 6 # 2022.06~12
+        gwnuC3_end_month = 12    
+        gwnuC3_filename = "gwnuC3_test"
+        test(hp, flags.model, gwnuC3_days_per_month, gwnuC3_start_month, 
+             gwnuC3_end_month, gwnuC3_filename)
 
-            np.save(isolation_npy, isol_data)
+        solar_list, first_date, last_date = list_up_solar(flags.val_solar_dir)
+        aws_list = list_up_weather(flags.val_aws_dir, first_date, last_date)
+        asos_list = list_up_weather(flags.val_asos_dir, first_date, last_date)
+        
+        hp.update({"loc_ID": 678})
+        hp.update({"aws_list": aws_list})
+        hp.update({"asos_list": asos_list})
+        hp.update({"solar_list": solar_list})
 
-        isol_data = torch.tensor(isol_data)
-
-        return weather_data, isol_data, power_data
+        logging.info("\n--------------------Validation Mode--------------------")
+        logging.info("test mode: GWNU_Preschool")
+        gwnuPreSch_days_per_month = [28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  # The number of days in each month from 2022.02.01~12.31
+        gwnuPreSch_start_month = 2 # 2022.02~12
+        gwnuPreSch_end_month = 12    
+        gwnuPreSch_filename = "GWNU_Preschool"
+        test(hp, flags.model, gwnuPreSch_days_per_month, gwnuPreSch_start_month, 
+             gwnuPreSch_end_month, gwnuPreSch_filename)
