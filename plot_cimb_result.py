@@ -112,6 +112,7 @@ for _, day_data in tstloader:
 num_days = min(len(daily_data), min(len(data) for data in npy_daily_data))
 # 하루에 대한 모든 모델의 예측과 실제 데이터를 한 그래프에 표시
 selected_day = 0  # 예를 들어, 첫째 날
+MAX_COLOR_VAL=255
 # 한 날짜의 데이터를 별도의 plot으로 생성하여 저장
 for day in range(len(npy_daily_data[0])):  # 예를 들어 334일에 대해 반복
     plt.figure(figsize=(10, 6))
@@ -120,13 +121,34 @@ for day in range(len(npy_daily_data[0])):  # 예를 들어 334일에 대해 반�
     for i, dataset in enumerate(npy_daily_data):
         dir_path = os.path.dirname(npy_files[i])
         folder_name = os.path.basename(dir_path)
-        plt.plot(dataset[day], label=f'{folder_name} Prediction')
+
+        model_name = folder_name[:-10]
+        #print(model_name)
+        model_name = folder_name.split('_')[0]
+
+        if model_name == 'RNN' or model_name == 'LSTM':
+            if model_name == "RNN":
+                model_name = 'Vanila-' + model_name
+                plt.plot(dataset[day], label=f'{model_name}', color = 'green')
+            else: 
+                model_name = 'Vanila-' + model_name
+                plt.plot(dataset[day], label=f'{model_name}', color = 'blue')
+
+        elif model_name[:7] == '2-stage': # proposed
+            if model_name == '2-stageRR':
+                plt.plot(dataset[day], label=f'{model_name}', color='red')
+            elif model_name == '2-stageRL':
+                plt.plot(dataset[day], label=f'{model_name}', color=(255/MAX_COLOR_VAL,105/MAX_COLOR_VAL, 0))
+            elif model_name == '2-stageLR':
+                plt.plot(dataset[day], label=f'{model_name}', color=(255/MAX_COLOR_VAL,153/MAX_COLOR_VAL, 102/MAX_COLOR_VAL))
+            elif model_name == '2-stageLL':
+                plt.plot(dataset[day], label=f'{model_name}', color=(255/MAX_COLOR_VAL,153/MAX_COLOR_VAL, 51/MAX_COLOR_VAL))
 
     # tstloader에서의 실제 발전량을 plot (하루에 대한 데이터는 모두 동일)
     if day < len(daily_data):  # tstloader 데이터가 충분한 경우에만 plot
-        plt.plot(daily_data[day], label='Actual Power', linestyle='dashed')
+        plt.plot(daily_data[day], label='Ground truth', linestyle='dashed')
 
-    plt.title(f'Predictions vs Actual Power for Day {day + 1}')
+    plt.title(f'Predictions for a day')
     plt.xlabel('Hour')
     plt.ylabel('Power')
     plt.legend()
