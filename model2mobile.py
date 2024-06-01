@@ -5,7 +5,7 @@ from model import RNN
 model_params = hyper_params()["model"]
 
 seqLeng = model_params["seqLeng"]
-input_dim = model_params["input_dim"] # feature 7 + time 1
+input_dim = 5 # feature 7 + time 1
 output_dim = model_params["output_dim"] 
 in_moving_mean = model_params["feature_wise_norm"]
 decomp_kernel = model_params["decomp_kernel"]
@@ -27,7 +27,7 @@ previous_steps = model_params["previous_steps"]
 model = RNN(input_dim, output_dim, hidden_dim, rec_dropout, num_layers, 
                                       in_moving_mean, decomp_kernel, feature_wise_norm)
 
-state_dict = torch.load('train_models/2-stageRR_2000_drop0.5_3/best_model1')
+state_dict = torch.load('train_models/2-stageRR_2000_drop0.5_3/best_model2')
 #print(state_dict['paramSet'])
 
 model.load_state_dict(state_dict['paramSet'])
@@ -38,4 +38,4 @@ model.eval()
 example_input = torch.randn(1, 5, input_dim)
 traced_script = torch.jit.trace(model, example_input)
 
-traced_script.save("best_model1_mobile.pt")
+traced_script.save("best_model2_mobile.pt")
